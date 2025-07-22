@@ -2,17 +2,18 @@ import { Meta, StoryObj } from "@storybook/react";
 
 const TypographyDemo = () => (
   <div className="space-y-8 p-6">
-    <div>
-      <h1 className="heading-hero mb-4">Typography System</h1>
-      <p className="body-large text-muted-foreground mb-8">
-        Our typography system with semantic font sizes, multiple font families,
-        and FiraCode for code.
-      </p>
+    <div className="text-center">
+      <h1 className="mb-16">Typography System</h1>
+      <p>font-family</p>
+      <h2 className="heading-2 mb-4 text-white">Fira Code</h2>
+      <p className="text-sm bg-slate-700">Appearance - Monospaced</p>
+      <p className="text-sm bg-slate-800">Technology - Variable</p>
+      <p className="text-sm bg-slate-900">Sans Serif</p>
     </div>
 
     {/* Semantic Typography Sizes */}
     <section className="space-y-4">
-      <h2 className="heading-1">Semantic Typography</h2>
+      <h2 className="heading-2">Semantic Typography</h2>
       <div className="space-y-4">
         <div className="p-4 border rounded">
           <h1 className="heading-hero">Hero Heading</h1>
@@ -94,89 +95,23 @@ const TypographyDemo = () => (
     {/* Font Families */}
     <section className="space-y-4">
       <h2 className="heading-2">Font Families</h2>
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-1">
         <div className="p-4 border rounded">
-          <h3 className="font-sans heading-3 mb-2">Sans Serif (Inter)</h3>
+          <h3 className="font-sans heading-3 mb-2">Fira Code</h3>
           <p className="font-sans body-text mb-2">
-            The quick brown fox jumps over the lazy dog. Perfect for UI elements
-            and body text.
+            Fira Code is a monospaced font with beautiful programming ligatures.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
           </p>
           <code className="text-sm text-muted-foreground">
-            font-sans • Inter
+            Block of code with FiraCode ligatures. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua.
           </code>
-        </div>
-        <div className="p-4 border rounded">
-          <h3 className="font-serif heading-3 mb-2">
-            Serif (Playfair Display)
-          </h3>
-          <p className="font-serif body-text mb-2">
-            The quick brown fox jumps over the lazy dog. Elegant for long-form
-            content and editorial design.
-          </p>
-          <code className="text-sm text-muted-foreground">
-            font-serif • Playfair Display
-          </code>
-        </div>
-        <div className="p-4 border rounded">
-          <h3 className="font-mono heading-3 mb-2">Monospace (FiraCode)</h3>
-          <p className="font-mono body-text mb-2">
-            The quick brown fox jumps over the lazy dog. Perfect for code with
-            beautiful programming ligatures.
-          </p>
-          <code className="text-sm text-muted-foreground">
-            font-mono • Fira Code
-          </code>
-        </div>
-      </div>
-    </section>
-
-    {/* Code Examples with FiraCode */}
-    <section className="space-y-4">
-      <h2 className="heading-2">Code Typography (FiraCode)</h2>
-      <div className="space-y-4">
-        <div className="p-4 border rounded">
-          <h3 className="heading-3 mb-3">Inline Code</h3>
-          <p className="body-text mb-2">
-            Use <code>className="font-mono"</code> for inline code snippets with
-            proper styling.
-          </p>
-          <code className="text-sm text-muted-foreground">
-            code element with bg-muted styling
-          </code>
-        </div>
-        <div className="p-4 border rounded">
-          <h3 className="heading-3 mb-3">Code Blocks</h3>
-          <pre className="font-mono text-sm bg-slate-100 dark:bg-slate-800 p-4 rounded mb-2">
-            {`// FiraCode ligatures in action
-const arrow = () => value;
-const comparison = a === b && c !== d;
-const math = x ** 2 + y ** 2;
-const logical = !x && !!y;`}
-          </pre>
-          <code className="text-sm text-muted-foreground">
-            pre element with FiraCode ligatures
-          </code>
-        </div>
-      </div>
-    </section>
-
-    {/* Text Utilities */}
-    <section className="space-y-4">
-      <h2 className="heading-2">Text Utilities</h2>
-      <div className="space-y-4">
-        <div className="p-4 border rounded">
-          <p className="body-text text-balance mb-2">
-            This text uses text-balance for better typography with balanced line
-            breaks and improved readability.
-          </p>
-          <code className="text-sm text-muted-foreground">.text-balance</code>
-        </div>
-        <div className="p-4 border rounded">
-          <p className="body-text text-pretty mb-2">
-            This text uses text-pretty for optimal line breaking and typography
-            that looks great across different screen sizes.
-          </p>
-          <code className="text-sm text-muted-foreground">.text-pretty</code>
         </div>
       </div>
     </section>
@@ -187,11 +122,11 @@ const logical = !x && !!y;`}
       <div className="space-y-4">
         <div className="p-4 border rounded space-y-2">
           <p className="body-text">Default foreground text color</p>
-          <p className="body-text text-muted-foreground">
-            Muted foreground for secondary text
+          <p className="body-text text-heading-foreground">
+            Heading foreground for headings and important text
           </p>
-          <p className="body-text text-primary">
-            Primary color for links and emphasis
+          <p className="body-text text-slate-950 bg-white">
+            Dark text on light background for high contrast
           </p>
         </div>
       </div>
@@ -227,39 +162,55 @@ export const SemanticSizes: Story = {
       <h1 className="heading-1">Heading 1</h1>
       <h2 className="heading-2">Heading 2</h2>
       <h3 className="heading-3">Heading 3</h3>
-      <h4 className="heading-4">Heading 4</h4>
-      <p className="body-large">Large body text</p>
-      <p className="body-text">Regular body text</p>
-      <p className="caption-text">Caption text</p>
-      <p className="small-text">Small text</p>
-    </div>
-  ),
-};
-
-export const FontFamilies: Story = {
-  render: () => (
-    <div className="space-y-6 p-6">
-      <div>
-        <h2 className="font-sans heading-2 mb-2">Sans Serif (Inter)</h2>
-        <p className="font-sans body-text">
-          Clean and modern Inter font for UI elements and body text. Perfect for
-          interfaces and readable content.
-        </p>
-      </div>
-      <div>
-        <h2 className="font-serif heading-2 mb-2">Serif (Playfair Display)</h2>
-        <p className="font-serif body-text">
-          Elegant Playfair Display for long-form content and editorial design.
-          Great for headings and sophisticated layouts.
-        </p>
-      </div>
-      <div>
-        <h2 className="font-mono heading-2 mb-2">Monospace (FiraCode)</h2>
-        <p className="font-mono body-text">
-          Perfect for code with beautiful programming ligatures and excellent
-          readability. Supports === !== {"=>"} && || and more!
-        </p>
-      </div>
+      <h4 className="heading-4 mb-16">Heading 4</h4>
+      <p className="body-large">
+        Large body text
+        <br />
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </span>
+      </p>
+      <p className="body-text">
+        Regular body text
+        <br />
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </span>
+      </p>
+      <p className="caption-text">
+        Caption text
+        <br />
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </span>
+      </p>
+      <p className="small-text">
+        Small text
+        <br />
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </span>
+      </p>
     </div>
   ),
 };
