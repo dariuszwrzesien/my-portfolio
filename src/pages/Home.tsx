@@ -1,6 +1,6 @@
 import { RiCheckboxCircleFill } from "@remixicon/react";
 import { useState } from "react";
-import { Button } from "../components/ui/button";
+import { Button, ThemeModeToggle } from "../components/ui";
 
 const Home = () => {
   const [count, setCount] = useState(0);
@@ -9,6 +9,7 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section - Typography showcase */}
       <section className="bg-gradient-to-br from-slate-800 to-slate-950 py-hero px-section">
+        <ThemeModeToggle />
         <div className="max-w-4xl mx-auto space-y-component text-center">
           <h1 className="heading-hero text-white">Beautiful Typography</h1>
           <p className="body-large text-white/90 max-w-2xl mx-auto">
