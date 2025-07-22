@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
-import { ThemeProvider } from "./components";
+import Layout from "./components/Layout";
 
 const App = () => {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="ui-theme">
+    <Layout>
       <Routes>
-        <Route path="/" index element={<Home />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+        </Route>
       </Routes>
-    </ThemeProvider>
+    </Layout>
   );
 };
 
