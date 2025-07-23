@@ -17,31 +17,31 @@ const TypographyDemo = () => (
       <div className="space-y-4">
         <div className="p-4 border rounded">
           <h1 className="heading-hero">Hero Heading</h1>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .heading-hero • 4.5rem • font-display
           </code>
         </div>
         <div className="p-4 border rounded">
           <h1 className="heading-1">Heading 1</h1>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .heading-1 • 3rem • font-display
           </code>
         </div>
         <div className="p-4 border rounded">
           <h2 className="heading-2">Heading 2</h2>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .heading-2 • 2.25rem • font-display
           </code>
         </div>
         <div className="p-4 border rounded">
           <h3 className="heading-3">Heading 3</h3>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .heading-3 • 1.875rem • font-sans
           </code>
         </div>
         <div className="p-4 border rounded">
           <h4 className="heading-4">Heading 4</h4>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .heading-4 • 1.5rem • font-sans
           </code>
         </div>
@@ -57,7 +57,7 @@ const TypographyDemo = () => (
             Large body text for emphasis and improved readability in key
             sections. Perfect for introductions and important content.
           </p>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .body-large • 1.125rem • font-sans
           </code>
         </div>
@@ -67,7 +67,7 @@ const TypographyDemo = () => (
             comfortable reading and is the most commonly used text style
             throughout the interface.
           </p>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .body-text • 1rem • font-sans
           </code>
         </div>
@@ -76,7 +76,7 @@ const TypographyDemo = () => (
             Caption text for secondary information, metadata, and supplementary
             details that support the main content.
           </p>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .caption-text • 0.875rem • font-sans
           </code>
         </div>
@@ -85,7 +85,7 @@ const TypographyDemo = () => (
             Small text for fine print, legal text, and additional details that
             need to be present but not prominent.
           </p>
-          <code className="text-sm text-muted-foreground">
+          <code className="text-sm text-heading-foreground">
             .small-text • 0.75rem • font-sans
           </code>
         </div>
