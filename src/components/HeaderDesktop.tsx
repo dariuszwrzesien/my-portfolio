@@ -26,17 +26,14 @@ const HeaderDesktop: FC = () => {
           <Link to="/about" className={getNavLinkClass("/about")}>
             _about-me
           </Link>
-          <Link to="/projects" className={getNavLinkClass("/projects")}>
-            _projects
-          </Link>
           <Link
-            to="/cv"
+            to="/projects"
             className={cn(
-              getNavLinkClass("/cv"),
+              getNavLinkClass("/projects"),
               "border-r-1 border-r-text-slate"
             )}
           >
-            _cv
+            _projects
           </Link>
         </div>
         <div>

@@ -11,7 +11,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen w-full p-8">
       <div className="h-[calc(100vh-4rem)] w-full border border-stroke flex flex-col">
         <HeaderDesktop />
-        <main className="flex-1 overflow-auto custom-scrollbar">{children}</main>
+        <main className="flex-1 overflow-auto custom-scrollbar">
+          {children}
+        </main>
         <FooterDesktop />
       </div>
     </div>
