@@ -6,10 +6,10 @@ const HeaderDesktop: FC = () => {
   const location = useLocation();
 
   const navLinkClass =
-    "py-4 px-8 cursor-pointer transition-all duration-200 border-b-3 border-b-background hover:text-heading-foreground";
+    "py-4 px-8 cursor-pointer transition-all duration-400 border-b-3 border-b-background hover:text-heading-foreground";
 
   const activeNavLinkClass =
-    "py-4 px-8 cursor-pointer transition-all duration-200 border-b-3 border-b-primary-background text-heading-foreground";
+    "py-4 px-8 cursor-pointer transition-all duration-400 border-b-3 border-b-primary-background text-heading-foreground";
 
   const getNavLinkClass = (path: string) => {
     return location.pathname === path ? activeNavLinkClass : navLinkClass;
