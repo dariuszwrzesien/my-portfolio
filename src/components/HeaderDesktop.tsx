@@ -19,7 +19,7 @@ const HeaderDesktop: FC = () => {
     <header className="flex flex-col justify-start col-span-12 bg-background text-foreground">
       <nav className="flex justify-between items-center border-b border-stroke">
         <div className="flex">
-          <div className="text-md py-4 px-16">dariusz-wrzesien</div>
+          <div className="text-md text-center py-4 w-64">dariusz-wrzesien</div>
           <Link to="/" className={getNavLinkClass("/")}>
             _hello
           </Link>

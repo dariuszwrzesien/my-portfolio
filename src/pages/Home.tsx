@@ -5,7 +5,7 @@ const Home = () => {
     <div className="grid grid-cols-12">
       {/* Hello Section */}
       <section className="col-span-6 h-[calc(100vh-16rem)] flex items-center justify-center">
-        <div className="flex flex-col justify-center p-8">
+        <div className="flex flex-col justify-center">
           <p className="text-foreground text-lg">Hi all. I am</p>
           <h1 className="text-heading-foreground">Dariusz Wrzesień</h1>
           <h4 className="flex items-center text-indigo-500">
