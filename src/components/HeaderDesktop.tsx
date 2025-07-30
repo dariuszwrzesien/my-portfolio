@@ -16,7 +16,7 @@ const HeaderDesktop: FC = () => {
   };
 
   return (
-    <header className="w-full bg-background text-foreground">
+    <header className="flex flex-col justify-start col-span-12 bg-background text-foreground">
       <nav className="flex justify-between items-center border-b border-stroke">
         <div className="flex">
           <div className="text-md py-4 px-16">dariusz-wrzesien</div>
