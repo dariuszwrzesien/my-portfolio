@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { cn } from "../lib/utils";
+import { cn } from "../libs/utils";
 import { RiGithubFill, RiLinkedinBoxFill } from "@remixicon/react";
 import { Link } from "react-router";
 
+//usunać FC gdzie nie jest potrzebne
 const FooterDesktop: FC = () => {
   const navLinkClass =
     "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-200 border-b-3 border-b-transparent hover:text-heading-foreground";

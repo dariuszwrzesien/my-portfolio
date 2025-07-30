@@ -447,9 +447,7 @@
 
 /* Left Sidebar */
 .custom-sidebar-width {
-  @apply min-w-66;
-  @apply max-w-64
-  @apply w-64;
+  @apply min-w-64 w-64 max-w-64;
 }
 
 .custom-sidebar-margin-left {

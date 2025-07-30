@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { useLocation, Link } from "react-router";
-import { cn } from "../lib/utils";
+import { cn } from "../libs/utils";
+import HeaderDesktopLink from "./HeaderDesktopLink";
+import Paths from "../Paths";
 
 const HeaderDesktop: FC = () => {
   const location = useLocation();
@@ -16,33 +18,34 @@ const HeaderDesktop: FC = () => {
   };
 
   return (
-    <header className="bg-background text-foreground border-b border-stroke">
+    <header className="bg-background border-b border-stroke">
       <nav className="flex justify-between">
         <div className="flex">
           <div className="border-r border-r-text-slate text-md text-center py-4 custom-sidebar-width">
-            dariusz-wrzesien
+            dariusz-wrzesień
           </div>
-          <div className="flex border-r border-r-text-slate">
-            <Link to="/" className={getNavLinkClass("/")}>
-              _hello
-            </Link>
-          </div>
-          <div className="flex border-r border-r-text-slate">
-            <Link to="/about" className={getNavLinkClass("/about")}>
-              _about-me
-            </Link>
-          </div>
-          <div className="flex border-r border-r-text-slate">
-            <Link to="/projects" className={cn(getNavLinkClass("/projects"))}>
-              _projects
-            </Link>
-          </div>
+          <HeaderDesktopLink
+            href={Paths.home}
+            name="_hello"
+            isActive={location.pathname === Paths.home}
+          />
+          <HeaderDesktopLink
+            href={Paths.about.base}
+            name="_about-me"
+            isActive={location.pathname === Paths.about.base}
+          />
+          <HeaderDesktopLink
+            href={Paths.projects}
+            name="_projects"
+            isActive={location.pathname === Paths.projects}
+          />
         </div>
-        <div className="flex border-l border-l-text-slate text-center">
-          <Link to="/contact" className={getNavLinkClass("/contact")}>
-            _contact-me
-          </Link>
-        </div>
+        <HeaderDesktopLink
+          href={Paths.contact}
+          name="_contact-me"
+          className="flex border-l border-l-text-slate text-center"
+          isActive={location.pathname === Paths.contact}
+        />
       </nav>
     </header>
   );
