@@ -8,10 +8,10 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen w-full p-8">
-      <div className="h-[calc(100vh-4rem)] w-full border border-stroke grid grid-cols-12 grid-rows-12">
+    <div className="p-8">
+      <div className="flex flex-col justify-between h-[calc(100vh-4rem)] w-full border border-stroke">
         <HeaderDesktop />
-        <main className="flex flex-col col-span-12 row-span-10 justify-center overflow-auto custom-scrollbar p-8">
+        <main className="flex flex-col overflow-auto custom-scrollbar h-[calc(100vh-4rem)]">
           {children}
         </main>
         <FooterDesktop />

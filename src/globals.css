@@ -444,3 +444,14 @@
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--stroke);
 }
+
+/* Left Sidebar */
+.custom-sidebar-width {
+  @apply min-w-66;
+  @apply max-w-64
+  @apply w-64;
+}
+
+.custom-sidebar-margin-left {
+  @apply ml-64;
+}

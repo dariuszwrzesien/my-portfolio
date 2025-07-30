@@ -8,7 +8,7 @@ const FooterDesktop: FC = () => {
     "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-200 border-b-3 border-b-transparent hover:text-heading-foreground";
 
   return (
-    <footer className="flex flex-col justify-end col-span-12 bg-background text-foreground">
+    <footer className="flex flex-col justify-end bg-background text-foreground">
       <nav className="flex border-t border-stroke">
         <div className="flex">
           <div className="text-md py-4 px-4">find me in</div>

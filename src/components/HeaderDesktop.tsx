@@ -6,37 +6,39 @@ const HeaderDesktop: FC = () => {
   const location = useLocation();
 
   const navLinkClass =
-    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-200 border-b-3 border-b-transparent hover:text-heading-foreground";
+    "py-4 px-8 cursor-pointer transition-all duration-200 border-b-3 border-b-background hover:text-heading-foreground";
 
   const activeNavLinkClass =
-    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-200 border-b-3 border-b-primary-background text-heading-foreground";
+    "py-4 px-8 cursor-pointer transition-all duration-200 border-b-3 border-b-primary-background text-heading-foreground";
 
   const getNavLinkClass = (path: string) => {
     return location.pathname === path ? activeNavLinkClass : navLinkClass;
   };
 
   return (
-    <header className="flex flex-col justify-start col-span-12 bg-background text-foreground">
-      <nav className="flex justify-between items-center border-b border-stroke">
+    <header className="bg-background text-foreground border-b border-stroke">
+      <nav className="flex justify-between">
         <div className="flex">
-          <div className="text-md text-center py-4 w-64">dariusz-wrzesien</div>
-          <Link to="/" className={getNavLinkClass("/")}>
-            _hello
-          </Link>
-          <Link to="/about" className={getNavLinkClass("/about")}>
-            _about-me
-          </Link>
-          <Link
-            to="/projects"
-            className={cn(
-              getNavLinkClass("/projects"),
-              "border-r-1 border-r-text-slate"
-            )}
-          >
-            _projects
-          </Link>
+          <div className="border-r border-r-text-slate text-md text-center py-4 custom-sidebar-width">
+            dariusz-wrzesien
+          </div>
+          <div className="flex border-r border-r-text-slate">
+            <Link to="/" className={getNavLinkClass("/")}>
+              _hello
+            </Link>
+          </div>
+          <div className="flex border-r border-r-text-slate">
+            <Link to="/about" className={getNavLinkClass("/about")}>
+              _about-me
+            </Link>
+          </div>
+          <div className="flex border-r border-r-text-slate">
+            <Link to="/projects" className={cn(getNavLinkClass("/projects"))}>
+              _projects
+            </Link>
+          </div>
         </div>
-        <div>
+        <div className="flex border-l border-l-text-slate text-center">
           <Link to="/contact" className={getNavLinkClass("/contact")}>
             _contact-me
           </Link>
