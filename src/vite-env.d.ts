@@ -15,3 +15,8 @@ declare module "*.module.sass" {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+declare module "*.txt" {
+  const content: string;
+  export default content;
+}

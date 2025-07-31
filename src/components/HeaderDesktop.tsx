@@ -7,16 +7,6 @@ import Paths from "../Paths";
 const HeaderDesktop: FC = () => {
   const location = useLocation();
 
-  const navLinkClass =
-    "py-4 px-8 cursor-pointer transition-all duration-400 border-b-3 border-b-background hover:text-heading-foreground";
-
-  const activeNavLinkClass =
-    "py-4 px-8 cursor-pointer transition-all duration-400 border-b-3 border-b-primary-background text-heading-foreground";
-
-  const getNavLinkClass = (path: string) => {
-    return location.pathname === path ? activeNavLinkClass : navLinkClass;
-  };
-
   return (
     <header className="bg-background border-b border-stroke">
       <nav className="flex justify-between">
@@ -32,7 +22,7 @@ const HeaderDesktop: FC = () => {
           <HeaderDesktopLink
             href={Paths.about.base}
             name="_about-me"
-            isActive={location.pathname === Paths.about.base}
+            isActive={location.pathname.startsWith(Paths.about.base)}
           />
           <HeaderDesktopLink
             href={Paths.projects}

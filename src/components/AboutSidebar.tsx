@@ -15,36 +15,36 @@ const AboutSidebar = () => {
       <ul>
         <AboutSidebarLink
           href={Paths.about.bio}
-          name="bio"
+          label="bio"
           iconColor="text-rose-400"
           isActive={
             location.pathname === Paths.about.bio ||
             location.pathname === Paths.about.base
           }
         >
-          <AboutSidebarSublink href="#bio" label="about-me" />
+          <AboutSidebarSublink href="#about-me" label="about-me" />
         </AboutSidebarLink>
         <AboutSidebarLink
           href={Paths.about.employment}
-          name="employment"
+          label="employment"
           iconColor="text-teal-400"
           isActive={location.pathname === Paths.about.employment}
         >
-          <AboutSidebarSublink href="#Euvic2" label="Euvic" />
+          <AboutSidebarSublink href="#Euvic" label="Euvic" />
           <AboutSidebarSublink href="#FP" label="Future Processing" />
-          <AboutSidebarSublink href="#Euvic" label="SIMgroep" />
+          <AboutSidebarSublink href="#SIMgroep" label="SIMgroep" />
           <AboutSidebarSublink href="#SPOT" label="SPOT Group" />
           <AboutSidebarSublink href="#MIG" label="MIG" />
         </AboutSidebarLink>
         <AboutSidebarLink
           href={Paths.about.educations}
-          name="educations"
+          label="educations"
           iconColor="text-indigo-500"
           isActive={location.pathname === Paths.about.educations}
         >
           <AboutSidebarSublink href="#certifications" label="certifications" />
           <AboutSidebarSublink href="#post-graduate" label="post-graduate" />
-          <AboutSidebarSublink href="#University" label="university" />
+          <AboutSidebarSublink href="#university" label="university" />
         </AboutSidebarLink>
       </ul>
     </aside>

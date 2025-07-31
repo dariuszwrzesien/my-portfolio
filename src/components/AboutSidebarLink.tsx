@@ -10,7 +10,7 @@ import {
 
 interface AboutSidebarLinkProps {
   href: string;
-  name: string;
+  label: string;
   iconColor?: string;
   isActive?: boolean;
   children?: React.ReactNode;
@@ -18,7 +18,7 @@ interface AboutSidebarLinkProps {
 
 const AboutSidebarLink: React.FC<AboutSidebarLinkProps> = ({
   href,
-  name,
+  label,
   iconColor = "text-foreground",
   isActive = false,
   children = null,
@@ -40,7 +40,7 @@ const AboutSidebarLink: React.FC<AboutSidebarLinkProps> = ({
           <RiArrowDropRightFill className="w-11" />
         )}
         <RiFolder3Fill className={cn("w-5", iconColor)} />
-        <span className="pl-2">{name}</span>
+        <span className="pl-2">{label}</span>
       </Link>
       {isActive && <div className="pl-13">{children}</div>}
     </div>

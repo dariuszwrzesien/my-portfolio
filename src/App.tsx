@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Layout from "./components/Layout";
 import Paths from "./Paths";
+import Bio from "./pages/subpages/Bio";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <Route path={Paths.home} element={<Home />} />
         <Route path={Paths.about.base} element={<About />}>
           <Route index element={<div>Bio Content</div>} />
-          <Route path={Paths.about.bio} element={<div>Bio Content</div>} />
+          <Route path={Paths.about.bio} element={<Bio />} />
           <Route
             path={Paths.about.employment}
             element={<div>Employment Content</div>}
