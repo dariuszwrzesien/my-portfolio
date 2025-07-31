@@ -1,0 +1,2 @@
+# Disable formatting for files that contain HTML markup in data directory
+src/data/*.html

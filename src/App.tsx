@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Layout from "./components/Layout";
 import Paths from "./Paths";
 import Bio from "./pages/subpages/Bio";
+import NotFoundPage from "./pages/404";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path={Paths.home} element={<Home />} />
         <Route path={Paths.about.base} element={<About />}>
-          <Route index element={<div>Bio Content</div>} />
+          <Route index element={<Bio />} />
           <Route path={Paths.about.bio} element={<Bio />} />
           <Route
             path={Paths.about.employment}
@@ -23,10 +24,11 @@ const App = () => {
             path={Paths.about.educations}
             element={<div>Educations Content</div>}
           />
-          <Route path="*" element={<div>Not Found</div>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path={Paths.projects} element={<Projects />} />
         <Route path={Paths.contact} element={<Contact />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
