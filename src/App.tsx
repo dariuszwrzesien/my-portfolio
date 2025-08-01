@@ -7,6 +7,8 @@ import Paths from "./Paths";
 import Bio from "./pages/subpages/Bio";
 import NotFoundPage from "./pages/404";
 import AboutMe from "./pages/AboutMe";
+import Employment from "./pages/subpages/Employment";
+import Educations from "./pages/subpages/Educations";
 
 const App = () => {
   return (
@@ -16,14 +18,8 @@ const App = () => {
         <Route path={Paths.aboutMe.base} element={<AboutMe />}>
           <Route index element={<Bio />} />
           <Route path={Paths.aboutMe.bio} element={<Bio />} />
-          <Route
-            path={Paths.aboutMe.employment}
-            element={<div>Employment Content</div>}
-          />
-          <Route
-            path={Paths.aboutMe.educations}
-            element={<div>Educations Content</div>}
-          />
+          <Route path={Paths.aboutMe.employment} element={<Employment />} />
+          <Route path={Paths.aboutMe.educations} element={<Educations />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path={Paths.projects} element={<Projects />} />

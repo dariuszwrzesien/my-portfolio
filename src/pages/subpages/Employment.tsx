@@ -1,14 +1,14 @@
 import TextBlock from "../../components/TextBlock";
-import bio from "../../data/bio.html?raw";
+import employment from "../../data/employment.html?raw";
 import { useScrollTo } from "../../hooks/use-scrollTo";
 
-const Bio = () => {
+const Employment = () => {
   const { ref } = useScrollTo();
   return (
     <div className="flex flex-col overflow-auto custom-scrollbar w-full">
-      <TextBlock ref={ref} text={bio} />
+      <TextBlock ref={ref} text={employment} />
     </div>
   );
 };
 
-export default Bio;
+export default Employment;

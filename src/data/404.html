@@ -1,14 +1,12 @@
-const page = findPage('you-were-looking-for');
+    <span class="text-indigo-500">const</span> <span class="text-heading-foreground">page</span> = <span class="text-rose-400">findPage</span><span id="skills" class="text-heading-foreground">()</span>;
 
-if (!page) {
-console.log("Oops! Looks like you took a wrong turn in the codebase.");
-console.log("But hey, since you're here...");
-console.log("🔍 Go back to the homepage and explore more cool stuff!");
-throw new Error("404: PageNotFoundError 😢");
-}
+    <span class="text-indigo-500">if</span> <span class="text-heading-foreground">(!page) {</span>
+      <span class="text-rose-400">console.log</span><span class="text-heading-foreground">(</span><span class="text-teal-400">"Oops! Looks like you took a wrong turn in the codebase."</span><span class="text-heading-foreground">)</span>;
+      <span class="text-indigo-500">throw new</span> <span class="text-rose-400">Error</span><span class="text-heading-foreground">(</span><span class="text-teal-400">"404: PageNotFoundError"</span><span class="text-heading-foreground">)</span>;
+    }
 
-/* Suggestions:
- * - Check the URL for typos
- * - Use the site navigation
- * - Or hit CMD+Z in real life 😅
- */
+   /* Suggestions:
+      - Check the URL for typos
+      - Use the site navigation */
+
+    <a href="/" class="group"><span class="text-rose-400 group-hover:text-rose-300">redirect</span><span class="text-heading-foreground">(</span><span class="text-teal-500 group-hover:text-teal-200">'homepage'</span><span class="text-heading-foreground">)</span></a> //<-- Click me
