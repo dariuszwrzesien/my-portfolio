@@ -1,7 +1,7 @@
-import AboutSidebar from "../components/AboutSidebar";
+import AboutSidebar from "../components/AboutMeSidebar";
 import { Outlet } from "react-router";
 
-const About = () => {
+const AboutMe = () => {
   return (
     <div className="flex h-full">
       <AboutSidebar />
@@ -10,4 +10,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutMe;

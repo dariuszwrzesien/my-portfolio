@@ -1,14 +1,14 @@
 import { RiFileCodeFill } from "@remixicon/react";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router";
 
-interface AboutSidebarSublinkProps {
+interface AboutMeSidebarSublinkProps {
   label: string;
   href: string;
   isActive?: boolean;
 }
 
-const AboutSidebarSublink: React.FC<AboutSidebarSublinkProps> = ({
+const AboutMeSidebarSublink: React.FC<AboutMeSidebarSublinkProps> = ({
   label,
   href,
   isActive = false,
@@ -21,4 +21,4 @@ const AboutSidebarSublink: React.FC<AboutSidebarSublinkProps> = ({
   );
 };
 
-export default AboutSidebarSublink;
+export default AboutMeSidebarSublink;

@@ -9,8 +9,6 @@ interface HeaderDesktopLinkProps {
   isActive?: boolean;
 }
 
-// const DEFAULT_BORDER_CLASS = "border-r border-r-text-slate";
-
 const HeaderDesktopLink: React.FC<HeaderDesktopLinkProps> = ({
   href,
   name,

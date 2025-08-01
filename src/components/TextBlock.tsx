@@ -1,7 +1,7 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 interface TextBlockProps {
-  text?: string;
+  text: string;
   className?: string;
 }
 /**
@@ -9,26 +9,25 @@ interface TextBlockProps {
  * @param param0
  * @returns
  */
-const TextBlock: React.FC<TextBlockProps> = ({ text, className }) => {
-  const parse = (text: string) => {
-    return text
-      ? text.split("\n").map((line, index) => (
-          <p key={index}>
-            <span className="text-right-aligned-numbers">{index + 1}</span>
-            <span dangerouslySetInnerHTML={{ __html: line }} />
-          </p>
-        ))
-      : null;
-  };
+const TextBlock = forwardRef<HTMLElement, TextBlockProps>(
+  ({ text, className }, ref) => {
+    const parse = (text: string) => {
+      return text
+        ? text.split("\n").map((line, index) => (
+            <p key={index}>
+              <span className="text-right-aligned-numbers">{index + 1}</span>
+              <span dangerouslySetInnerHTML={{ __html: line }} />
+            </p>
+          ))
+        : null;
+    };
 
-  if (!text) {
-    return null;
+    return (
+      <section ref={ref} className={className}>
+        <pre>{parse(text)}</pre>
+      </section>
+    );
   }
-  return (
-    <section className={className}>
-      <pre>{parse(text)}</pre>
-    </section>
-  );
-};
+);
 
 export default TextBlock;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router";
-import Paths from "../Paths";
 import { cn } from "../libs";
 import {
   RiArrowDropDownFill,
@@ -8,7 +7,7 @@ import {
   RiFolder3Fill,
 } from "@remixicon/react";
 
-interface AboutSidebarLinkProps {
+interface AboutMeSidebarLinkProps {
   href: string;
   label: string;
   iconColor?: string;
@@ -16,7 +15,7 @@ interface AboutSidebarLinkProps {
   children?: React.ReactNode;
 }
 
-const AboutSidebarLink: React.FC<AboutSidebarLinkProps> = ({
+const AboutMeSidebarLink: React.FC<AboutMeSidebarLinkProps> = ({
   href,
   label,
   iconColor = "text-foreground",
@@ -47,4 +46,4 @@ const AboutSidebarLink: React.FC<AboutSidebarLinkProps> = ({
   );
 };
 
-export default AboutSidebarLink;
+export default AboutMeSidebarLink;

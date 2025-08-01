@@ -1,10 +1,10 @@
 export const Paths = {
   home: "/",
-  about: {
-    base: "/about",
-    bio: "/about/bio",
-    employment: "/about/employment",
-    educations: "/about/educations",
+  aboutMe: {
+    base: "/about-me",
+    bio: "/about-me/bio",
+    employment: "/about-me/employment",
+    educations: "/about-me/educations",
   },
   projects: "/projects",
   contact: "/contact",

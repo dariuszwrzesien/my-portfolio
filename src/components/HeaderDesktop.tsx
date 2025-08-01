@@ -1,12 +1,9 @@
-import { FC } from "react";
-import { useLocation, Link } from "react-router";
-import { cn } from "../libs/utils";
+import { useLocation } from "react-router";
 import HeaderDesktopLink from "./HeaderDesktopLink";
 import Paths from "../Paths";
 
-const HeaderDesktop: FC = () => {
+const HeaderDesktop = () => {
   const location = useLocation();
-
   return (
     <header className="bg-background border-b border-stroke">
       <nav className="flex justify-between">
@@ -20,9 +17,9 @@ const HeaderDesktop: FC = () => {
             isActive={location.pathname === Paths.home}
           />
           <HeaderDesktopLink
-            href={Paths.about.base}
+            href={Paths.aboutMe.base}
             name="_about-me"
-            isActive={location.pathname.startsWith(Paths.about.base)}
+            isActive={location.pathname.startsWith(Paths.aboutMe.base)}
           />
           <HeaderDesktopLink
             href={Paths.projects}
