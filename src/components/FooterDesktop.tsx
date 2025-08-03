@@ -1,5 +1,13 @@
 import { cn } from "../libs/utils";
-import { RiGithubFill, RiLinkedinBoxFill } from "@remixicon/react";
+import {
+  RiGithubFill,
+  RiLinkedinBoxFill,
+  RiSettings2Fill,
+  RiSettings3Fill,
+  RiSettings3Line,
+  RiSettings4Line,
+  RiSettings5Line,
+} from "@remixicon/react";
 import { Link } from "react-router";
 
 const FooterDesktop = () => {
@@ -27,6 +35,17 @@ const FooterDesktop = () => {
               rel="noopener noreferrer"
             >
               <RiGithubFill />
+            </Link>
+          </div>
+        </div>
+        <div>
+          <div className={navLinkClass}>
+            <Link
+              to="https://www.linkedin.com/in/dariusz-wrzesie%C5%84-605a2b63/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RiSettings4Line />
             </Link>
           </div>
         </div>
