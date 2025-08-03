@@ -1,52 +1,43 @@
-"use client";
-
-import * as React from "react";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
+  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { RiCodeBlock, RiPuzzle2Line, RiSettings4Line } from "@remixicon/react";
 
-type Checked = DropdownMenuCheckboxItemProps["checked"];
+const handleStoryBook = () => {
+  window.open(
+    "https://dariuszwrzesien.github.io/my-portfolio-storybook/",
+    "_blank"
+  );
+};
+
+const handlePageSource = () => {
+  window.open("https://github.com/dariuszwrzesien/my-portfolio", "_blank");
+};
 
 export function SettingsDropdown() {
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
-  const [showPanel, setShowPanel] = React.useState<Checked>(false);
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <RiSettings4Line />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem
-          checked={showStatusBar}
-          onCheckedChange={setShowStatusBar}
+        <DropdownMenuItem
+          className="cursor-pointer transition-all duration-400 hover:text-heading-foreground"
+          onClick={handleStoryBook}
         >
-          Status Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showActivityBar}
-          onCheckedChange={setShowActivityBar}
-          disabled
+          <RiPuzzle2Line className="text-teal-500" />
+          StoryBook
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer transition-all duration-400 hover:text-heading-foreground"
+          onClick={handlePageSource}
         >
-          Activity Bar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={setShowPanel}
-        >
-          Panel
-        </DropdownMenuCheckboxItem>
+          <RiCodeBlock className="text-teal-500" />
+          Page source
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

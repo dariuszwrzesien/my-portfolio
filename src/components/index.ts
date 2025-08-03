@@ -6,3 +6,4 @@ export * from "./AboutMeSidebar";
 export * from "./AboutMeSidebarLink";
 export * from "./AboutMeSidebarSublink";
 export * from "./TextBlock";
+export * from "./SettingsDropdown";

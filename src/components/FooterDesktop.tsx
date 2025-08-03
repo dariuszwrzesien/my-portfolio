@@ -9,14 +9,15 @@ import {
   RiSettings5Line,
 } from "@remixicon/react";
 import { Link } from "react-router";
+import { SettingsDropdown } from "./SettingsDropdown";
 
 const FooterDesktop = () => {
   const navLinkClass =
-    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-200 border-b-3 border-b-transparent hover:text-heading-foreground";
+    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-400 border-b-3 border-b-transparent hover:text-heading-foreground";
 
   return (
     <footer className="flex flex-col justify-end bg-background text-foreground">
-      <nav className="flex border-t border-stroke">
+      <nav className="flex justify-between border-t border-stroke">
         <div className="flex">
           <div className="text-md py-4 px-4">find me in</div>
           <div className={navLinkClass}>
@@ -40,13 +41,7 @@ const FooterDesktop = () => {
         </div>
         <div>
           <div className={navLinkClass}>
-            <Link
-              to="https://www.linkedin.com/in/dariusz-wrzesie%C5%84-605a2b63/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <RiSettings4Line />
-            </Link>
+            <SettingsDropdown />
           </div>
         </div>
       </nav>

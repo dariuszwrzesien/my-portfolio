@@ -8,11 +8,11 @@ interface AboutMeSidebarSublinkProps {
   isActive?: boolean;
 }
 
-const AboutMeSidebarSublink: React.FC<AboutMeSidebarSublinkProps> = ({
+const AboutMeSidebarSublink = ({
   label,
   href,
   isActive = false,
-}) => {
+}: AboutMeSidebarSublinkProps) => {
   return (
     <Link to={href} className="flex items-center">
       <RiFileCodeFill className="w-5" />
