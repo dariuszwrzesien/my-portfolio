@@ -1,13 +1,5 @@
 import { cn } from "../libs/utils";
-import {
-  RiGithubFill,
-  RiLinkedinBoxFill,
-  RiSettings2Fill,
-  RiSettings3Fill,
-  RiSettings3Line,
-  RiSettings4Line,
-  RiSettings5Line,
-} from "@remixicon/react";
+import { RiGithubFill, RiLinkedinBoxFill } from "@remixicon/react";
 import { Link } from "react-router";
 import { SettingsDropdown } from "./SettingsDropdown";
 
@@ -40,9 +32,7 @@ const FooterDesktop = () => {
           </div>
         </div>
         <div>
-          <div className={navLinkClass}>
-            <SettingsDropdown />
-          </div>
+          <SettingsDropdown className={navLinkClass} />
         </div>
       </nav>
     </footer>

@@ -17,11 +17,17 @@ const handlePageSource = () => {
   window.open("https://github.com/dariuszwrzesien/my-portfolio", "_blank");
 };
 
-export function SettingsDropdown() {
+interface SettingsDropdownProps {
+  className?: string;
+}
+
+export function SettingsDropdown({ className }: SettingsDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <RiSettings4Line />
+        <div className={className}>
+          <RiSettings4Line />
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuItem
