@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { set, z } from "zod";
+import { email, set, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "@emailjs/browser";
 import {
   Form,
   FormControl,
@@ -14,6 +15,8 @@ import { Button } from "./ui";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { cn } from "../libs";
+import { useState } from "react";
+import { Loader2Icon } from "lucide-react";
 
 export enum CONTACT_FORM_FIELDS {
   NAME = "name",
@@ -57,10 +60,15 @@ const DEFAULT_VALUES = {
 };
 
 const ContactForm = ({
+  onSuccess,
+  onError,
   onChange,
 }: {
+  onSuccess?: () => void;
+  onError?: (error: any) => void;
   onChange?: (fieldName: CONTACT_FORM_FIELDS, value: string) => void;
 }) => {
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: DEFAULT_VALUES,
@@ -73,7 +81,42 @@ const ContactForm = ({
   };
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with values:", values);
+    const params = {
+      name: values[CONTACT_FORM_FIELDS.NAME],
+      email: values[CONTACT_FORM_FIELDS.EMAIL],
+      subject: "Contact from MyPortfolio website",
+      message: values[CONTACT_FORM_FIELDS.MESSAGE],
+    };
+
+    setIsSubmitDisabled(true);
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          ...params,
+        },
+        {
+          blockHeadless: true,
+          limitRate: {
+            id: "my-portfolio-contact-form",
+            throttle: 10000, // Throttle requests to 1 per 10 seconds
+          },
+        }
+      )
+      .then(
+        () => {
+          onSuccess?.();
+          form.reset(DEFAULT_VALUES);
+        },
+        (error) => {
+          onError?.(error);
+        }
+      )
+      .finally(() => {
+        setIsSubmitDisabled(false);
+      });
   };
 
   return (
@@ -167,7 +210,10 @@ const ContactForm = ({
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button disabled={isSubmitDisabled} type="submit">
+          {isSubmitDisabled && <Loader2Icon className="animate-spin" />}
+          Submit
+        </Button>
       </form>
     </Form>
   );
