@@ -1,14 +1,10 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 interface TextBlockProps {
   text: string;
   className?: string;
 }
-/**
- *
- * @param param0
- * @returns
- */
+
 const TextBlock = forwardRef<HTMLElement, TextBlockProps>(
   ({ text, className }, ref) => {
     const parse = (text: string) => {

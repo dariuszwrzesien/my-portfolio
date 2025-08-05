@@ -13,6 +13,7 @@ import {
 import { Button } from "./ui";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { cn } from "../libs";
 
 export enum CONTACT_FORM_FIELDS {
   NAME = "name",
@@ -20,10 +21,33 @@ export enum CONTACT_FORM_FIELDS {
   MESSAGE = "message",
 }
 
+const MIN_NAME_LENGTH = 2;
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 100;
+const MIN_MESSAGE_LENGTH = 5;
+const MAX_MESSAGE_LENGTH = 1000;
+
 const formSchema = z.object({
-  [CONTACT_FORM_FIELDS.NAME]: z.string().min(2).max(100),
-  [CONTACT_FORM_FIELDS.EMAIL]: z.email(),
-  [CONTACT_FORM_FIELDS.MESSAGE]: z.string().min(5).max(1000),
+  [CONTACT_FORM_FIELDS.NAME]: z
+    .string()
+    .min(MIN_NAME_LENGTH, `Name must be at least ${MIN_NAME_LENGTH} characters`)
+    .max(MAX_NAME_LENGTH, `Name must be at most ${MAX_NAME_LENGTH} characters`),
+  [CONTACT_FORM_FIELDS.EMAIL]: z
+    .email("Please enter a valid email address")
+    .max(
+      MAX_EMAIL_LENGTH,
+      `Email must be at most ${MAX_EMAIL_LENGTH} characters`
+    ),
+  [CONTACT_FORM_FIELDS.MESSAGE]: z
+    .string()
+    .min(
+      MIN_MESSAGE_LENGTH,
+      `Message must be at least ${MIN_MESSAGE_LENGTH} characters`
+    )
+    .max(
+      MAX_MESSAGE_LENGTH,
+      `Message must be at most ${MAX_MESSAGE_LENGTH} characters`
+    ),
 });
 
 const DEFAULT_VALUES = {
@@ -45,6 +69,7 @@ const ContactForm = ({
   const handleOnChange = (fieldName: string, value: string) => {
     onChange?.(fieldName as CONTACT_FORM_FIELDS, value);
     form.setValue(fieldName as CONTACT_FORM_FIELDS, value);
+    form.clearErrors(fieldName as CONTACT_FORM_FIELDS); // Clear error for the field
   };
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
@@ -53,23 +78,33 @@ const ContactForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
         <FormField
           control={form.control}
           name={CONTACT_FORM_FIELDS.NAME}
           render={({ field }) => (
             <FormItem>
               <FormLabel>_name:</FormLabel>
-              <FormControl>
+              <FormControl
+                className={cn({
+                  "border-error-background":
+                    form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  "bg-error-background/30":
+                    form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                })}
+              >
                 <Input
                   {...field}
+                  maxLength={MAX_NAME_LENGTH}
                   onChange={(e) => handleOnChange(field.name, e.target.value)}
                 />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage
+                className={cn({
+                  "text-error-background":
+                    form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                })}
+              />
             </FormItem>
           )}
         />
@@ -79,16 +114,26 @@ const ContactForm = ({
           render={({ field }) => (
             <FormItem>
               <FormLabel>_email:</FormLabel>
-              <FormControl>
+              <FormControl
+                className={cn({
+                  "border-error-background":
+                    form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
+                  "bg-error-background/30":
+                    form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
+                })}
+              >
                 <Input
                   {...field}
+                  maxLength={MAX_EMAIL_LENGTH}
                   onChange={(e) => handleOnChange(field.name, e.target.value)}
                 />
               </FormControl>
-              <FormDescription>
-                This is your public display email.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage
+                className={cn({
+                  "text-error-background":
+                    form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
+                })}
+              />
             </FormItem>
           )}
         />
@@ -98,17 +143,27 @@ const ContactForm = ({
           render={({ field }) => (
             <FormItem>
               <FormLabel>_message</FormLabel>
-              <FormControl>
+              <FormControl
+                className={cn({
+                  "border-error-background":
+                    form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
+                  "bg-error-background/30":
+                    form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
+                })}
+              >
                 <Textarea
                   {...field}
+                  maxLength={MAX_MESSAGE_LENGTH}
                   placeholder="Enter your message here ..."
                   onChange={(e) => handleOnChange(field.name, e.target.value)}
                 />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage
+                className={cn({
+                  "text-error-background":
+                    form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
+                })}
+              />
             </FormItem>
           )}
         />

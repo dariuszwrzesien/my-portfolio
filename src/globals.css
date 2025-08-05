@@ -379,7 +379,7 @@
     font-family: "Fira Code";
     text-align: right;
     display: inline-block;
-    min-width: 50px;
+    min-width: 30px;
   }
 
   /* Section spacing utilities */
