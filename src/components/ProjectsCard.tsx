@@ -12,12 +12,16 @@ const ProjectsCard: React.FC<ProjectCardProps> = ({
   description,
   imageUrl,
 }) => (
-  <Card className="flex flex-col p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+  <Card className="flex flex-col p-4 w-84 h-60">
     {imageUrl && (
-      <img src={imageUrl} alt={title} className="w-full rounded-md mb-3" />
+      <img
+        src={imageUrl}
+        alt={title}
+        className="w-[150px] h-[100px] rounded-md"
+      />
     )}
-    <h3 className="text-lg font-semibold mb-2">{title}</h3>
-    <p className="text-sm text-gray-600 mb-4">{description}</p>
+    <h3 className="text-lg font-semibold">{title}</h3>
+    <p>{description}</p>
   </Card>
 );
 

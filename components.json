@@ -14,7 +14,8 @@
     "components": "@components",
     "ui": "@components/ui",
     "lib": "@libs",
-    "hooks": "@hooks"
+    "hooks": "@hooks",
+    "utils": "@libs/utils"
   },
   "iconLibrary": "remixicon"
 }

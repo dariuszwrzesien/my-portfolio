@@ -31,15 +31,36 @@ const Projects = () => {
   return (
     <div className="flex h-full">
       <ProjectsSidebar categories={categories} onChange={handleOnChange} />
-      <div className="flex flex-col overflow-auto custom-scrollbar w-full">
-        {Array.from(filter).map((label) => (
-          <div key={label}>{label}</div>
-        ))}
-
+      <div className="flex flex-wrap gap-4 p-10 overflow-auto custom-scrollbar w-full">
         <ProjectsCard
           title="Project Title"
           description="Project Description"
-          imageUrl="https://via.placeholder.com/150"
+          imageUrl="/images/300x200.jpeg"
+        />
+        <ProjectsCard
+          title="Project Title"
+          description="Project Description"
+          imageUrl="/images/300x200.jpeg"
+        />
+        <ProjectsCard
+          title="Project Title"
+          description="Project Description"
+          imageUrl="/images/300x200.jpeg"
+        />
+        <ProjectsCard
+          title="Project Title"
+          description="Project Description"
+          imageUrl="/images/300x200.jpeg"
+        />
+        <ProjectsCard
+          title="Project Title"
+          description="Project Description"
+          imageUrl="/images/300x200.jpeg"
+        />
+        <ProjectsCard
+          title="Project Title"
+          description="Project Description"
+          imageUrl="/images/300x200.jpeg"
         />
       </div>
     </div>
