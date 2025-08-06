@@ -1,6 +1,6 @@
-import { cn } from "../libs/utils";
 import { RiGithubFill, RiLinkedinBoxFill } from "@remixicon/react";
 import { Link } from "react-router";
+import { cn } from "@libs/utils";
 import { SettingsDropdown } from "./SettingsDropdown";
 
 const FooterDesktop = () => {

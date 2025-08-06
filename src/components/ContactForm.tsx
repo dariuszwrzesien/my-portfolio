@@ -14,7 +14,7 @@ import {
 import { Button } from "./ui";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { cn } from "../libs";
+import { cn } from "@libs/utils";
 import { useState } from "react";
 import { Loader2Icon } from "lucide-react";
 

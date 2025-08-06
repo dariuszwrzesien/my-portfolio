@@ -1,18 +1,12 @@
 import { RiFileCodeFill } from "@remixicon/react";
-import React, { useEffect, useRef } from "react";
 import { Link } from "react-router";
 
 interface AboutMeSidebarSublinkProps {
   label: string;
   href: string;
-  isActive?: boolean;
 }
 
-const AboutMeSidebarSublink = ({
-  label,
-  href,
-  isActive = false,
-}: AboutMeSidebarSublinkProps) => {
+const AboutMeSidebarSublink = ({ label, href }: AboutMeSidebarSublinkProps) => {
   return (
     <Link to={href} className="flex items-center">
       <RiFileCodeFill className="w-5" />

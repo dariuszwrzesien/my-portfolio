@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import { cn } from "../libs";
+import { cn } from "@libs/utils";
 import {
   RiArrowDropDownFill,
   RiArrowDropRightFill,

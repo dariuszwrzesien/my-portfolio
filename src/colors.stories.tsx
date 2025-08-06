@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { cn } from "./libs/utils";
-
 const colorCodeClass = "text-xs text-black bg-white";
 
 const ColorSystem = () => (

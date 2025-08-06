@@ -3,7 +3,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@components/ui";
 import { RiCodeBlock, RiPuzzle2Line, RiSettings4Line } from "@remixicon/react";
 
 const handleStoryBook = () => {

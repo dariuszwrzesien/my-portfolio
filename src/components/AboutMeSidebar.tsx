@@ -1,4 +1,4 @@
-import { RiArrowDropDownFill, RiFileCodeFill } from "@remixicon/react";
+import { RiArrowDropDownFill } from "@remixicon/react";
 import { useLocation } from "react-router";
 import Paths from "../Paths";
 import AboutMeSidebarLink from "./AboutMeSidebarLink";
