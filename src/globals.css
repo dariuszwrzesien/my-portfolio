@@ -457,3 +457,12 @@
 .custom-sidebar-margin-left {
   @apply ml-64;
 }
+
+/* Card */
+.card {
+  /* width: 190px;
+  height: 254px; */
+  border-radius: 30px;
+  background: var(--background);
+  box-shadow: 15px 15px 30px var(--backdrop), -15px -15px 30px var(--background);
+}

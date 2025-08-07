@@ -1,27 +1,27 @@
-import React from "react";
-import { Card } from "./ui";
+import React, { ReactNode } from "react";
+import { Card, CardDescription, CardTitle } from "./ui";
+import { ProjectCategory } from "../libs/enums";
+import ProjectsIcons from "./ProjectsIcons";
 
 type ProjectCardProps = {
   title: string;
   description: string;
   imageUrl?: string;
+  categories?: ProjectCategory[];
 };
 
 const ProjectsCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   imageUrl,
+  categories = [],
 }) => (
-  <Card className="flex flex-col p-4 w-84 h-60">
+  <Card className="flex gap-3 flex-col p-4 w-75 h-90 card">
     {imageUrl && (
-      <img
-        src={imageUrl}
-        alt={title}
-        className="w-[150px] h-[100px] rounded-md"
-      />
+      <img src={imageUrl} alt={title} className="w-full rounded-md border" />
     )}
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p>{description}</p>
+    <p>{title}</p>
+    <ProjectsIcons categories={categories} />
   </Card>
 );
 

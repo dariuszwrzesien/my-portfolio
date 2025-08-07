@@ -2,6 +2,9 @@ import { useState } from "react";
 import ProjectsSidebar from "../components/ProjectsSidebar";
 import { ProjectCategory } from "@libs/enums";
 import ProjectsCard from "../components/ProjectsCard";
+import { RiReactjsLine } from "@remixicon/react";
+import { projects } from "../data/projects";
+import { get } from "http";
 
 const Projects = () => {
   const [filter, setFilter] = useState<ProjectCategory[]>([]);
@@ -15,6 +18,12 @@ const Projects = () => {
     ProjectCategory.NodeJS,
     ProjectCategory.PHP,
   ];
+
+  const filteredProjects = projects.filter(
+    (project) =>
+      filter.length === 0 ||
+      project.categories.some((category) => filter.includes(category))
+  );
 
   const handleOnChange = (label: ProjectCategory) => {
     setFilter((prev) => {
@@ -31,37 +40,16 @@ const Projects = () => {
   return (
     <div className="flex h-full">
       <ProjectsSidebar categories={categories} onChange={handleOnChange} />
-      <div className="flex flex-wrap gap-4 p-10 overflow-auto custom-scrollbar w-full">
-        <ProjectsCard
-          title="Project Title"
-          description="Project Description"
-          imageUrl="/images/300x200.jpeg"
-        />
-        <ProjectsCard
-          title="Project Title"
-          description="Project Description"
-          imageUrl="/images/300x200.jpeg"
-        />
-        <ProjectsCard
-          title="Project Title"
-          description="Project Description"
-          imageUrl="/images/300x200.jpeg"
-        />
-        <ProjectsCard
-          title="Project Title"
-          description="Project Description"
-          imageUrl="/images/300x200.jpeg"
-        />
-        <ProjectsCard
-          title="Project Title"
-          description="Project Description"
-          imageUrl="/images/300x200.jpeg"
-        />
-        <ProjectsCard
-          title="Project Title"
-          description="Project Description"
-          imageUrl="/images/300x200.jpeg"
-        />
+      <div className="flex flex-wrap gap-8 p-10 overflow-auto custom-scrollbar w-full">
+        {filteredProjects.map((project) => (
+          <ProjectsCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            categories={project.categories}
+            imageUrl={project.imageUrl}
+          />
+        ))}
       </div>
     </div>
   );
