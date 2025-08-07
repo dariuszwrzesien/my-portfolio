@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
-import { Card, CardDescription, CardTitle } from "./ui";
+import { Button, Card, CardDescription, CardTitle } from "./ui";
 import { ProjectCategory } from "../libs/enums";
 import ProjectsIcons from "./ProjectsIcons";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 type ProjectCardProps = {
   title: string;
@@ -16,13 +17,26 @@ const ProjectsCard: React.FC<ProjectCardProps> = ({
   imageUrl,
   categories = [],
 }) => (
-  <Card className="flex gap-3 flex-col p-4 w-75 h-90 card">
-    {imageUrl && (
-      <img src={imageUrl} alt={title} className="w-full rounded-md border" />
-    )}
-    <p>{title}</p>
-    <ProjectsIcons categories={categories} />
-  </Card>
+  <Dialog>
+    <DialogTrigger asChild>
+      <Card className="flex gap-3 flex-col p-4 w-75 h-90 project-card">
+        {imageUrl && (
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full rounded-md border"
+          />
+        )}
+        <p className="text-pretty">{title}</p>
+        <ProjectsIcons categories={categories} />
+      </Card>
+    </DialogTrigger>
+    <DialogContent className="sm:max-w-[525px]">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <ProjectsIcons categories={categories} />
+      <p className="text-pretty text-justify text-sm">{description}</p>
+    </DialogContent>
+  </Dialog>
 );
 
 export default ProjectsCard;

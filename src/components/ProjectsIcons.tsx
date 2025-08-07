@@ -1,6 +1,7 @@
 import { get } from "http";
 import { getIcon } from "../libs/utils";
 import { ProjectCategory } from "../libs/enums";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 type ProjectsIconsProps = {
   categories: ProjectCategory[];
@@ -9,7 +10,14 @@ type ProjectsIconsProps = {
 const ProjectsIcons: React.FC<ProjectsIconsProps> = ({ categories }) => (
   <div className="flex gap-2">
     {categories.map((category, idx) => (
-      <div key={idx}>{getIcon(category)}</div>
+      <Tooltip key={idx}>
+        <TooltipTrigger asChild>
+          <div>{getIcon(category)}</div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{category}</p>
+        </TooltipContent>
+      </Tooltip>
     ))}
   </div>
 );
