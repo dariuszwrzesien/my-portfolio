@@ -473,3 +473,46 @@
   transition: all 0.5s ease-in-out;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
 }
+
+/* Linear Gradient Backgrounds */
+.bg-linear-teal-indigo {
+  background: linear-gradient(
+    135deg,
+    var(--color-teal-800),
+    color-mix(in srgb, var(--color-indigo-500) 40%, transparent)
+  );
+}
+
+/* Linear Shadow Classes */
+
+.shadow-linear-teal-indigo {
+  box-shadow: 0 4px 14px 0 rgba(20, 184, 166, 0.25),
+    0 10px 30px 0 rgba(99, 102, 241, 0.15);
+}
+
+/* Elevated Linear Shadows */
+.shadow-linear-elevated {
+  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.15), 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+}
+
+.shadow-linear-glow {
+  box-shadow: 0 0 20px 0 rgba(139, 92, 246, 0.3),
+    0 4px 14px 0 rgba(139, 92, 246, 0.15);
+}
+
+/* Sphere Effect */
+.sphere {
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  box-shadow: 
+    /* Main shadow */ 0 20px 40px rgba(0, 0, 0, 0.3),
+    /* Inner highlight */ inset 0 0 20px rgba(255, 255, 255, 0.2),
+    /* Outer glow */ 0 0 30px rgba(255, 255, 255, 0.1);
+  position: relative;
+}

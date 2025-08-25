@@ -1,4 +1,5 @@
 import { RiArrowRightSLine } from "@remixicon/react";
+import GameField from "../components/GameField";
 
 const Home = () => {
   return (
@@ -26,19 +27,10 @@ const Home = () => {
       </section>
 
       {/* Game Section */}
-      <section className="flex flex-col items-center justify-center w-full">
-        <div className="flex flex-col justify-center p-4 max-w-md">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, dolor
-          minus totam corrupti harum itaque reiciendis deserunt quibusdam aut
-          blanditiis dolores eum vitae voluptatibus at nulla magni, beatae,
-          pariatur sequi.
-        </div>
-        <div className="flex flex-col justify-center p-4 max-w-md">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, dolor
-          minus totam corrupti harum itaque reiciendis deserunt quibusdam aut
-          blanditiis dolores eum vitae voluptatibus at nulla magni, beatae,
-          pariatur sequi.
-        </div>
+      <section className="flex flex-col items-center justify-center w-full p-4">
+        <GameField>
+          <p className="text-foreground"></p>
+        </GameField>
       </section>
     </div>
   );
