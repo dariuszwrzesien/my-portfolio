@@ -10,6 +10,7 @@ This is a personal portfolio website showcasing my projects, skills, and experie
 - react-router (https://reactrouter.com)
 - tailwind (https://tailwindcss.com/docs/installation/using-vite)
 - shadcn (https://ui.shadcn.com)
-- remixicon (npm install @remixicon/react)
+- remixicon (@remixicon/react)
 - storybook
 - emailjs (https://www.emailjs.com)
+- Phaser (Javascript game framework: https://phaser.io/)
