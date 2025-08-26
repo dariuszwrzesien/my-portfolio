@@ -27,24 +27,13 @@ const GameField: FC<GameFieldProps> = ({
       }}
     >
       {/* Screw in top-left corner */}
-      <div className="absolute top-2 left-2 w-4 h-4">
-        <Screw />
-      </div>
-
+      <Screw className="absolute top-2 left-2 w-4 h-4" />
       {/* Screw in top-right corner */}
-      <div className="absolute top-2 right-2 w-4 h-4">
-        <Screw />
-      </div>
-
+      <Screw className="absolute top-2 right-2 w-4 h-4" />
       {/* Screw in bottom-left corner */}
-      <div className="absolute bottom-2 left-2 w-4 h-4">
-        <Screw />
-      </div>
-
+      <Screw className="absolute bottom-2 left-2 w-4 h-4" />
       {/* Screw in bottom-right corner */}
-      <div className="absolute bottom-2 right-2 w-4 h-4">
-        <Screw />
-      </div>
+      <Screw className="absolute bottom-2 right-2 w-4 h-4" />
 
       {children}
     </div>

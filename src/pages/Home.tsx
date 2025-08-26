@@ -1,5 +1,6 @@
 import { RiArrowRightSLine } from "@remixicon/react";
 import GameField from "../components/GameField";
+import SnakeGame from "../components/SnakeGame";
 
 const Home = () => {
   return (
@@ -29,7 +30,7 @@ const Home = () => {
       {/* Game Section */}
       <section className="flex flex-col items-center justify-center w-full p-4">
         <GameField>
-          <p className="text-foreground"></p>
+          <SnakeGame width={460} height={410} />
         </GameField>
       </section>
     </div>
