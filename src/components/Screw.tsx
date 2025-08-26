@@ -1,16 +1,21 @@
 import { cn } from "../libs/utils";
 
 interface ScrewProps {
-  width?: number;
-  height?: number;
+  size?: number;
 }
 
-const Screw = ({ width = 20, height = 20 }: ScrewProps) => (
+const DEFAULT_SIZE = 15;
+
+const Screw = ({ size = DEFAULT_SIZE }: ScrewProps) => (
   <div className="relative w-full h-full">
     <div
       className={cn(
-        `absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[${width}px] h-[${height}px] sphere rounded-full`
+        `absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sphere rounded-full`
       )}
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+      }}
     ></div>
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div className="w-2 h-0.5 bg-gray-600 transform rotate-45"></div>
