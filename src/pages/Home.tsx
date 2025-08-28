@@ -1,10 +1,8 @@
 import { RiArrowRightSLine } from "@remixicon/react";
-import GameField from "../components/GameField";
-import SnakeGame from "../components/SnakeGame";
 
 const Home = () => {
   return (
-    <div className="custom-sidebar-margin-left flex gap-4 h-full">
+    <div className="custom-sidebar-margin-left flex gap-4 h-full z-1">
       {/* Hello Section */}
       <section className="flex flex-col justify-center w-full">
         <p className="text-foreground text-lg">Hi all. I am</p>
@@ -25,13 +23,6 @@ const Home = () => {
             "https://www.linkedin.com/in/dariusz-wrzesień"
           </a>
         </p>
-      </section>
-
-      {/* Game Section */}
-      <section className="flex flex-col items-center justify-center w-full p-4">
-        <GameField>
-          <SnakeGame width={460} height={410} />
-        </GameField>
       </section>
     </div>
   );

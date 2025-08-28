@@ -47,7 +47,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex gap-4 h-full overflow-hidden">
+    <div className="flex z-1 gap-4 h-full overflow-hidden">
       <section className="flex overflow-auto flex-col justify-center items-center w-full p-8">
         <div className="w-full max-w-2xl">
           {!successSent && !errorSent && (

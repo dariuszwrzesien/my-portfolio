@@ -38,7 +38,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full z-1">
       <ProjectsSidebar categories={categories} onChange={handleOnChange} />
       <div className="flex flex-wrap gap-8 p-10 overflow-auto custom-scrollbar w-full">
         {filteredProjects.map((project) => (
