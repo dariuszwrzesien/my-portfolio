@@ -31,13 +31,11 @@ export function useBackgroundEffects(effect: BackgroundEffects) {
         maxDistance: 22.0,
         spacing: 18.0,
       });
-      console.log(effect);
     } else if (effect === BackgroundEffects.WAVES) {
       newEffect = WAVES({
         el: ref.current,
         color: 0x0f172b,
       });
-      console.log(effect);
     }
 
     if (newEffect) {
