@@ -10,46 +10,43 @@ export function useBackgroundEffects(effect: BackgroundEffects) {
   >(null);
   const ref = useRef<HTMLDivElement>(null);
 
-  const createBackgroundEffect = (effect: BackgroundEffects) => {
-    if (ref.current && effect && effect !== BackgroundEffects.EMPTY) {
-      if (effect === BackgroundEffects.NET) {
-        const net = NET({
-          el: ref.current,
-          color: 0x009987,
-          backgroundColor: 0x0f172b,
-          points: 15.0,
-          maxDistance: 22.0,
-          spacing: 18.0,
-        });
-        console.log(effect);
-        setBackgroundEffect(net);
-      } else if (effect === BackgroundEffects.WAVES) {
-        const waves = WAVES({
-          el: ref.current,
-          color: 0x0f172b,
-        });
-        console.log(effect);
-        setBackgroundEffect(waves);
-      }
-    } else {
-      setBackgroundEffect(null);
-      if (backgroundEffect) {
-        backgroundEffect.destroy();
-      }
-    }
-  };
-
   useEffect(() => {
     if (backgroundEffect) {
       backgroundEffect.destroy();
       setBackgroundEffect(null);
     }
 
-    createBackgroundEffect(effect);
+    if (!ref.current || effect === BackgroundEffects.EMPTY) {
+      return;
+    }
+
+    let newEffect: VantaWavesEffect | VantaNetEffect | null = null;
+
+    if (effect === BackgroundEffects.NET) {
+      newEffect = NET({
+        el: ref.current,
+        color: 0x009987,
+        backgroundColor: 0x0f172b,
+        points: 15.0,
+        maxDistance: 22.0,
+        spacing: 18.0,
+      });
+      console.log(effect);
+    } else if (effect === BackgroundEffects.WAVES) {
+      newEffect = WAVES({
+        el: ref.current,
+        color: 0x0f172b,
+      });
+      console.log(effect);
+    }
+
+    if (newEffect) {
+      setBackgroundEffect(newEffect);
+    }
 
     return () => {
-      if (backgroundEffect) {
-        backgroundEffect.destroy();
+      if (newEffect) {
+        newEffect.destroy();
       }
     };
   }, [effect]);
