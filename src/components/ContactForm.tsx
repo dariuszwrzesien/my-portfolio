@@ -126,9 +126,11 @@ const ContactForm = ({
           name={CONTACT_FORM_FIELDS.NAME}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>_name:</FormLabel>
+              <FormLabel className="text-heading-foreground">_name:</FormLabel>
               <FormControl
                 className={cn({
+                  "bg-background/70":
+                    !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
                   "border-error-background":
                     form.formState.errors[CONTACT_FORM_FIELDS.NAME],
                   "bg-error-background/30":
@@ -155,9 +157,11 @@ const ContactForm = ({
           name={CONTACT_FORM_FIELDS.EMAIL}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>_email:</FormLabel>
+              <FormLabel className="text-heading-foreground">_email:</FormLabel>
               <FormControl
                 className={cn({
+                  "bg-background/70":
+                    !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
                   "border-error-background":
                     form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
                   "bg-error-background/30":
@@ -184,9 +188,13 @@ const ContactForm = ({
           name={CONTACT_FORM_FIELDS.MESSAGE}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>_message</FormLabel>
+              <FormLabel className="text-heading-foreground">
+                _message
+              </FormLabel>
               <FormControl
                 className={cn({
+                  "bg-background/70":
+                    !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
                   "border-error-background":
                     form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
                   "bg-error-background/30":

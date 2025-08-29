@@ -63,7 +63,7 @@ const Contact = () => {
           {errorSent && <ContactError onSendMessage={handleOnSendNewMessage} />}
         </div>
       </section>
-      <section className="flex flex-col justify-center border-l">
+      <section className="flex flex-col justify-center border-l bg-background/70">
         <ContactCode
           name={name}
           email={email}
