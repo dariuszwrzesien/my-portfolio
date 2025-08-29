@@ -12,12 +12,39 @@ interface LayoutProviderProps {
   children: ReactNode;
 }
 const DEFAULT_BACKGROUND = BackgroundEffects.WAVES;
+const BACKGROUND_STORAGE_KEY = "my-portfolio-background-effect";
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
 
+// Helper function to get initial background from localStorage
+const getInitialBackground = (): BackgroundEffects => {
+  try {
+    const stored = localStorage.getItem(BACKGROUND_STORAGE_KEY);
+    if (
+      stored &&
+      Object.values(BackgroundEffects).includes(stored as BackgroundEffects)
+    ) {
+      return stored as BackgroundEffects;
+    }
+  } catch (error) {
+    console.warn("Failed to load background from localStorage:", error);
+  }
+  return DEFAULT_BACKGROUND;
+};
+
 export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
-  const [background, setBackground] =
-    useState<BackgroundEffects>(DEFAULT_BACKGROUND);
+  const [background, setBackgroundState] =
+    useState<BackgroundEffects>(getInitialBackground);
   const [isMobile, setIsMobile] = useState(false);
+
+  const setBackground = (effect: BackgroundEffects) => {
+    try {
+      localStorage.setItem(BACKGROUND_STORAGE_KEY, effect);
+      setBackgroundState(effect);
+    } catch (error) {
+      console.warn("Failed to save background to localStorage:", error);
+      setBackgroundState(effect);
+    }
+  };
 
   const value: LayoutContextType = {
     background,
