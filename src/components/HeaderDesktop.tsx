@@ -1,14 +1,18 @@
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import HeaderDesktopLink from "./HeaderDesktopLink";
 import Paths from "../Paths";
 
 const HeaderDesktop = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   return (
     <header className="bg-background border-b border-stroke">
       <nav className="flex justify-between">
         <div className="flex">
-          <div className="border-r border-r-text-slate text-md text-center py-4 custom-sidebar-width">
+          <div
+            className="border-r border-r-text-slate text-md text-center py-4 custom-sidebar-width cursor-default"
+            onClick={() => navigate(Paths.home)}
+          >
             dariusz-wrzesień
           </div>
           <HeaderDesktopLink

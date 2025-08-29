@@ -4,4 +4,5 @@ export enum BackgroundEffects {
   CLOUDS = "clouds",
   BIRDS = "birds",
   FOG = "fog",
+  EMPTY = "empty",
 }
