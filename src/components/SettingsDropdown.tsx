@@ -45,13 +45,22 @@ export function SettingsDropdown({ className }: SettingsDropdownProps) {
           value={background as string}
           onValueChange={(value) => setBackground(value as BackgroundEffects)}
         >
-          <DropdownMenuRadioItem value={BackgroundEffects.WAVES}>
+          <DropdownMenuRadioItem
+            value={BackgroundEffects.WAVES}
+            className="cursor-pointer transition-all duration-400 hover:text-heading-foreground"
+          >
             Waves
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value={BackgroundEffects.NET}>
+          <DropdownMenuRadioItem
+            value={BackgroundEffects.NET}
+            className="cursor-pointer transition-all duration-400 hover:text-heading-foreground"
+          >
             Net
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value={BackgroundEffects.EMPTY}>
+          <DropdownMenuRadioItem
+            value={BackgroundEffects.EMPTY}
+            className="cursor-pointer transition-all duration-400 hover:text-heading-foreground"
+          >
             Empty
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
