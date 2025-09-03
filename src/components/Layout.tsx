@@ -15,11 +15,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="p-8">
-      <div className="flex flex-col justify-between h-[calc(100vh-4rem)] w-full border border-stroke">
+      <div className="flex flex-col justify-between h-[calc(100vh-4rem)] w-full">
         <HeaderDesktop />
         <main
           ref={refBackgroundEffect}
-          className="flex flex-col overflow-auto custom-scrollbar h-[calc(100vh-4rem)]"
+          className="flex flex-col overflow-auto custom-scrollbar h-[calc(100vh-4rem)] border-x border-stroke"
         >
           {children}
         </main>

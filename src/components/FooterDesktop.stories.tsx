@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { MemoryRouter } from "react-router";
-import HeaderDesktop from "./HeaderDesktop";
+import { LayoutProvider } from "../contexts";
+import FooterDesktop from "./FooterDesktop";
 
-const meta: Meta<typeof HeaderDesktop> = {
-  title: "Components/UI/HeaderDesktop",
-  component: HeaderDesktop,
+const meta: Meta<typeof FooterDesktop> = {
+  title: "Components/UI/FooterDesktop",
+  component: FooterDesktop,
   parameters: {
     layout: "fullscreen",
   },
@@ -12,44 +13,16 @@ const meta: Meta<typeof HeaderDesktop> = {
 };
 
 export default meta;
-type Story = StoryObj<Meta<typeof HeaderDesktop>>;
+type Story = StoryObj<Meta<typeof FooterDesktop>>;
 
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={["/"]}>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
-};
-
-export const AboutMePage: Story = {
-  decorators: [
-    (Story) => (
-      <MemoryRouter initialEntries={["/about-me"]}>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
-};
-
-export const ProjectsPage: Story = {
-  decorators: [
-    (Story) => (
-      <MemoryRouter initialEntries={["/projects"]}>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
-};
-
-export const ContactPage: Story = {
-  decorators: [
-    (Story) => (
-      <MemoryRouter initialEntries={["/contact"]}>
-        <Story />
-      </MemoryRouter>
+      <LayoutProvider>
+        <MemoryRouter initialEntries={["/"]}>
+          <Story />
+        </MemoryRouter>
+      </LayoutProvider>
     ),
   ],
 };

@@ -9,7 +9,7 @@ const FooterDesktop = () => {
 
   return (
     <footer className="flex flex-col justify-end bg-background text-foreground">
-      <nav className="flex justify-between border-t border-stroke">
+      <nav className="flex justify-between border border-stroke">
         <div className="flex">
           <div className="text-md py-4 px-4">find me in</div>
           <div className={navLinkClass}>

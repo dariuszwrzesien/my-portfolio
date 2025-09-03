@@ -16,7 +16,7 @@ const HeaderDesktopLink: React.FC<HeaderDesktopLinkProps> = ({
   isActive = false,
 }) => {
   return (
-    <div className={cn("flex border-r border-r-text-slate", className)}>
+    <div className={className}>
       <Link
         to={href}
         className={cn(
