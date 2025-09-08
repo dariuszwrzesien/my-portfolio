@@ -3,7 +3,7 @@ import { fn } from "storybook/test";
 import ContactForm, { CONTACT_FORM_FIELDS } from "./ContactForm";
 
 const meta: Meta<typeof ContactForm> = {
-  title: "Components/UI/ContactForm",
+  title: "Components/ContactForm",
   component: ContactForm,
   parameters: {
     layout: "padded",

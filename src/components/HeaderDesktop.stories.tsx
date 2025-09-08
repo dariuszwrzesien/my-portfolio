@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router";
 import HeaderDesktop from "./HeaderDesktop";
 
 const meta: Meta<typeof HeaderDesktop> = {
-  title: "Components/UI/HeaderDesktop",
+  title: "Components/HeaderDesktop",
   component: HeaderDesktop,
   parameters: {
     layout: "fullscreen",

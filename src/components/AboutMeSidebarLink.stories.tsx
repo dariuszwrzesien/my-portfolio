@@ -4,7 +4,7 @@ import AboutMeSidebarLink from "./AboutMeSidebarLink";
 import AboutMeSidebarSublink from "./AboutMeSidebarSublink";
 
 const meta: Meta<typeof AboutMeSidebarLink> = {
-  title: "Components/UI/AboutMeSidebarLink",
+  title: "Components/AboutMeSidebarLink",
   component: AboutMeSidebarLink,
   parameters: {
     layout: "padded",

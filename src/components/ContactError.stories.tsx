@@ -3,7 +3,7 @@ import { fn } from "storybook/test";
 import ContactError from "./ContactError";
 
 const meta: Meta<typeof ContactError> = {
-  title: "Components/UI/ContactError",
+  title: "Components/ContactError",
   component: ContactError,
   parameters: {
     layout: "padded",

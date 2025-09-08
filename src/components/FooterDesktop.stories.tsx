@@ -4,7 +4,7 @@ import { LayoutProvider } from "../contexts";
 import FooterDesktop from "./FooterDesktop";
 
 const meta: Meta<typeof FooterDesktop> = {
-  title: "Components/UI/FooterDesktop",
+  title: "Components/FooterDesktop",
   component: FooterDesktop,
   parameters: {
     layout: "fullscreen",

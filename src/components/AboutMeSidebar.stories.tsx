@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router";
 import AboutMeSidebar from "./AboutMeSidebar";
 
 const meta: Meta<typeof AboutMeSidebar> = {
-  title: "Components/UI/AboutMeSidebar",
+  title: "Components/AboutMeSidebar",
   component: AboutMeSidebar,
   parameters: {
     layout: "padded",

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import ContactCode from "./ContactCode";
 
 const meta: Meta<typeof ContactCode> = {
-  title: "Components/UI/ContactCode",
+  title: "Components/ContactCode",
   component: ContactCode,
   parameters: {
     layout: "padded",

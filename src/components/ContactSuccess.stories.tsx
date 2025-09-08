@@ -3,7 +3,7 @@ import { fn } from "storybook/test";
 import ContactSuccess from "./ContactSuccess";
 
 const meta: Meta<typeof ContactSuccess> = {
-  title: "Components/UI/ContactSuccess",
+  title: "Components/ContactSuccess",
   component: ContactSuccess,
   parameters: {
     layout: "padded",
