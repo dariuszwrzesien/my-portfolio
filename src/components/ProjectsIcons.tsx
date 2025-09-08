@@ -8,7 +8,7 @@ type ProjectsIconsProps = {
 };
 
 const ProjectsIcons: React.FC<ProjectsIconsProps> = ({ categories }) => (
-  <div className="flex gap-2">
+  <div className="flex flex-wrap gap-2 ">
     {categories.map((category, idx) => (
       <Tooltip key={idx}>
         <TooltipTrigger asChild>

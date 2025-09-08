@@ -52,7 +52,7 @@ export const Default: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-80 p-5">
         <Story />
       </div>
     ),
@@ -68,7 +68,7 @@ export const WithoutImage: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-80 p-5">
         <Story />
       </div>
     ),
@@ -96,7 +96,7 @@ export const ReactExampleProject: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-80 p-5">
         <Story />
       </div>
     ),
@@ -125,7 +125,7 @@ export const LongTitle: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-80 p-5">
         <Story />
       </div>
     ),
@@ -166,7 +166,7 @@ export const ManyCategories: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-80 p-5">
         <Story />
       </div>
     ),
@@ -182,7 +182,7 @@ export const ManyCategories: Story = {
 
 export const ProjectGrid: Story = {
   render: () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    <div className="flex flex-wrap gap-4 p-5 overflow-auto custom-scrollbar w-full">
       <ProjectsCard
         title="E-Commerce Platform"
         description="Modern e-commerce platform with React and Node.js"
@@ -252,7 +252,7 @@ export const InteractiveExample: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="w-80">
+      <div className="w-80 p-5">
         <p className="text-sm text-gray-600 mb-4">
           Click the project card below to see the dialog functionality:
         </p>
