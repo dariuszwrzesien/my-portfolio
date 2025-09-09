@@ -19,7 +19,7 @@ import { Checkbox } from "./checkbox";
 
 // Define validation schemas for different examples
 const basicSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z.email("Please enter a valid email address"),
   name: z.string().min(2, "Name must be at least 2 characters"),
 });
 
