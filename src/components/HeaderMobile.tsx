@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useIsMobile } from "../hooks/use-mobile";
 import Paths from "../Paths";
+import { cn } from "../libs/utils";
 
 interface MobileLinkProps {
   href: string;
@@ -36,23 +37,27 @@ const MobileLink = ({ href, name, isActive, onClick }: MobileLinkProps) => {
   );
 };
 
-const HeaderMobile = () => {
+const HeaderMobile = ({ className }: { className: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
-  // Don't render if not mobile
-  if (!isMobile) {
-    return null;
-  }
+  // if (!isMobile) {
+  //   return null;
+  // }
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
-      <header className="bg-background border-b border-stroke relative z-50">
+      <header
+        className={cn(
+          "bg-background border-b border-stroke relative z-50",
+          className
+        )}
+      >
         <nav className="flex justify-between items-center px-4 py-3">
           {/* Logo/Brand */}
           <div

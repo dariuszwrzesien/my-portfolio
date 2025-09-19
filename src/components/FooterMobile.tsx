@@ -3,16 +3,15 @@ import { Link } from "react-router";
 import { cn } from "@libs/utils";
 import { SettingsDropdown } from "./SettingsDropdown";
 
-const FooterDesktop = () => {
+const FooterMobile = () => {
   const navLinkClass =
-    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-400 border-b-3 border-b-transparent hover:text-heading-foreground";
+    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-400 border-b-3 border-b-transparent";
 
   return (
     <footer className="flex flex-col justify-end bg-background text-foreground">
       <nav className="flex justify-between border border-stroke">
         <div className="flex items-center">
-          <div className="text-md px-4">find me in</div>
-          <div className={navLinkClass}>
+          <div className={cn(navLinkClass, "border-l-0")}>
             <Link
               to="https://www.linkedin.com/in/dariusz-wrzesie%C5%84-605a2b63/"
               target="_blank"
@@ -39,4 +38,4 @@ const FooterDesktop = () => {
   );
 };
 
-export default FooterDesktop;
+export default FooterMobile;

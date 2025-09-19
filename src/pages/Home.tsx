@@ -2,7 +2,7 @@ import { RiArrowRightSLine } from "@remixicon/react";
 
 const Home = () => {
   return (
-    <div className="custom-sidebar-margin-left flex gap-4 h-full z-1">
+    <div className="custom-sidebar-margin-left px-4 flex gap-4 h-full z-1">
       {/* Hello Section */}
       <section className="flex flex-col justify-center w-full">
         <p className="text-foreground text-lg">Hi all. I am</p>

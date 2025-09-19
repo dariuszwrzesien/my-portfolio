@@ -455,7 +455,8 @@
 }
 
 .custom-sidebar-margin-left {
-  @apply ml-64;
+  @apply m-auto;
+  @apply xl:ml-64;
 }
 
 /* Project Card */

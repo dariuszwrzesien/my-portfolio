@@ -1,12 +1,13 @@
 import { useLocation, useNavigate } from "react-router";
 import HeaderDesktopLink from "./HeaderDesktopLink";
 import Paths from "../Paths";
+import { cn } from "../libs/utils";
 
-const HeaderDesktop = () => {
+const HeaderDesktop = ({ className }: { className: string }) => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <header className="bg-background border border-stroke">
+    <header className={cn("bg-background border border-stroke", className)}>
       <nav className="flex justify-between">
         <div className="flex">
           <div
