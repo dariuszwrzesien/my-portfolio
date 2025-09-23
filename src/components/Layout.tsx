@@ -18,17 +18,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { ref: refBackgroundEffect } = useBackgroundEffects(background);
   const isMobile = useIsMobile();
 
-  useEffect(() => {
-    console.log("isMobile:", isMobile);
-  }, [isMobile]);
-
   const renderHeader = () => {
-    return (
-      <>
-        <HeaderDesktop className="hidden xl:block" />
-        <HeaderMobile className="block xl:hidden" />
-      </>
-    );
+    return <>{isMobile ? <HeaderMobile /> : <HeaderDesktop />}</>;
   };
 
   return (
