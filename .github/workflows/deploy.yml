@@ -1,191 +1,141 @@
 name: Build and Deploy
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-    contents: read
-    pages: write
-    id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-    group: "pages"
-    cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-    # Job 1: Quality checks (lint, format)
-    quality-checks:
-        name: Quality Checks
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  # Job 1: Quality checks (lint, format)
+  quality-checks:
+    name: Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "22"
-                  cache: "npm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Run ESLint
-              run: npm run lint
+      - name: Run ESLint
+        run: npm run lint
 
-            - name: Check Prettier formatting
-              run: npm run format:check
+      - name: Check Prettier formatting
+        run: npm run format:check
 
-    # Job 2: Build application
-    build-app:
-        name: Build Application
-        runs-on: ubuntu-latest
-        needs: quality-checks
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  # Job 2: Build application
+  build-app:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: quality-checks
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "22"
-                  cache: "npm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Build application
-              run: npm run build
-              env:
-                  NODE_ENV: production
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
 
-            - name: Upload application artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: app-dist
-                  path: dist/
-                  retention-days: 1
+      - name: Upload application artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-dist
+          path: dist/
+          retention-days: 1
 
-    # Job 3: Build Storybook
-    build-storybook:
-        name: Build Storybook
-        runs-on: ubuntu-latest
-        needs: quality-checks
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  # Job 3: Build Storybook
+  build-storybook:
+    name: Build Storybook
+    runs-on: ubuntu-latest
+    needs: quality-checks
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "22"
-                  cache: "npm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Build Storybook
-              run: npm run build-storybook
+      - name: Build Storybook
+        run: npm run build-storybook
 
-            - name: Upload Storybook artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: storybook-static
-                  path: storybook-static/
-                  retention-days: 1
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static/
+          retention-days: 1
 
-    # Job 4: Deploy to GitHub Pages (only on main branch)
-    deploy:
-        name: Deploy to GitHub Pages
-        runs-on: ubuntu-latest
-        needs: [build-app, build-storybook]
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  # Job 4: Deploy to GitHub Pages (only on main branch)
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [build-app, build-storybook]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Download application artifact
-              uses: actions/download-artifact@v4
-              with:
-                  name: app-dist
-                  path: public-site/
+      - name: Download application artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app-dist
+          path: public-site/
 
-            - name: Download Storybook artifact
-              uses: actions/download-artifact@v4
-              with:
-                  name: storybook-static
-                  path: public-site/storybook/
+      - name: Download Storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: public-site/storybook/
 
-            - name: Create index redirect (optional)
-              run: |
-                  echo '<!DOCTYPE html>
-                  <html lang="en">
-                  <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Portfolio</title>
-                    <style>
-                      body {
-                        font-family: system-ui, -apple-system, sans-serif;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        min-height: 100vh;
-                        margin: 0;
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                      }
-                      .container {
-                        text-align: center;
-                        background: white;
-                        padding: 3rem;
-                        border-radius: 1rem;
-                        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-                      }
-                      h1 { color: #333; margin-bottom: 2rem; }
-                      .links { display: flex; gap: 1rem; justify-content: center; }
-                      a {
-                        display: inline-block;
-                        padding: 1rem 2rem;
-                        background: #667eea;
-                        color: white;
-                        text-decoration: none;
-                        border-radius: 0.5rem;
-                        transition: transform 0.2s;
-                      }
-                      a:hover { transform: translateY(-2px); }
-                    </style>
-                  </head>
-                  <body>
-                    <div class="container">
-                      <h1>Welcome to My Portfolio</h1>
-                      <div class="links">
-                        <a href="./index.html">View Portfolio</a>
-                        <a href="./storybook/">View Storybook</a>
-                      </div>
-                    </div>
-                  </body>
-                  </html>' > public-site/welcome.html
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public-site/
 
-            - name: Upload to GitHub Pages
-              uses: actions/upload-pages-artifact@v3
-              with:
-                  path: public-site/
-
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
