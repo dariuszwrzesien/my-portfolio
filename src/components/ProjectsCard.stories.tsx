@@ -43,7 +43,7 @@ export const Default: Story = {
     title: 'E-Commerce Platform',
     description:
       'A modern e-commerce platform built with React and Node.js. Features include user authentication, product catalog, shopping cart, payment integration, and admin dashboard for managing products and orders.',
-    imageUrl: '/images/e-learning.jpg',
+    imageUrl: 'images/e-learning.jpg',
     categories: [ProjectCategory.React, ProjectCategory.TypeScript, ProjectCategory.NodeJS],
   },
   decorators: [
@@ -83,7 +83,7 @@ export const ReactExampleProject: Story = {
     title: 'Portfolio Website',
     description:
       'A responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features dark/light mode, smooth animations, contact form, and project showcase with filtering capabilities.',
-    imageUrl: '/images/medical-clinics.jpg',
+    imageUrl: 'images/medical-clinics.jpg',
     categories: [ProjectCategory.React, ProjectCategory.TypeScript, ProjectCategory.TailwindCSS],
   },
   decorators: [
@@ -107,7 +107,7 @@ export const LongTitle: Story = {
     title: 'Advanced Machine Learning Analytics Platform for Enterprise Data Processing',
     description:
       'An advanced analytics platform that leverages machine learning algorithms to process large datasets and provide actionable insights for enterprise decision-making.',
-    imageUrl: '/images/polymers1.jpg',
+    imageUrl: 'images/polymers1.jpg',
     categories: [ProjectCategory.React, ProjectCategory.TypeScript, ProjectCategory.NodeJS],
   },
   decorators: [
@@ -131,7 +131,7 @@ export const ManyCategories: Story = {
     title: 'Multi-Technology Project',
     description:
       'A complex project utilizing multiple technologies and frameworks to demonstrate interoperability and comprehensive full-stack development skills across different platforms and languages.',
-    imageUrl: '/images/water-supply.jpg',
+    imageUrl: 'images/water-supply.jpg',
     categories: [
       ProjectCategory.React,
       ProjectCategory.Redux,
@@ -173,31 +173,31 @@ export const ProjectGrid: Story = {
       <ProjectsCard
         title="E-Commerce Platform"
         description="Modern e-commerce platform with React and Node.js"
-        imageUrl="/images/e-learning.jpg"
+        imageUrl="images/e-learning.jpg"
         categories={[ProjectCategory.React, ProjectCategory.TypeScript, ProjectCategory.NodeJS]}
       />
       <ProjectsCard
         title="Vue Dashboard"
         description="Dashboard application built with Vue.js"
-        imageUrl="/images/fin-tech.jpg"
+        imageUrl="images/fin-tech.jpg"
         categories={[ProjectCategory.Vue, ProjectCategory.JavaScript]}
       />
       <ProjectsCard
         title="Angular App"
         description="Enterprise application with Angular"
-        imageUrl="/images/automotive.jpg"
+        imageUrl="images/automotive.jpg"
         categories={[ProjectCategory.Angular, ProjectCategory.TypeScript]}
       />
       <ProjectsCard
         title="PHP CMS"
         description="Content management system in PHP"
-        imageUrl="/images/dental-clinics.jpg"
+        imageUrl="images/dental-clinics.jpg"
         categories={[ProjectCategory.PHP, ProjectCategory.HTML, ProjectCategory.CSS]}
       />
       <ProjectsCard
         title="Full-Stack App"
         description="Complete social media platform"
-        imageUrl="/images/real-estate.jpg"
+        imageUrl="images/real-estate.jpg"
         categories={[ProjectCategory.React, ProjectCategory.Redux, ProjectCategory.NodeJS]}
       />
     </div>
@@ -217,7 +217,7 @@ export const InteractiveExample: Story = {
     title: 'Interactive Demo',
     description:
       'This is an interactive example. Click on the card to open the dialog and see the full project description. The dialog will show the title, technology icons, and complete description in a larger format.',
-    imageUrl: '/images/food.jpg',
+    imageUrl: 'images/food.jpg',
     categories: [ProjectCategory.React, ProjectCategory.Storybook, ProjectCategory.TypeScript],
   },
   decorators: [

@@ -3,6 +3,7 @@ import { ProjectCategory } from '../libs/enums';
 import ProjectsIcons from './ProjectsIcons';
 import { Dialog, DialogContent, DialogDescription, DialogTrigger } from './ui/dialog';
 import { DialogTitle } from '@radix-ui/react-dialog';
+import Paths from '../Paths';
 
 type ProjectCardProps = {
   title: string;
@@ -15,7 +16,7 @@ const ProjectsCard = ({ title, description, imageUrl, categories = [] }: Project
   <Dialog>
     <DialogTrigger asChild>
       <Card className="flex gap-3 flex-col p-4 w-75 h-90 project-card bg-background/70">
-        {imageUrl && <img src={imageUrl} alt={title} className="w-full rounded-md border" />}
+        {imageUrl && <img src={`${Paths.baseUrl}${imageUrl}`} alt={title} className="w-full rounded-md border" />}
         <p className="text-pretty">{title}</p>
         <ProjectsIcons categories={categories} />
       </Card>

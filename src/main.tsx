@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router';
 import emailjs from '@emailjs/browser';
 import './globals.css';
 import App from './App';
+import Paths from './Paths';
 
 // Initialize EmailJS with your public key from environment variables
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
-const basename = import.meta.env.BASE_URL;
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
@@ -17,7 +17,7 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename={Paths.baseUrl}>
       <App />
     </BrowserRouter>
   </StrictMode>
