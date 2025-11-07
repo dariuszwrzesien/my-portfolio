@@ -4,6 +4,7 @@ import { CONTACT_FORM_FIELDS } from '../libs/types';
 import ContactCode from '../components/ContactCode';
 import ContactSuccess from '../components/ContactSuccess';
 import ContactError from '../components/ContactError';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [successSent, setSuccessSent] = useState(false);
   const [errorSent, setErrorSent] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleOnChange = (fieldName: string, value: string) => {
     switch (fieldName) {
@@ -57,9 +59,11 @@ const Contact = () => {
           {errorSent && <ContactError onSendMessage={handleOnSendNewMessage} />}
         </div>
       </section>
-      <section className="flex flex-col justify-center border-l bg-background/70">
-        <ContactCode name={name} email={email} message={message} className="w-xl" />
-      </section>
+      {!isMobile && (
+        <section className="flex flex-col justify-center border-l bg-background/70">
+          <ContactCode name={name} email={email} message={message} className="w-xl" />
+        </section>
+      )}
     </div>
   );
 };

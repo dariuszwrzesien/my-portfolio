@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import Paths from '../Paths';
 import { cn } from '../libs/utils';
 
@@ -34,7 +34,6 @@ const HeaderMobile = ({ className }: { className?: string }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -58,24 +57,11 @@ const HeaderMobile = ({ className }: { className?: string }) => {
   return (
     <>
       <header className={cn('bg-background border border-stroke relative z-50', className)}>
-        <nav className="flex justify-between items-center">
-          <div
-            className={cn(
-              'border-b-3 border-b-background border-r-text-slate text-md text-center py-4 custom-sidebar-width cursor-default',
-              isMenuOpen ? 'invisible' : ''
-            )}
-            onClick={() => {
-              navigate(Paths.home);
-              closeMenu();
-            }}
-          >
-            dariusz-wrzesień
-          </div>
-
+        <nav className="flex p-4 items-center justify-end">
           {/* Hamburger Menu Button */}
           <button
             onClick={toggleMenu}
-            className="text-text-primary cursor-pointer hover:text-accent-blue transition-colors duration-200 px-8"
+            className="text-text-primary cursor-pointer hover:text-accent-blue transition-colors duration-200"
             aria-label="Toggle navigation menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
