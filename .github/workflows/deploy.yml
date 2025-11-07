@@ -1,5 +1,12 @@
 name: Build and Deploy
 
+# Required GitHub Secrets:
+# - VITE_EMAILJS_PUBLIC_KEY: EmailJS public key for contact form
+# - VITE_EMAILJS_SERVICE_ID: EmailJS service ID for email sending
+# - VITE_EMAILJS_TEMPLATE_ID: EmailJS template ID for email formatting
+#
+# These secrets should be configured in: Settings > Secrets and variables > Actions
+
 on:
   push:
     branches:
@@ -67,6 +74,12 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          # Base url
+          VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
+          # EmailJS configuration - required for contact form functionality
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
 
       - name: Upload application artifact
         uses: actions/upload-artifact@v4

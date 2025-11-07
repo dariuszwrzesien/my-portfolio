@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import ContactForm from './ContactForm';
-import { CONTACT_FORM_FIELDS } from '../libs/types/ContactForm.types';
 
 const meta: Meta<typeof ContactForm> = {
   title: 'Components/ContactForm',

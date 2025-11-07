@@ -8,6 +8,7 @@ import App from './App';
 // Initialize EmailJS with your public key from environment variables
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
+const basename = import.meta.env.VITE_BASE_PATH || '';
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
@@ -16,7 +17,7 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </StrictMode>

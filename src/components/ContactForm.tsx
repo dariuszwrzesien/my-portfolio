@@ -16,7 +16,7 @@ import {
   MAX_EMAIL_LENGTH,
   MIN_MESSAGE_LENGTH,
   MAX_MESSAGE_LENGTH,
-} from '../libs/types/ContactForm.types';
+} from '../libs/types';
 
 const formSchema = z.object({
   [CONTACT_FORM_FIELDS.NAME]: z

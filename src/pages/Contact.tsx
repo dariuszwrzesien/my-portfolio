@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import ContactForm from '../components/ContactForm';
-import { CONTACT_FORM_FIELDS } from '../libs/types/ContactForm.types';
-import TextBlock from '../components/TextBlock';
+import { CONTACT_FORM_FIELDS } from '../libs/types';
 import ContactCode from '../components/ContactCode';
 import ContactSuccess from '../components/ContactSuccess';
 import ContactError from '../components/ContactError';
