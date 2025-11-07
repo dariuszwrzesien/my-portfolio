@@ -1,11 +1,11 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: "Fira Code";
-  src: url("/fonts/FiraCode-VariableFont_wght.ttf") format("truetype");
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
   font-weight: 300 400 500 600 700 800;
   font-display: swap;
 }
@@ -50,14 +50,15 @@
 
   /* Typography System */
   /* Font Families */
-  --font-sans: "Fira Code", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Fira Code", ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
-  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
-    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-display: "Fira Code", ui-sans-serif, system-ui, sans-serif;
-  --font-fira-code: "Fira Code", ui-monospace, monospace;
+  --font-sans:
+    'Fira Code', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-serif: 'Fira Code', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono:
+    'Fira Code', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --font-display: 'Fira Code', ui-sans-serif, system-ui, sans-serif;
+  --font-fira-code: 'Fira Code', ui-monospace, monospace;
 
   /* Font Sizes with Line Heights */
   --text-xs: 0.75rem;
@@ -281,7 +282,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Fira Code", ui-monospace, system-ui, sans-serif;
+    font-family: 'Fira Code', ui-monospace, system-ui, sans-serif;
   }
 
   /* Typography base styles */
@@ -376,7 +377,7 @@
   }
 
   .text-right-aligned-numbers {
-    font-family: "Fira Code";
+    font-family: 'Fira Code';
     text-align: right;
     display: inline-block;
     min-width: 30px;
@@ -478,7 +479,8 @@
 
 /* Glow Linear Shadows */
 .shadow-linear-glow {
-  box-shadow: 0 0 20px 0 rgba(139, 92, 246, 0.3),
+  box-shadow:
+    0 0 20px 0 rgba(139, 92, 246, 0.3),
     0 4px 14px 0 rgba(139, 92, 246, 0.15);
 }
 
@@ -492,7 +494,9 @@
     rgba(0, 0, 0, 0.1) 80%,
     rgba(0, 0, 0, 0.3) 100%
   );
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
-    inset 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(255, 255, 255, 0.1);
   position: relative;
 }

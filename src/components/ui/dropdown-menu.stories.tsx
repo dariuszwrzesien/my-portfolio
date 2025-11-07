@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import { useState } from "react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+import { useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -16,7 +16,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
   DropdownMenuGroup,
-} from "./dropdown-menu";
+} from './dropdown-menu';
 import {
   RiMoreLine,
   RiEdit2Line,
@@ -30,32 +30,32 @@ import {
   RiPaletteLine,
   RiMoonLine,
   RiSunLine,
-} from "@remixicon/react";
+} from '@remixicon/react';
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: "Components/UI/DropdownMenu",
+  title: 'Components/UI/DropdownMenu',
   component: DropdownMenu,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     docs: {
       description: {
         component:
-          "A dropdown menu component built with Radix UI primitives. Supports regular items, checkbox items, radio groups, separators, shortcuts, and nested submenus.",
+          'A dropdown menu component built with Radix UI primitives. Supports regular items, checkbox items, radio groups, separators, shortcuts, and nested submenus.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     open: {
-      description: "The controlled open state of the dropdown",
-      control: "boolean",
+      description: 'The controlled open state of the dropdown',
+      control: 'boolean',
     },
     defaultOpen: {
-      description: "The default open state (uncontrolled)",
-      control: "boolean",
+      description: 'The default open state (uncontrolled)',
+      control: 'boolean',
     },
     onOpenChange: {
-      description: "Callback when the open state changes",
+      description: 'Callback when the open state changes',
     },
   },
 };
@@ -96,8 +96,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Basic dropdown menu with regular items and a destructive action.",
+        story: 'Basic dropdown menu with regular items and a destructive action.',
       },
     },
   },
@@ -140,102 +139,100 @@ export const WithShortcuts: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Dropdown menu with keyboard shortcuts displayed.",
+        story: 'Dropdown menu with keyboard shortcuts displayed.',
       },
     },
   },
+};
+
+const WithCheckboxesComponent = () => {
+  const [checkedItems, setCheckedItems] = useState({
+    statusBar: true,
+    sidebar: false,
+    minimap: true,
+  });
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+          View Options
+          <RiMoreLine className="w-4 h-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-48">
+        <DropdownMenuLabel>Toggle UI Elements</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem
+          checked={checkedItems.statusBar}
+          onCheckedChange={(checked) => setCheckedItems((prev) => ({ ...prev, statusBar: !!checked }))}
+        >
+          Status Bar
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={checkedItems.sidebar}
+          onCheckedChange={(checked) => setCheckedItems((prev) => ({ ...prev, sidebar: !!checked }))}
+        >
+          Sidebar
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={checkedItems.minimap}
+          onCheckedChange={(checked) => setCheckedItems((prev) => ({ ...prev, minimap: !!checked }))}
+        >
+          Minimap
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 };
 
 export const WithCheckboxes: Story = {
-  render: () => {
-    const [checkedItems, setCheckedItems] = useState({
-      statusBar: true,
-      sidebar: false,
-      minimap: true,
-    });
-
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-            View Options
-            <RiMoreLine className="w-4 h-4" />
-          </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-48">
-          <DropdownMenuLabel>Toggle UI Elements</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuCheckboxItem
-            checked={checkedItems.statusBar}
-            onCheckedChange={(checked) =>
-              setCheckedItems((prev) => ({ ...prev, statusBar: !!checked }))
-            }
-          >
-            Status Bar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={checkedItems.sidebar}
-            onCheckedChange={(checked) =>
-              setCheckedItems((prev) => ({ ...prev, sidebar: !!checked }))
-            }
-          >
-            Sidebar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={checkedItems.minimap}
-            onCheckedChange={(checked) =>
-              setCheckedItems((prev) => ({ ...prev, minimap: !!checked }))
-            }
-          >
-            Minimap
-          </DropdownMenuCheckboxItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
-  },
+  render: () => <WithCheckboxesComponent />,
   parameters: {
     docs: {
       description: {
-        story: "Dropdown menu with checkbox items for toggling features.",
+        story: 'Dropdown menu with checkbox items for toggling features.',
       },
     },
   },
 };
 
-export const WithRadioGroup: Story = {
-  render: () => {
-    const [theme, setTheme] = useState("system");
+const WithRadioGroupComponent = () => {
+  const [theme, setTheme] = useState('system');
 
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
-            <RiPaletteLine className="w-4 h-4" />
-            Theme
-          </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-36">
-          <DropdownMenuLabel>Theme</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
-            <DropdownMenuRadioItem value="light">
-              <RiSunLine className="w-4 h-4" />
-              Light
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="dark">
-              <RiMoonLine className="w-4 h-4" />
-              Dark
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
-  },
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
+          <RiPaletteLine className="w-4 h-4" />
+          Theme
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-36">
+        <DropdownMenuLabel>Theme</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
+          <DropdownMenuRadioItem value="light">
+            <RiSunLine className="w-4 h-4" />
+            Light
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="dark">
+            <RiMoonLine className="w-4 h-4" />
+            Dark
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+export const WithRadioGroup: Story = {
+  render: () => <WithRadioGroupComponent />,
   parameters: {
     docs: {
       description: {
-        story: "Dropdown menu with radio group for selecting theme options.",
+        story: 'Dropdown menu with radio group for selecting theme options.',
       },
     },
   },
@@ -289,7 +286,7 @@ export const WithSubmenus: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Dropdown menu with nested submenus for complex navigation.",
+        story: 'Dropdown menu with nested submenus for complex navigation.',
       },
     },
   },
@@ -333,7 +330,7 @@ export const UserProfileMenu: Story = {
   parameters: {
     docs: {
       description: {
-        story: "User profile dropdown menu with account actions.",
+        story: 'User profile dropdown menu with account actions.',
       },
     },
   },
@@ -372,63 +369,56 @@ export const DisabledItems: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Dropdown menu with some disabled items to show restricted actions.",
+        story: 'Dropdown menu with some disabled items to show restricted actions.',
       },
     },
   },
 };
 
-export const ControlledDropdown: Story = {
-  render: () => {
-    const [open, setOpen] = useState(false);
+const ControlledDropdownComponent = () => {
+  const [open, setOpen] = useState(false);
 
-    return (
-      <div className="space-y-4 p-5">
-        <DropdownMenu open={open} onOpenChange={setOpen}>
-          <DropdownMenuTrigger asChild>
-            <button className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-              Controlled Menu
-              <RiMoreLine className="w-4 h-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => setOpen(false)}>
-              Action 1
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setOpen(false)}>
-              Action 2
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setOpen(false)}>
-              Action 3
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+  return (
+    <div className="space-y-4 p-5">
+      <DropdownMenu open={open} onOpenChange={setOpen}>
+        <DropdownMenuTrigger asChild>
+          <button className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+            Controlled Menu
+            <RiMoreLine className="w-4 h-4" />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem onClick={() => setOpen(false)}>Action 1</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setOpen(false)}>Action 2</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setOpen(false)}>Action 3</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
-        <div className="flex gap-2">
-          <button
-            onClick={() => setOpen(true)}
-            className="px-3 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 transition-colors"
-          >
-            Open Menu
-          </button>
-          <button
-            onClick={() => setOpen(false)}
-            className="px-3 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 transition-colors"
-          >
-            Close Menu
-          </button>
-        </div>
-        <p className="text-sm text-gray-600">
-          Menu is currently: {open ? "Open" : "Closed"}
-        </p>
+      <div className="flex gap-2">
+        <button
+          onClick={() => setOpen(true)}
+          className="px-3 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+        >
+          Open Menu
+        </button>
+        <button
+          onClick={() => setOpen(false)}
+          className="px-3 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+        >
+          Close Menu
+        </button>
       </div>
-    );
-  },
+      <p className="text-sm text-gray-600">Menu is currently: {open ? 'Open' : 'Closed'}</p>
+    </div>
+  );
+};
+
+export const ControlledDropdown: Story = {
+  render: () => <ControlledDropdownComponent />,
   parameters: {
     docs: {
       description: {
-        story: "Controlled dropdown menu with external state management.",
+        story: 'Controlled dropdown menu with external state management.',
       },
     },
   },
@@ -457,7 +447,7 @@ export const LargeMenu: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Large dropdown menu with many items that requires scrolling.",
+        story: 'Large dropdown menu with many items that requires scrolling.',
       },
     },
   },

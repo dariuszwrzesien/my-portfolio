@@ -1,5 +1,5 @@
-import AboutSidebar from "../components/AboutMeSidebar";
-import { Outlet } from "react-router";
+import AboutSidebar from '../components/AboutMeSidebar';
+import { Outlet } from 'react-router';
 
 const AboutMe = () => {
   return (

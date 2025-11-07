@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MemoryRouter } from "react-router";
-import { LayoutProvider } from "../contexts";
-import FooterDesktop from "./FooterDesktop";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { MemoryRouter } from 'react-router';
+import { LayoutProvider } from '../contexts';
+import FooterDesktop from './FooterDesktop';
 
 const meta: Meta<typeof FooterDesktop> = {
-  title: "Components/FooterDesktop",
+  title: 'Components/FooterDesktop',
   component: FooterDesktop,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 };
 
 export default meta;
@@ -19,7 +19,7 @@ export const Default: Story = {
   decorators: [
     (Story) => (
       <LayoutProvider>
-        <MemoryRouter initialEntries={["/"]}>
+        <MemoryRouter initialEntries={['/']}>
           <Story />
         </MemoryRouter>
       </LayoutProvider>

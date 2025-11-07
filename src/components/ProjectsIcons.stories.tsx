@@ -1,25 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import ProjectsIcons from "./ProjectsIcons";
-import { ProjectCategory } from "../libs/enums";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import ProjectsIcons from './ProjectsIcons';
+import { ProjectCategory } from '../libs/enums';
 
 const meta: Meta<typeof ProjectsIcons> = {
-  title: "Components/ProjectsIcons",
+  title: 'Components/ProjectsIcons',
   component: ProjectsIcons,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A component that displays technology icons with tooltips. Used to show the technologies used in a project. Each icon is wrapped in a tooltip that shows the technology name on hover.",
+          'A component that displays technology icons with tooltips. Used to show the technologies used in a project. Each icon is wrapped in a tooltip that shows the technology name on hover.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     categories: {
-      description:
-        "Array of project categories/technologies to display as icons",
-      control: "object",
+      description: 'Array of project categories/technologies to display as icons',
+      control: 'object',
     },
   },
 };
@@ -29,11 +28,7 @@ type Story = StoryObj<Meta<typeof ProjectsIcons>>;
 
 export const Default: Story = {
   args: {
-    categories: [
-      ProjectCategory.React,
-      ProjectCategory.TypeScript,
-      ProjectCategory.NodeJS,
-    ],
+    categories: [ProjectCategory.React, ProjectCategory.TypeScript, ProjectCategory.NodeJS],
   },
 };
 
@@ -44,7 +39,7 @@ export const SingleIcon: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Shows a single technology icon.",
+        story: 'Shows a single technology icon.',
       },
     },
   },
@@ -70,7 +65,7 @@ export const AllTechnologies: Story = {
   parameters: {
     docs: {
       description: {
-        story: "All available technology icons to show the complete icon set.",
+        story: 'All available technology icons to show the complete icon set.',
       },
     },
   },
@@ -78,12 +73,7 @@ export const AllTechnologies: Story = {
 
 export const InteractiveTooltips: Story = {
   args: {
-    categories: [
-      ProjectCategory.React,
-      ProjectCategory.Vue,
-      ProjectCategory.Angular,
-      ProjectCategory.NodeJS,
-    ],
+    categories: [ProjectCategory.React, ProjectCategory.Vue, ProjectCategory.Angular, ProjectCategory.NodeJS],
   },
   decorators: [
     (Story) => (
@@ -98,8 +88,7 @@ export const InteractiveTooltips: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Interactive example demonstrating the tooltip functionality on hover.",
+        story: 'Interactive example demonstrating the tooltip functionality on hover.',
       },
     },
   },

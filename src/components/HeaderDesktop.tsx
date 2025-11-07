@@ -1,13 +1,13 @@
-import { useLocation, useNavigate } from "react-router";
-import HeaderDesktopLink from "./HeaderDesktopLink";
-import Paths from "../Paths";
-import { cn } from "../libs/utils";
+import { useLocation, useNavigate } from 'react-router';
+import HeaderDesktopLink from './HeaderDesktopLink';
+import Paths from '../Paths';
+import { cn } from '../libs/utils';
 
 const HeaderDesktop = ({ className }: { className?: string }) => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <header className={cn("bg-background border border-stroke z-1", className)}>
+    <header className={cn('bg-background border border-stroke z-1', className)}>
       <nav className="flex justify-between">
         <div className="flex">
           <div

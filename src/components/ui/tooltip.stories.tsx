@@ -1,38 +1,32 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import { Tooltip, TooltipTrigger, TooltipContent } from "./tooltip";
-import {
-  RiInformationLine,
-  RiQuestionLine,
-  RiSettings4Line,
-  RiHeartLine,
-  RiDeleteBin2Line,
-} from "@remixicon/react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+import { Tooltip, TooltipTrigger, TooltipContent } from './tooltip';
+import { RiInformationLine, RiQuestionLine, RiSettings4Line, RiHeartLine, RiDeleteBin2Line } from '@remixicon/react';
 
 const meta: Meta<typeof Tooltip> = {
-  title: "Components/UI/Tooltip",
+  title: 'Components/UI/Tooltip',
   component: Tooltip,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     docs: {
       description: {
         component:
-          "A tooltip component built with Radix UI primitives. Displays contextual information when hovering or focusing on trigger elements.",
+          'A tooltip component built with Radix UI primitives. Displays contextual information when hovering or focusing on trigger elements.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     open: {
-      description: "The controlled open state of the tooltip",
-      control: "boolean",
+      description: 'The controlled open state of the tooltip',
+      control: 'boolean',
     },
     defaultOpen: {
-      description: "The default open state (uncontrolled)",
-      control: "boolean",
+      description: 'The default open state (uncontrolled)',
+      control: 'boolean',
     },
     onOpenChange: {
-      description: "Callback when the open state changes",
+      description: 'Callback when the open state changes',
     },
   },
   args: {
@@ -59,7 +53,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Basic tooltip that appears on hover.",
+        story: 'Basic tooltip that appears on hover.',
       },
     },
   },
@@ -81,7 +75,7 @@ export const WithIcon: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tooltip attached to an icon button.",
+        story: 'Tooltip attached to an icon button.',
       },
     },
   },
@@ -106,7 +100,7 @@ export const HelpTooltip: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Help tooltip next to a form label.",
+        story: 'Help tooltip next to a form label.',
       },
     },
   },
@@ -122,9 +116,8 @@ export const LongContent: Story = {
       </TooltipTrigger>
       <TooltipContent className="max-w-xs">
         <p>
-          This is a longer tooltip message that demonstrates how the tooltip
-          handles multi-line content. It automatically balances the text and
-          maintains good readability.
+          This is a longer tooltip message that demonstrates how the tooltip handles multi-line content. It
+          automatically balances the text and maintains good readability.
         </p>
       </TooltipContent>
     </Tooltip>
@@ -132,7 +125,7 @@ export const LongContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tooltip with longer, multi-line content.",
+        story: 'Tooltip with longer, multi-line content.',
       },
     },
   },
@@ -143,9 +136,7 @@ export const Positions: Story = {
     <div className="grid grid-cols-4 gap-8 items-center">
       <Tooltip>
         <TooltipTrigger asChild>
-          <button className="px-3 py-2 bg-gray-600 text-white rounded">
-            Left
-          </button>
+          <button className="px-3 py-2 bg-gray-600 text-white rounded">Left</button>
         </TooltipTrigger>
         <TooltipContent side="left">
           <p>Tooltip on left</p>
@@ -153,9 +144,7 @@ export const Positions: Story = {
       </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
-          <button className="px-3 py-2 bg-green-600 text-white rounded">
-            Top
-          </button>
+          <button className="px-3 py-2 bg-green-600 text-white rounded">Top</button>
         </TooltipTrigger>
         <TooltipContent side="top">
           <p>Tooltip on top</p>
@@ -163,9 +152,7 @@ export const Positions: Story = {
       </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
-          <button className="px-3 py-2 bg-blue-600 text-white rounded">
-            Bottom
-          </button>
+          <button className="px-3 py-2 bg-blue-600 text-white rounded">Bottom</button>
         </TooltipTrigger>
         <TooltipContent side="bottom">
           <p>Tooltip on bottom</p>
@@ -173,9 +160,7 @@ export const Positions: Story = {
       </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
-          <button className="px-3 py-2 bg-red-600 text-white rounded">
-            Right
-          </button>
+          <button className="px-3 py-2 bg-red-600 text-white rounded">Right</button>
         </TooltipTrigger>
         <TooltipContent side="right">
           <p>Tooltip on right</p>
@@ -186,7 +171,7 @@ export const Positions: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tooltips positioned on different sides of their triggers.",
+        story: 'Tooltips positioned on different sides of their triggers.',
       },
     },
   },
@@ -232,7 +217,7 @@ export const ActionTooltips: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Action buttons with descriptive tooltips.",
+        story: 'Action buttons with descriptive tooltips.',
       },
     },
   },
@@ -244,10 +229,7 @@ export const DisabledElement: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <span className="inline-block">
-            <button
-              className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed"
-              disabled
-            >
+            <button className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed" disabled>
               Disabled Button
             </button>
           </span>
@@ -260,10 +242,7 @@ export const DisabledElement: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <span className="inline-block">
-            <button
-              className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed"
-              disabled
-            >
+            <button className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed" disabled>
               Premium Feature
             </button>
           </span>
@@ -277,8 +256,7 @@ export const DisabledElement: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Tooltips on disabled elements (wrapped in span for accessibility).",
+        story: 'Tooltips on disabled elements (wrapped in span for accessibility).',
       },
     },
   },
@@ -296,9 +274,7 @@ export const WithKeyboardShortcut: Story = {
         <TooltipContent>
           <div className="flex items-center gap-2">
             <span>Save document</span>
-            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">
-              ⌘S
-            </span>
+            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">⌘S</span>
           </div>
         </TooltipContent>
       </Tooltip>
@@ -312,9 +288,7 @@ export const WithKeyboardShortcut: Story = {
         <TooltipContent>
           <div className="flex items-center gap-2">
             <span>Open search</span>
-            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">
-              ⌘K
-            </span>
+            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">⌘K</span>
           </div>
         </TooltipContent>
       </Tooltip>
@@ -323,7 +297,7 @@ export const WithKeyboardShortcut: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tooltips that include keyboard shortcuts.",
+        story: 'Tooltips that include keyboard shortcuts.',
       },
     },
   },
@@ -386,8 +360,7 @@ export const FormTooltips: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Tooltips used in form context to provide additional information.",
+        story: 'Tooltips used in form context to provide additional information.',
       },
     },
   },
@@ -407,16 +380,10 @@ export const RichContent: Story = {
             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
             <span className="font-medium">Service Status: Online</span>
           </div>
-          <p className="text-xs">
-            All systems operational. Last updated: 2 minutes ago
-          </p>
+          <p className="text-xs">All systems operational. Last updated: 2 minutes ago</p>
           <div className="flex gap-1">
-            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">
-              99.9% uptime
-            </span>
-            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">
-              5ms latency
-            </span>
+            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">99.9% uptime</span>
+            <span className="text-xs bg-white/20 px-1.5 py-0.5 rounded">5ms latency</span>
           </div>
         </div>
       </TooltipContent>
@@ -425,8 +392,7 @@ export const RichContent: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Tooltip with rich content including status indicators and metrics.",
+        story: 'Tooltip with rich content including status indicators and metrics.',
       },
     },
   },

@@ -1,5 +1,5 @@
-import { RiFileCodeFill } from "@remixicon/react";
-import { Link } from "react-router";
+import { RiFileCodeFill } from '@remixicon/react';
+import { Link } from 'react-router';
 
 interface AboutMeSidebarSublinkProps {
   label: string;

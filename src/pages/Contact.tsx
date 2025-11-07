@@ -1,14 +1,15 @@
-import { useState } from "react";
-import ContactForm, { CONTACT_FORM_FIELDS } from "../components/ContactForm";
-import TextBlock from "../components/TextBlock";
-import ContactCode from "../components/ContactCode";
-import ContactSuccess from "../components/ContactSuccess";
-import ContactError from "../components/ContactError";
+import { useState } from 'react';
+import ContactForm from '../components/ContactForm';
+import { CONTACT_FORM_FIELDS } from '../libs/types/ContactForm.types';
+import TextBlock from '../components/TextBlock';
+import ContactCode from '../components/ContactCode';
+import ContactSuccess from '../components/ContactSuccess';
+import ContactError from '../components/ContactError';
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [successSent, setSuccessSent] = useState(false);
   const [errorSent, setErrorSent] = useState(false);
 
@@ -33,7 +34,7 @@ const Contact = () => {
     setErrorSent(false);
   };
 
-  const handleOnError = (error: any) => {
+  const handleOnError = () => {
     setErrorSent(true);
     setSuccessSent(false);
   };
@@ -41,9 +42,9 @@ const Contact = () => {
   const handleOnSendNewMessage = () => {
     setSuccessSent(false);
     setErrorSent(false);
-    setName("");
-    setEmail("");
-    setMessage("");
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (
@@ -51,25 +52,14 @@ const Contact = () => {
       <section className="flex overflow-auto flex-col justify-center items-center w-full p-8">
         <div className="w-full max-w-2xl">
           {!successSent && !errorSent && (
-            <ContactForm
-              onChange={handleOnChange}
-              onSuccess={handleOnSuccess}
-              onError={handleOnError}
-            />
+            <ContactForm onChange={handleOnChange} onSuccess={handleOnSuccess} onError={handleOnError} />
           )}
-          {successSent && (
-            <ContactSuccess onSendMessage={handleOnSendNewMessage} />
-          )}
+          {successSent && <ContactSuccess onSendMessage={handleOnSendNewMessage} />}
           {errorSent && <ContactError onSendMessage={handleOnSendNewMessage} />}
         </div>
       </section>
       <section className="flex flex-col justify-center border-l bg-background/70">
-        <ContactCode
-          name={name}
-          email={email}
-          message={message}
-          className="w-xl"
-        />
+        <ContactCode name={name} email={email} message={message} className="w-xl" />
       </section>
     </div>
   );

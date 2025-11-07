@@ -1,6 +1,6 @@
-import TextBlock from "../../components/TextBlock";
-import educations from "../../data/educations.html?raw";
-import { useScrollTo } from "../../hooks/use-scrollTo";
+import TextBlock from '../../components/TextBlock';
+import educations from '../../data/educations.html?raw';
+import { useScrollTo } from '../../hooks/use-scrollTo';
 
 const Educations = () => {
   const { ref } = useScrollTo();

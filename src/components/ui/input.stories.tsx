@@ -1,65 +1,50 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import { useState } from "react";
-import { Input } from "./input";
-import {
-  RiSearchLine,
-  RiEyeLine,
-  RiEyeOffLine,
-  RiUser3Line,
-  RiMailLine,
-} from "@remixicon/react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+import { useState } from 'react';
+import { Input } from './input';
+import { RiSearchLine, RiEyeLine, RiEyeOffLine, RiUser3Line, RiMailLine } from '@remixicon/react';
 
 const meta: Meta<typeof Input> = {
-  title: "Components/UI/Input",
+  title: 'Components/UI/Input',
   component: Input,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     docs: {
       description: {
         component:
-          "A flexible input component with support for different types, states, and custom styling. Built with proper accessibility and focus management.",
+          'A flexible input component with support for different types, states, and custom styling. Built with proper accessibility and focus management.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      description: "The input type",
-      control: "select",
-      options: [
-        "text",
-        "email",
-        "password",
-        "number",
-        "tel",
-        "url",
-        "search",
-        "file",
-      ],
+      description: 'The input type',
+      control: 'select',
+      options: ['text', 'email', 'password', 'number', 'tel', 'url', 'search', 'file'],
     },
     placeholder: {
-      description: "Placeholder text",
-      control: "text",
+      description: 'Placeholder text',
+      control: 'text',
     },
     disabled: {
-      description: "Whether the input is disabled",
-      control: "boolean",
+      description: 'Whether the input is disabled',
+      control: 'boolean',
     },
     value: {
-      description: "The input value (controlled)",
-      control: "text",
+      description: 'The input value (controlled)',
+      control: 'text',
     },
     defaultValue: {
-      description: "Default value (uncontrolled)",
-      control: "text",
+      description: 'Default value (uncontrolled)',
+      control: 'text',
     },
     className: {
-      description: "Additional CSS classes",
-      control: "text",
+      description: 'Additional CSS classes',
+      control: 'text',
     },
     onChange: {
-      description: "Change event handler",
+      description: 'Change event handler',
     },
   },
   args: {
@@ -72,12 +57,12 @@ type Story = StoryObj<Meta<typeof Input>>;
 
 export const Default: Story = {
   args: {
-    placeholder: "Enter text...",
+    placeholder: 'Enter text...',
   },
   parameters: {
     docs: {
       description: {
-        story: "Default text input with placeholder.",
+        story: 'Default text input with placeholder.',
       },
     },
   },
@@ -85,13 +70,13 @@ export const Default: Story = {
 
 export const WithValue: Story = {
   args: {
-    defaultValue: "Pre-filled value",
-    placeholder: "Enter text...",
+    defaultValue: 'Pre-filled value',
+    placeholder: 'Enter text...',
   },
   parameters: {
     docs: {
       description: {
-        story: "Input with a pre-filled value.",
+        story: 'Input with a pre-filled value.',
       },
     },
   },
@@ -99,13 +84,13 @@ export const WithValue: Story = {
 
 export const Disabled: Story = {
   args: {
-    placeholder: "Disabled input",
+    placeholder: 'Disabled input',
     disabled: true,
   },
   parameters: {
     docs: {
       description: {
-        story: "Disabled input state.",
+        story: 'Disabled input state.',
       },
     },
   },
@@ -113,13 +98,13 @@ export const Disabled: Story = {
 
 export const DisabledWithValue: Story = {
   args: {
-    value: "Cannot edit this",
+    value: 'Cannot edit this',
     disabled: true,
   },
   parameters: {
     docs: {
       description: {
-        story: "Disabled input with value.",
+        story: 'Disabled input with value.',
       },
     },
   },
@@ -127,13 +112,13 @@ export const DisabledWithValue: Story = {
 
 export const Email: Story = {
   args: {
-    type: "email",
-    placeholder: "Enter your email",
+    type: 'email',
+    placeholder: 'Enter your email',
   },
   parameters: {
     docs: {
       description: {
-        story: "Email input type with appropriate validation.",
+        story: 'Email input type with appropriate validation.',
       },
     },
   },
@@ -141,13 +126,13 @@ export const Email: Story = {
 
 export const Password: Story = {
   args: {
-    type: "password",
-    placeholder: "Enter password",
+    type: 'password',
+    placeholder: 'Enter password',
   },
   parameters: {
     docs: {
       description: {
-        story: "Password input type with hidden characters.",
+        story: 'Password input type with hidden characters.',
       },
     },
   },
@@ -155,15 +140,15 @@ export const Password: Story = {
 
 export const Number: Story = {
   args: {
-    type: "number",
-    placeholder: "",
+    type: 'number',
+    placeholder: '',
     min: 0,
     max: 100,
   },
   parameters: {
     docs: {
       description: {
-        story: "Number input with min/max constraints.",
+        story: 'Number input with min/max constraints.',
       },
     },
   },
@@ -171,13 +156,13 @@ export const Number: Story = {
 
 export const Search: Story = {
   args: {
-    type: "search",
-    placeholder: "Search...",
+    type: 'search',
+    placeholder: 'Search...',
   },
   parameters: {
     docs: {
       description: {
-        story: "Search input type.",
+        story: 'Search input type.',
       },
     },
   },
@@ -185,40 +170,38 @@ export const Search: Story = {
 
 export const File: Story = {
   args: {
-    type: "file",
-    accept: ".pdf,.doc,.docx",
+    type: 'file',
+    accept: '.pdf,.doc,.docx',
   },
   parameters: {
     docs: {
       description: {
-        story: "File input with accepted file types.",
+        story: 'File input with accepted file types.',
       },
     },
   },
 };
 
-export const Interactive: Story = {
-  render: () => {
-    const [value, setValue] = useState("");
+const InteractiveComponent = () => {
+  const [value, setValue] = useState('');
 
-    return (
-      <div className="space-y-4 w-80">
-        <Input
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Type something..."
-        />
-        <div className="text-sm text-gray-600">
-          <p>Value: {value || "(empty)"}</p>
-          <p>Length: {value.length}</p>
-        </div>
+  return (
+    <div className="space-y-4 w-80">
+      <Input value={value} onChange={(e) => setValue(e.target.value)} placeholder="Type something..." />
+      <div className="text-sm text-gray-600">
+        <p>Value: {value || '(empty)'}</p>
+        <p>Length: {value.length}</p>
       </div>
-    );
-  },
+    </div>
+  );
+};
+
+export const Interactive: Story = {
+  render: () => <InteractiveComponent />,
   parameters: {
     docs: {
       description: {
-        story: "Interactive input with live value display.",
+        story: 'Interactive input with live value display.',
       },
     },
   },
@@ -246,41 +229,35 @@ export const WithIcon: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Inputs with left-side icons for different purposes.",
+        story: 'Inputs with left-side icons for different purposes.',
       },
     },
   },
 };
 
-export const PasswordWithToggle: Story = {
-  render: () => {
-    const [showPassword, setShowPassword] = useState(false);
+const PasswordWithToggleComponent = () => {
+  const [showPassword, setShowPassword] = useState(false);
 
-    return (
-      <div className="relative w-80">
-        <Input
-          type={showPassword ? "text" : "password"}
-          placeholder="Enter password"
-          className="pr-10"
-        />
-        <button
-          type="button"
-          onClick={() => setShowPassword(!showPassword)}
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-        >
-          {showPassword ? (
-            <RiEyeOffLine className="w-4 h-4" />
-          ) : (
-            <RiEyeLine className="w-4 h-4" />
-          )}
-        </button>
-      </div>
-    );
-  },
+  return (
+    <div className="relative w-80">
+      <Input type={showPassword ? 'text' : 'password'} placeholder="Enter password" className="pr-10" />
+      <button
+        type="button"
+        onClick={() => setShowPassword(!showPassword)}
+        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+      >
+        {showPassword ? <RiEyeOffLine className="w-4 h-4" /> : <RiEyeLine className="w-4 h-4" />}
+      </button>
+    </div>
+  );
+};
+
+export const PasswordWithToggle: Story = {
+  render: () => <PasswordWithToggleComponent />,
   parameters: {
     docs: {
       description: {
-        story: "Password input with visibility toggle functionality.",
+        story: 'Password input with visibility toggle functionality.',
       },
     },
   },
@@ -306,7 +283,7 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Different input sizes using custom height classes.",
+        story: 'Different input sizes using custom height classes.',
       },
     },
   },
@@ -336,95 +313,79 @@ export const ValidationStates: Story = {
           placeholder="This has a warning"
           className="border-yellow-300 focus-visible:border-yellow-500 focus-visible:ring-yellow-500/20"
         />
-        <p className="text-sm text-yellow-600 mt-1">
-          ⚠ Please double-check this value
-        </p>
+        <p className="text-sm text-yellow-600 mt-1">⚠ Please double-check this value</p>
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Different validation states with custom styling and messages.",
+        story: 'Different validation states with custom styling and messages.',
       },
     },
   },
 };
 
-export const FormExample: Story = {
-  render: () => {
-    const [formData, setFormData] = useState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      age: "",
-    });
+const FormExampleComponent = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    age: '',
+  });
 
-    const handleChange =
-      (field: keyof typeof formData) =>
-      (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData((prev) => ({ ...prev, [field]: e.target.value }));
-      };
+  const handleChange = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+  };
 
-    return (
-      <div className="w-96 p-6 border border-gray-200 rounded-lg">
-        <h3 className="text-lg font-semibold mb-4">User Information</h3>
-        <div className="space-y-4">
-          <div>
-            <label className="text-sm font-medium mb-1 block">First Name</label>
-            <Input
-              value={formData.firstName}
-              onChange={handleChange("firstName")}
-              placeholder="Enter your first name"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-1 block">Last Name</label>
-            <Input
-              value={formData.lastName}
-              onChange={handleChange("lastName")}
-              placeholder="Enter your last name"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-1 block">Email</label>
-            <Input
-              type="email"
-              value={formData.email}
-              onChange={handleChange("email")}
-              placeholder="Enter your email"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-1 block">Age</label>
-            <Input
-              type="number"
-              value={formData.age}
-              onChange={handleChange("age")}
-              placeholder="Enter your age"
-              min="1"
-              max="120"
-            />
-          </div>
-
-          <button
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-            onClick={() => alert(JSON.stringify(formData, null, 2))}
-          >
-            Submit
-          </button>
+  return (
+    <div className="w-96 p-6 border border-gray-200 rounded-lg">
+      <h3 className="text-lg font-semibold mb-4">User Information</h3>
+      <div className="space-y-4">
+        <div>
+          <label className="text-sm font-medium mb-1 block">First Name</label>
+          <Input value={formData.firstName} onChange={handleChange('firstName')} placeholder="Enter your first name" />
         </div>
+
+        <div>
+          <label className="text-sm font-medium mb-1 block">Last Name</label>
+          <Input value={formData.lastName} onChange={handleChange('lastName')} placeholder="Enter your last name" />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium mb-1 block">Email</label>
+          <Input type="email" value={formData.email} onChange={handleChange('email')} placeholder="Enter your email" />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium mb-1 block">Age</label>
+          <Input
+            type="number"
+            value={formData.age}
+            onChange={handleChange('age')}
+            placeholder="Enter your age"
+            min="1"
+            max="120"
+          />
+        </div>
+
+        <button
+          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+          onClick={() => alert(JSON.stringify(formData, null, 2))}
+        >
+          Submit
+        </button>
       </div>
-    );
-  },
+    </div>
+  );
+};
+
+export const FormExample: Story = {
+  render: () => <FormExampleComponent />,
   parameters: {
     docs: {
       description: {
-        story:
-          "Complete form example with multiple input types and state management.",
+        story: 'Complete form example with multiple input types and state management.',
       },
     },
   },

@@ -1,40 +1,40 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MemoryRouter } from "react-router";
-import AboutMeSidebarLink from "./AboutMeSidebarLink";
-import AboutMeSidebarSublink from "./AboutMeSidebarSublink";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { MemoryRouter } from 'react-router';
+import AboutMeSidebarLink from './AboutMeSidebarLink';
+import AboutMeSidebarSublink from './AboutMeSidebarSublink';
 
 const meta: Meta<typeof AboutMeSidebarLink> = {
-  title: "Components/AboutMeSidebarLink",
+  title: 'Components/AboutMeSidebarLink',
   component: AboutMeSidebarLink,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A navigation link component for the About Me sidebar that displays a folder icon with expandable/collapsible behavior and optional child links.",
+          'A navigation link component for the About Me sidebar that displays a folder icon with expandable/collapsible behavior and optional child links.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     href: {
-      description: "The URL path for the link",
-      control: "text",
+      description: 'The URL path for the link',
+      control: 'text',
     },
     label: {
-      description: "The display text for the link",
-      control: "text",
+      description: 'The display text for the link',
+      control: 'text',
     },
     iconColor: {
-      description: "CSS class for the folder icon color",
-      control: "text",
+      description: 'CSS class for the folder icon color',
+      control: 'text',
     },
     isActive: {
-      description: "Whether the link is in an active state",
-      control: "boolean",
+      description: 'Whether the link is in an active state',
+      control: 'boolean',
     },
     children: {
-      description: "Child elements (typically sublinks) shown when active",
+      description: 'Child elements (typically sublinks) shown when active',
       control: false,
     },
   },
@@ -45,9 +45,9 @@ type Story = StoryObj<Meta<typeof AboutMeSidebarLink>>;
 
 export const Default: Story = {
   args: {
-    href: "/about-me/bio",
-    label: "bio",
-    iconColor: "text-rose-400",
+    href: '/about-me/bio',
+    label: 'bio',
+    iconColor: 'text-rose-400',
     isActive: false,
   },
   decorators: [
@@ -63,9 +63,9 @@ export const Default: Story = {
 
 export const Active: Story = {
   args: {
-    href: "/about-me/bio",
-    label: "bio",
-    iconColor: "text-rose-400",
+    href: '/about-me/bio',
+    label: 'bio',
+    iconColor: 'text-rose-400',
     isActive: true,
   },
   decorators: [
@@ -80,8 +80,7 @@ export const Active: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows the link in an active state with the dropdown arrow pointing down.",
+        story: 'Shows the link in an active state with the dropdown arrow pointing down.',
       },
     },
   },
@@ -89,9 +88,9 @@ export const Active: Story = {
 
 export const WithChildren: Story = {
   args: {
-    href: "/about-me/bio",
-    label: "bio",
-    iconColor: "text-rose-400",
+    href: '/about-me/bio',
+    label: 'bio',
+    iconColor: 'text-rose-400',
     isActive: true,
     children: (
       <>
@@ -112,7 +111,7 @@ export const WithChildren: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Shows the link with child sublinks displayed when active.",
+        story: 'Shows the link with child sublinks displayed when active.',
       },
     },
   },
@@ -120,9 +119,9 @@ export const WithChildren: Story = {
 
 export const Employment: Story = {
   args: {
-    href: "/about-me/employment",
-    label: "employment",
-    iconColor: "text-teal-400",
+    href: '/about-me/employment',
+    label: 'employment',
+    iconColor: 'text-teal-400',
     isActive: true,
     children: (
       <>
@@ -146,8 +145,7 @@ export const Employment: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows the employment section with multiple work experience sublinks.",
+        story: 'Shows the employment section with multiple work experience sublinks.',
       },
     },
   },
@@ -155,9 +153,9 @@ export const Employment: Story = {
 
 export const Education: Story = {
   args: {
-    href: "/about-me/educations",
-    label: "educations",
-    iconColor: "text-indigo-500",
+    href: '/about-me/educations',
+    label: 'educations',
+    iconColor: 'text-indigo-500',
     isActive: true,
     children: (
       <>
@@ -179,8 +177,7 @@ export const Education: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows the education section with academic and certification sublinks.",
+        story: 'Shows the education section with academic and certification sublinks.',
       },
     },
   },
@@ -188,9 +185,9 @@ export const Education: Story = {
 
 export const CustomIconColor: Story = {
   args: {
-    href: "/custom-section",
-    label: "custom",
-    iconColor: "text-purple-500",
+    href: '/custom-section',
+    label: 'custom',
+    iconColor: 'text-purple-500',
     isActive: false,
   },
   decorators: [
@@ -205,7 +202,7 @@ export const CustomIconColor: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Demonstrates a custom icon color (purple) for the folder icon.",
+        story: 'Demonstrates a custom icon color (purple) for the folder icon.',
       },
     },
   },
@@ -213,9 +210,9 @@ export const CustomIconColor: Story = {
 
 export const LongLabel: Story = {
   args: {
-    href: "/about-me/professional-experience",
-    label: "professional-experience-and-achievements",
-    iconColor: "text-emerald-400",
+    href: '/about-me/professional-experience',
+    label: 'professional-experience-and-achievements',
+    iconColor: 'text-emerald-400',
     isActive: false,
   },
   decorators: [
@@ -230,7 +227,7 @@ export const LongLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tests how the component handles longer label text.",
+        story: 'Tests how the component handles longer label text.',
       },
     },
   },
@@ -238,9 +235,9 @@ export const LongLabel: Story = {
 
 export const InteractiveExample: Story = {
   args: {
-    href: "/about-me/bio",
-    label: "bio",
-    iconColor: "text-rose-400",
+    href: '/about-me/bio',
+    label: 'bio',
+    iconColor: 'text-rose-400',
     isActive: false,
     children: (
       <>
@@ -261,8 +258,7 @@ export const InteractiveExample: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Interactive example where you can toggle the isActive prop to see the expand/collapse behavior.",
+        story: 'Interactive example where you can toggle the isActive prop to see the expand/collapse behavior.',
       },
     },
   },

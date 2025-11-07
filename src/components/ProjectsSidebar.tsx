@@ -1,7 +1,7 @@
-import { RiArrowDropDownFill } from "@remixicon/react";
-import ProjectsSidebarLink from "./ProjectsSidebarLink";
-import { ProjectCategory } from "@libs/enums";
-import { getIcon } from "@libs/utils";
+import { RiArrowDropDownFill } from '@remixicon/react';
+import ProjectsSidebarLink from './ProjectsSidebarLink';
+import { ProjectCategory } from '@libs/enums';
+import { getIcon } from '@libs/utils';
 
 interface ProjectsSidebarProps {
   categories: ProjectCategory[];
@@ -17,12 +17,7 @@ const ProjectsSidebar = ({ categories, onChange }: ProjectsSidebarProps) => {
       </div>
       <ul className="flex flex-col gap-4 pl-7">
         {categories.map((category) => (
-          <ProjectsSidebarLink
-            key={category}
-            label={category}
-            icon={getIcon(category)}
-            onChange={onChange}
-          />
+          <ProjectsSidebarLink key={category} label={category} icon={getIcon(category)} onChange={onChange} />
         ))}
       </ul>
     </aside>

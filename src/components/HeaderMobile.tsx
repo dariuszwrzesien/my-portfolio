@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
-import { useIsMobile } from "../hooks/use-mobile";
-import Paths from "../Paths";
-import { cn } from "../libs/utils";
+import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
+import Paths from '../Paths';
+import { cn } from '../libs/utils';
 
 interface MobileLinkProps {
   href: string;
@@ -17,9 +16,9 @@ const MobileLink = ({ href, name, isActive, onClick }: MobileLinkProps) => {
       to={href}
       onClick={() => onClick()}
       className={cn(
-        "w-full text-left px-4 py-3 border-b border-stroke transition-all duration-400 hover:text-heading-foreground",
+        'w-full text-left px-4 py-3 border-b border-stroke transition-all duration-400 hover:text-heading-foreground',
         {
-          "text-heading-foreground": isActive,
+          'text-heading-foreground': isActive,
         }
       )}
     >
@@ -58,17 +57,12 @@ const HeaderMobile = ({ className }: { className?: string }) => {
 
   return (
     <>
-      <header
-        className={cn(
-          "bg-background border border-stroke relative z-50",
-          className
-        )}
-      >
+      <header className={cn('bg-background border border-stroke relative z-50', className)}>
         <nav className="flex justify-between items-center">
           <div
             className={cn(
-              "border-b-3 border-b-background border-r-text-slate text-md text-center py-4 custom-sidebar-width cursor-default",
-              isMenuOpen ? "invisible" : ""
+              'border-b-3 border-b-background border-r-text-slate text-md text-center py-4 custom-sidebar-width cursor-default',
+              isMenuOpen ? 'invisible' : ''
             )}
             onClick={() => {
               navigate(Paths.home);
@@ -84,26 +78,11 @@ const HeaderMobile = ({ className }: { className?: string }) => {
             className="text-text-primary cursor-pointer hover:text-accent-blue transition-colors duration-200 px-8"
             aria-label="Toggle navigation menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
@@ -113,19 +92,17 @@ const HeaderMobile = ({ className }: { className?: string }) => {
           <>
             <div
               className={cn(
-                "fixed bg-background z-40 transition-opacity duration-300",
-                isMenuOpen && !menuClosing
-                  ? "opacity-100 pointer-events-auto"
-                  : "opacity-0 pointer-events-none"
+                'fixed bg-background z-40 transition-opacity duration-300',
+                isMenuOpen && !menuClosing ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               )}
               onClick={closeMenu}
             />
             <div
               className={cn(
-                "absolute top-full left-0 right-0 bg-background border-b border-stroke shadow-lg z-50 transition-all duration-300",
+                'absolute top-full left-0 right-0 bg-background border-b border-stroke shadow-lg z-50 transition-all duration-300',
                 isMenuOpen && !menuClosing
-                  ? "opacity-100 translate-y-0 pointer-events-auto"
-                  : "opacity-0 -translate-y-4 pointer-events-none"
+                  ? 'opacity-100 translate-y-0 pointer-events-auto'
+                  : 'opacity-0 -translate-y-4 pointer-events-none'
               )}
             >
               <div className="flex flex-col">

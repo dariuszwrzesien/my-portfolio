@@ -1,11 +1,11 @@
-import { RiGithubFill, RiLinkedinBoxFill } from "@remixicon/react";
-import { Link } from "react-router";
-import { cn } from "@libs/utils";
-import { SettingsDropdown } from "./SettingsDropdown";
+import { RiGithubFill, RiLinkedinBoxFill } from '@remixicon/react';
+import { Link } from 'react-router';
+import { cn } from '@libs/utils';
+import { SettingsDropdown } from './SettingsDropdown';
 
 const FooterDesktop = () => {
   const navLinkClass =
-    "py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-400 border-b-3 border-b-transparent hover:text-heading-foreground";
+    'py-4 px-8 cursor-pointer border-l-1 border-l-text-slate transition-all duration-400 border-b-3 border-b-transparent hover:text-heading-foreground';
 
   return (
     <footer className="flex flex-col justify-end bg-background text-foreground">
@@ -21,12 +21,8 @@ const FooterDesktop = () => {
               <RiLinkedinBoxFill />
             </Link>
           </div>
-          <div className={cn(navLinkClass, "border-r-1 border-r-text-slate")}>
-            <Link
-              to="https://github.com/dariuszwrzesien"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <div className={cn(navLinkClass, 'border-r-1 border-r-text-slate')}>
+            <Link to="https://github.com/dariuszwrzesien" target="_blank" rel="noopener noreferrer">
               <RiGithubFill />
             </Link>
           </div>

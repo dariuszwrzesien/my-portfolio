@@ -1,13 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import NET from "vanta/dist/vanta.net.min";
-import WAVES from "vanta/dist/vanta.waves.min";
-import { VantaNetEffect, VantaWavesEffect } from "../libs/types/vanta";
-import { BackgroundEffects } from "../libs/enums";
+import { useEffect, useRef, useState } from 'react';
+import NET from 'vanta/dist/vanta.net.min';
+import WAVES from 'vanta/dist/vanta.waves.min';
+import { VantaNetEffect, VantaWavesEffect } from '../libs/types/vanta';
+import { BackgroundEffects } from '../libs/enums';
 
 export function useBackgroundEffects(effect: BackgroundEffects) {
-  const [backgroundEffect, setBackgroundEffect] = useState<
-    null | VantaWavesEffect | VantaNetEffect
-  >(null);
+  const [backgroundEffect, setBackgroundEffect] = useState<null | VantaWavesEffect | VantaNetEffect>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,6 +45,7 @@ export function useBackgroundEffects(effect: BackgroundEffects) {
         newEffect.destroy();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [effect]);
 
   return { ref };

@@ -1,36 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import { Button } from "./button";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+import { Button } from './button';
 
 const meta: Meta<typeof Button> = {
-  title: "Components/UI/Button",
+  title: 'Components/UI/Button',
   component: Button,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: { type: "select" },
-      options: [
-        "primary",
-        "secondary",
-        "outline",
-        "success",
-        "error",
-        "warning",
-        "link",
-      ],
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'outline', 'success', 'error', 'warning', 'link'],
     },
     size: {
-      control: { type: "select" },
-      options: ["default", "sm", "lg"],
+      control: { type: 'select' },
+      options: ['default', 'sm', 'lg'],
     },
     disabled: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     asChild: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
   },
   args: {
@@ -43,49 +35,49 @@ type Story = StoryObj<Meta<typeof Button>>;
 
 export const Example: Story = {
   args: {
-    variant: "primary",
-    children: "Primary button",
+    variant: 'primary',
+    children: 'Primary button',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
-    children: "Secondary button",
+    variant: 'secondary',
+    children: 'Secondary button',
   },
 };
 
 export const Outline: Story = {
   args: {
-    variant: "outline",
-    children: "Outline button",
+    variant: 'outline',
+    children: 'Outline button',
   },
 };
 
 export const Success: Story = {
   args: {
-    variant: "success",
-    children: "Success button",
+    variant: 'success',
+    children: 'Success button',
   },
 };
 
 export const Error: Story = {
   args: {
-    variant: "error",
-    children: "Error button",
+    variant: 'error',
+    children: 'Error button',
   },
 };
 
 export const Warning: Story = {
   args: {
-    variant: "warning",
-    children: "Warning button",
+    variant: 'warning',
+    children: 'Warning button',
   },
 };
 
 export const Link: Story = {
   args: {
-    variant: "link",
-    children: "Link button",
+    variant: 'link',
+    children: 'Link button',
   },
 };

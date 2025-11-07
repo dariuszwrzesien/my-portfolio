@@ -1,33 +1,22 @@
-import { useForm } from "react-hook-form";
-import { email, set, z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import emailjs from "@emailjs/browser";
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import emailjs from '@emailjs/browser';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
+import { Button } from './ui';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { cn } from '@libs/utils';
+import { useState } from 'react';
+import { Loader2Icon } from 'lucide-react';
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "./ui/form";
-import { Button } from "./ui";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { cn } from "@libs/utils";
-import { useState } from "react";
-import { Loader2Icon } from "lucide-react";
-
-export enum CONTACT_FORM_FIELDS {
-  NAME = "name",
-  EMAIL = "email",
-  MESSAGE = "message",
-}
-
-const MIN_NAME_LENGTH = 2;
-const MAX_NAME_LENGTH = 100;
-const MAX_EMAIL_LENGTH = 100;
-const MIN_MESSAGE_LENGTH = 5;
-const MAX_MESSAGE_LENGTH = 1000;
+  CONTACT_FORM_FIELDS,
+  MIN_NAME_LENGTH,
+  MAX_NAME_LENGTH,
+  MAX_EMAIL_LENGTH,
+  MIN_MESSAGE_LENGTH,
+  MAX_MESSAGE_LENGTH,
+} from '../libs/types/ContactForm.types';
 
 const formSchema = z.object({
   [CONTACT_FORM_FIELDS.NAME]: z
@@ -35,27 +24,18 @@ const formSchema = z.object({
     .min(MIN_NAME_LENGTH, `Name must be at least ${MIN_NAME_LENGTH} characters`)
     .max(MAX_NAME_LENGTH, `Name must be at most ${MAX_NAME_LENGTH} characters`),
   [CONTACT_FORM_FIELDS.EMAIL]: z
-    .email("Please enter a valid email address")
-    .max(
-      MAX_EMAIL_LENGTH,
-      `Email must be at most ${MAX_EMAIL_LENGTH} characters`
-    ),
+    .email('Please enter a valid email address')
+    .max(MAX_EMAIL_LENGTH, `Email must be at most ${MAX_EMAIL_LENGTH} characters`),
   [CONTACT_FORM_FIELDS.MESSAGE]: z
     .string()
-    .min(
-      MIN_MESSAGE_LENGTH,
-      `Message must be at least ${MIN_MESSAGE_LENGTH} characters`
-    )
-    .max(
-      MAX_MESSAGE_LENGTH,
-      `Message must be at most ${MAX_MESSAGE_LENGTH} characters`
-    ),
+    .min(MIN_MESSAGE_LENGTH, `Message must be at least ${MIN_MESSAGE_LENGTH} characters`)
+    .max(MAX_MESSAGE_LENGTH, `Message must be at most ${MAX_MESSAGE_LENGTH} characters`),
 });
 
 const DEFAULT_VALUES = {
-  [CONTACT_FORM_FIELDS.NAME]: "",
-  [CONTACT_FORM_FIELDS.EMAIL]: "",
-  [CONTACT_FORM_FIELDS.MESSAGE]: "",
+  [CONTACT_FORM_FIELDS.NAME]: '',
+  [CONTACT_FORM_FIELDS.EMAIL]: '',
+  [CONTACT_FORM_FIELDS.MESSAGE]: '',
 };
 
 const ContactForm = ({
@@ -83,7 +63,7 @@ const ContactForm = ({
     const params = {
       name: values[CONTACT_FORM_FIELDS.NAME],
       email: values[CONTACT_FORM_FIELDS.EMAIL],
-      subject: "Contact from MyPortfolio website",
+      subject: 'Contact from MyPortfolio website',
       message: values[CONTACT_FORM_FIELDS.MESSAGE],
     };
 
@@ -99,7 +79,7 @@ const ContactForm = ({
         {
           blockHeadless: true,
           limitRate: {
-            id: "my-portfolio-contact-form",
+            id: 'my-portfolio-contact-form',
             throttle: 10000, // Throttle requests to 1 per 10 seconds
           },
         }
@@ -129,12 +109,9 @@ const ContactForm = ({
               <FormLabel className="text-heading-foreground">_name:</FormLabel>
               <FormControl
                 className={cn({
-                  "bg-background/70":
-                    !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
-                  "border-error-background":
-                    form.formState.errors[CONTACT_FORM_FIELDS.NAME],
-                  "bg-error-background/30":
-                    form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  'bg-background/70': !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  'border-error-background': form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  'bg-error-background/30': form.formState.errors[CONTACT_FORM_FIELDS.NAME],
                 })}
               >
                 <Input
@@ -145,8 +122,7 @@ const ContactForm = ({
               </FormControl>
               <FormMessage
                 className={cn({
-                  "text-error-background":
-                    form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  'text-error-background': form.formState.errors[CONTACT_FORM_FIELDS.NAME],
                 })}
               />
             </FormItem>
@@ -160,12 +136,9 @@ const ContactForm = ({
               <FormLabel className="text-heading-foreground">_email:</FormLabel>
               <FormControl
                 className={cn({
-                  "bg-background/70":
-                    !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
-                  "border-error-background":
-                    form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
-                  "bg-error-background/30":
-                    form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
+                  'bg-background/70': !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  'border-error-background': form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
+                  'bg-error-background/30': form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
                 })}
               >
                 <Input
@@ -176,8 +149,7 @@ const ContactForm = ({
               </FormControl>
               <FormMessage
                 className={cn({
-                  "text-error-background":
-                    form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
+                  'text-error-background': form.formState.errors[CONTACT_FORM_FIELDS.EMAIL],
                 })}
               />
             </FormItem>
@@ -188,17 +160,12 @@ const ContactForm = ({
           name={CONTACT_FORM_FIELDS.MESSAGE}
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-heading-foreground">
-                _message
-              </FormLabel>
+              <FormLabel className="text-heading-foreground">_message</FormLabel>
               <FormControl
                 className={cn({
-                  "bg-background/70":
-                    !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
-                  "border-error-background":
-                    form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
-                  "bg-error-background/30":
-                    form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
+                  'bg-background/70': !form.formState.errors[CONTACT_FORM_FIELDS.NAME],
+                  'border-error-background': form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
+                  'bg-error-background/30': form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
                 })}
               >
                 <Textarea
@@ -210,8 +177,7 @@ const ContactForm = ({
               </FormControl>
               <FormMessage
                 className={cn({
-                  "text-error-background":
-                    form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
+                  'text-error-background': form.formState.errors[CONTACT_FORM_FIELDS.MESSAGE],
                 })}
               />
             </FormItem>

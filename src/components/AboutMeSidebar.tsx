@@ -1,8 +1,8 @@
-import { RiArrowDropDownFill } from "@remixicon/react";
-import { useLocation } from "react-router";
-import Paths from "../Paths";
-import AboutMeSidebarLink from "./AboutMeSidebarLink";
-import AboutMeSidebarSublink from "./AboutMeSidebarSublink";
+import { RiArrowDropDownFill } from '@remixicon/react';
+import { useLocation } from 'react-router';
+import Paths from '../Paths';
+import AboutMeSidebarLink from './AboutMeSidebarLink';
+import AboutMeSidebarSublink from './AboutMeSidebarSublink';
 
 const AboutMeSidebar = () => {
   const location = useLocation();
@@ -17,10 +17,7 @@ const AboutMeSidebar = () => {
           href={Paths.aboutMe.bio}
           label="bio"
           iconColor="text-rose-400"
-          isActive={
-            location.pathname === Paths.aboutMe.bio ||
-            location.pathname === Paths.aboutMe.base
-          }
+          isActive={location.pathname === Paths.aboutMe.bio || location.pathname === Paths.aboutMe.base}
         >
           <AboutMeSidebarSublink href="#about-me" label="about-me" />
           <AboutMeSidebarSublink href="#skills" label="skills" />
@@ -43,10 +40,7 @@ const AboutMeSidebar = () => {
           iconColor="text-indigo-500"
           isActive={location.pathname === Paths.aboutMe.educations}
         >
-          <AboutMeSidebarSublink
-            href="#certifications"
-            label="certifications"
-          />
+          <AboutMeSidebarSublink href="#certifications" label="certifications" />
           <AboutMeSidebarSublink href="#post-graduate" label="post-graduate" />
           <AboutMeSidebarSublink href="#university" label="university" />
         </AboutMeSidebarLink>

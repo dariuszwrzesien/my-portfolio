@@ -1,7 +1,6 @@
-import { get } from "http";
-import { getIcon } from "../libs/utils";
-import { ProjectCategory } from "../libs/enums";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { getIcon } from '../libs/utils';
+import { ProjectCategory } from '../libs/enums';
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
 type ProjectsIconsProps = {
   categories: ProjectCategory[];

@@ -1,2 +1,20 @@
-# Disable formatting for files that contain HTML markup in data directory
-src/data/*.html
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+dist
+build
+storybook-static
+
+# Cache directories
+.cache
+.parcel-cache
+
+# IDE
+.vscode
+.idea
+
+# Misc
+*.log
+.DS_Store

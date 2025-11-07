@@ -7,10 +7,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@components/ui";
-import { RiCodeBlock, RiPuzzle2Line, RiSettings4Line } from "@remixicon/react";
-import { BackgroundEffects } from "../libs/enums";
-import { useLayout } from "../contexts";
+} from '@components/ui';
+import { RiCodeBlock, RiPuzzle2Line, RiSettings4Line } from '@remixicon/react';
+import { BackgroundEffects } from '../libs/enums';
+import { useLayout } from '../contexts';
 
 interface SettingsDropdownProps {
   className?: string;
@@ -22,14 +22,11 @@ export function SettingsDropdown({ className }: SettingsDropdownProps) {
   const { background, setBackground } = useLayout();
 
   const handleStoryBook = () => {
-    window.open(
-      "https://dariuszwrzesien.github.io/my-portfolio-storybook/",
-      "_blank"
-    );
+    window.open('https://dariuszwrzesien.github.io/my-portfolio-storybook/', '_blank');
   };
 
   const handlePageSource = () => {
-    window.open("https://github.com/dariuszwrzesien/my-portfolio", "_blank");
+    window.open('https://github.com/dariuszwrzesien/my-portfolio', '_blank');
   };
 
   return (

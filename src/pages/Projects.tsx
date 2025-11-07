@@ -1,10 +1,8 @@
-import { useState } from "react";
-import ProjectsSidebar from "../components/ProjectsSidebar";
-import { ProjectCategory } from "@libs/enums";
-import ProjectsCard from "../components/ProjectsCard";
-import { RiReactjsLine } from "@remixicon/react";
-import { projects } from "../data/projects";
-import { get } from "http";
+import { useState } from 'react';
+import ProjectsSidebar from '../components/ProjectsSidebar';
+import { ProjectCategory } from '@libs/enums';
+import ProjectsCard from '../components/ProjectsCard';
+import { projects } from '../data/projects';
 
 const Projects = () => {
   const [filter, setFilter] = useState<ProjectCategory[]>([]);
@@ -20,9 +18,7 @@ const Projects = () => {
   ];
 
   const filteredProjects = projects.filter(
-    (project) =>
-      filter.length === 0 ||
-      project.categories.some((category) => filter.includes(category))
+    (project) => filter.length === 0 || project.categories.some((category) => filter.includes(category))
   );
 
   const handleOnChange = (label: ProjectCategory) => {

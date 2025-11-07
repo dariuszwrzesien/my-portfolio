@@ -1,5 +1,5 @@
-import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import {
   // Navigation & UI Icons
   RiArrowDropDownFill,
@@ -24,7 +24,7 @@ import {
   RiPhpFill,
   RiHtml5Fill,
   RiCss3Line,
-} from "@remixicon/react";
+} from '@remixicon/react';
 import {
   // Lucide Icons
   Loader2Icon,
@@ -32,132 +32,132 @@ import {
   ChevronRightIcon,
   CircleIcon,
   XIcon,
-} from "lucide-react";
+} from 'lucide-react';
 
 // Navigation & UI Icons
 const navigationIcons = [
   {
-    name: "Arrow Drop Down",
+    name: 'Arrow Drop Down',
     component: <RiArrowDropDownFill size={24} />,
-    usage: "Expandable sections, dropdowns",
+    usage: 'Expandable sections, dropdowns',
   },
   {
-    name: "Arrow Drop Right",
+    name: 'Arrow Drop Right',
     component: <RiArrowDropRightFill size={24} />,
-    usage: "Collapsed sections",
+    usage: 'Collapsed sections',
   },
   {
-    name: "Arrow Right Small",
+    name: 'Arrow Right Small',
     component: <RiArrowRightSLine size={24} />,
-    usage: "Navigation arrows, next actions",
+    usage: 'Navigation arrows, next actions',
   },
   {
-    name: "Folder",
+    name: 'Folder',
     component: <RiFolder3Fill size={24} />,
-    usage: "File/folder representation in sidebar",
+    usage: 'File/folder representation in sidebar',
   },
   {
-    name: "File Code",
+    name: 'File Code',
     component: <RiFileCodeFill size={24} />,
-    usage: "Code files, sublinks",
+    usage: 'Code files, sublinks',
   },
   {
-    name: "Error Warning",
+    name: 'Error Warning',
     component: <RiErrorWarningLine size={24} />,
-    usage: "Error states, warnings",
+    usage: 'Error states, warnings',
   },
 ];
 
 // Settings & Menu Icons
 const settingsIcons = [
   {
-    name: "Settings",
+    name: 'Settings',
     component: <RiSettings4Line size={24} />,
-    usage: "Settings dropdown trigger",
+    usage: 'Settings dropdown trigger',
   },
   {
-    name: "Code Block",
+    name: 'Code Block',
     component: <RiCodeBlock size={24} />,
-    usage: "Code-related actions",
+    usage: 'Code-related actions',
   },
   {
-    name: "Puzzle",
+    name: 'Puzzle',
     component: <RiPuzzle2Line size={24} />,
-    usage: "Extensions, plugins",
+    usage: 'Extensions, plugins',
   },
 ];
 
 // Social Media Icons
 const socialIcons = [
   {
-    name: "GitHub",
+    name: 'GitHub',
     component: <RiGithubFill size={24} />,
-    usage: "GitHub profile link",
+    usage: 'GitHub profile link',
   },
   {
-    name: "LinkedIn",
+    name: 'LinkedIn',
     component: <RiLinkedinBoxFill size={24} />,
-    usage: "LinkedIn profile link",
+    usage: 'LinkedIn profile link',
   },
 ];
 
 // Technology Icons
 const technologyIcons = [
   {
-    name: "React",
+    name: 'React',
     component: <RiReactjsLine size={24} />,
-    usage: "React projects",
+    usage: 'React projects',
   },
   {
-    name: "Vue.js",
+    name: 'Vue.js',
     component: <RiVuejsLine size={24} />,
-    usage: "Vue.js projects",
+    usage: 'Vue.js projects',
   },
   {
-    name: "Angular",
+    name: 'Angular',
     component: <RiAngularjsLine size={24} />,
-    usage: "Angular projects",
+    usage: 'Angular projects',
   },
   {
-    name: "Node.js",
+    name: 'Node.js',
     component: <RiNodejsFill size={24} />,
-    usage: "Node.js projects",
+    usage: 'Node.js projects',
   },
-  { name: "PHP", component: <RiPhpFill size={24} />, usage: "PHP projects" },
+  { name: 'PHP', component: <RiPhpFill size={24} />, usage: 'PHP projects' },
   {
-    name: "HTML5",
+    name: 'HTML5',
     component: <RiHtml5Fill size={24} />,
-    usage: "HTML projects",
+    usage: 'HTML projects',
   },
-  { name: "CSS3", component: <RiCss3Line size={24} />, usage: "CSS projects" },
+  { name: 'CSS3', component: <RiCss3Line size={24} />, usage: 'CSS projects' },
 ];
 
 // Lucide Icons (UI Components)
 const lucideIcons = [
   {
-    name: "Loader",
+    name: 'Loader',
     component: <Loader2Icon size={24} />,
-    usage: "Loading states, form submission",
+    usage: 'Loading states, form submission',
   },
   {
-    name: "Check",
+    name: 'Check',
     component: <CheckIcon size={24} />,
-    usage: "Checkboxes, success states",
+    usage: 'Checkboxes, success states',
   },
   {
-    name: "Chevron Right",
+    name: 'Chevron Right',
     component: <ChevronRightIcon size={24} />,
-    usage: "Dropdown menus, navigation",
+    usage: 'Dropdown menus, navigation',
   },
   {
-    name: "Circle",
+    name: 'Circle',
     component: <CircleIcon size={24} />,
-    usage: "Radio buttons, status indicators",
+    usage: 'Radio buttons, status indicators',
   },
   {
-    name: "Close",
+    name: 'Close',
     component: <XIcon size={24} />,
-    usage: "Close buttons, dialogs",
+    usage: 'Close buttons, dialogs',
   },
 ];
 
@@ -192,9 +192,8 @@ const IconographyDemo = () => (
     <div className="mb-6">
       <h1 className="text-2xl font-bold mb-2">Icon System</h1>
       <p className="text-gray-600">
-        Complete iconography system used throughout the portfolio application.
-        Icons are primarily from Remix Icon library with some Lucide icons for
-        UI components.
+        Complete iconography system used throughout the portfolio application. Icons are primarily from Remix Icon
+        library with some Lucide icons for UI components.
       </p>
     </div>
 
@@ -231,15 +230,15 @@ const IconographyDemo = () => (
 );
 
 const meta: Meta<typeof IconographyDemo> = {
-  title: "Design System/Iconography",
+  title: 'Design System/Iconography',
   component: IconographyDemo,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
     controls: { hideNoControlsWarning: true },
     docs: {
       description: {
         component:
-          "Complete iconography system showing all icons used throughout the portfolio application. Icons are categorized by their usage and source library (Remix Icon vs Lucide).",
+          'Complete iconography system showing all icons used throughout the portfolio application. Icons are categorized by their usage and source library (Remix Icon vs Lucide).',
       },
     },
   },
@@ -254,8 +253,7 @@ export const AllIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Overview of all icons used in the application, organized by category and usage.",
+        story: 'Overview of all icons used in the application, organized by category and usage.',
       },
     },
   },
@@ -274,8 +272,7 @@ export const NavigationIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Navigation and general UI icons used throughout the application.",
+        story: 'Navigation and general UI icons used throughout the application.',
       },
     },
   },
@@ -294,8 +291,7 @@ export const TechnologyIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Technology and programming language icons used in project categorization.",
+        story: 'Technology and programming language icons used in project categorization.',
       },
     },
   },
@@ -314,7 +310,7 @@ export const SocialMediaIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Social media icons used in the footer and contact sections.",
+        story: 'Social media icons used in the footer and contact sections.',
       },
     },
   },
@@ -347,7 +343,7 @@ export const IconSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Different icon sizes used throughout the application.",
+        story: 'Different icon sizes used throughout the application.',
       },
     },
   },
@@ -388,8 +384,7 @@ export const IconColors: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Color variations used for different icon contexts and meanings.",
+        story: 'Color variations used for different icon contexts and meanings.',
       },
     },
   },

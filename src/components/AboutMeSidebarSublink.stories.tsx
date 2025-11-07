@@ -1,28 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MemoryRouter } from "react-router";
-import AboutMeSidebarSublink from "./AboutMeSidebarSublink";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { MemoryRouter } from 'react-router';
+import AboutMeSidebarSublink from './AboutMeSidebarSublink';
 
 const meta: Meta<typeof AboutMeSidebarSublink> = {
-  title: "Components/AboutMeSidebarSublink",
+  title: 'Components/AboutMeSidebarSublink',
   component: AboutMeSidebarSublink,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A sublink component used within the About Me sidebar sections. Displays a file icon with a label and acts as a navigation link to specific content sections.",
+          'A sublink component used within the About Me sidebar sections. Displays a file icon with a label and acts as a navigation link to specific content sections.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     label: {
-      description: "The display text for the sublink",
-      control: "text",
+      description: 'The display text for the sublink',
+      control: 'text',
     },
     href: {
-      description: "The URL path or anchor for the link",
-      control: "text",
+      description: 'The URL path or anchor for the link',
+      control: 'text',
     },
   },
 };
@@ -32,8 +32,8 @@ type Story = StoryObj<Meta<typeof AboutMeSidebarSublink>>;
 
 export const Default: Story = {
   args: {
-    label: "about-me",
-    href: "#about-me",
+    label: 'about-me',
+    href: '#about-me',
   },
   decorators: [
     (Story) => (
@@ -48,8 +48,8 @@ export const Default: Story = {
 
 export const Skills: Story = {
   args: {
-    label: "skills",
-    href: "#skills",
+    label: 'skills',
+    href: '#skills',
   },
   decorators: [
     (Story) => (
@@ -63,7 +63,7 @@ export const Skills: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Sublink for the skills section within the bio page.",
+        story: 'Sublink for the skills section within the bio page.',
       },
     },
   },
@@ -71,8 +71,8 @@ export const Skills: Story = {
 
 export const LongLabel: Story = {
   args: {
-    label: "post-graduate-studies-and-specializations",
-    href: "#post-graduate",
+    label: 'post-graduate-studies-and-specializations',
+    href: '#post-graduate',
   },
   decorators: [
     (Story) => (
@@ -86,7 +86,7 @@ export const LongLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tests how the component handles longer label text.",
+        story: 'Tests how the component handles longer label text.',
       },
     },
   },
@@ -106,8 +106,7 @@ export const MultipleSublinks: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows multiple sublinks together as they would appear in a section.",
+        story: 'Shows multiple sublinks together as they would appear in a section.',
       },
     },
   },
@@ -128,8 +127,7 @@ export const EmploymentSection: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows all employment history sublinks as they appear in the employment section.",
+        story: 'Shows all employment history sublinks as they appear in the employment section.',
       },
     },
   },
@@ -148,8 +146,7 @@ export const EducationSection: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows all education sublinks as they appear in the education section.",
+        story: 'Shows all education sublinks as they appear in the education section.',
       },
     },
   },
@@ -157,8 +154,8 @@ export const EducationSection: Story = {
 
 export const WithCustomHref: Story = {
   args: {
-    label: "external-link",
-    href: "https://example.com",
+    label: 'external-link',
+    href: 'https://example.com',
   },
   decorators: [
     (Story) => (
@@ -172,7 +169,7 @@ export const WithCustomHref: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Example with an external URL instead of a hash anchor.",
+        story: 'Example with an external URL instead of a hash anchor.',
       },
     },
   },

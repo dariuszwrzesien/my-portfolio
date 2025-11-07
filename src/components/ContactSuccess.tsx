@@ -1,4 +1,4 @@
-import { Button } from "./ui";
+import { Button } from './ui';
 
 const ContactSuccess = ({ onSendMessage }: { onSendMessage: () => void }) => (
   <div className="flex flex-col justify-center items-center gap-4">

@@ -1,15 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-const colorCodeClass = "text-xs text-black bg-white";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+const colorCodeClass = 'text-xs text-black bg-white';
 
 const ColorSystem = () => (
   <div className="space-y-8 p-6">
     <div>
-      <h1 className="text-4xl text-heading-foreground font-bold mb-2">
-        OKLCH Color System
-      </h1>
+      <h1 className="text-4xl text-heading-foreground font-bold mb-2">OKLCH Color System</h1>
       <p className="text-lg text-white mb-8">
-        My design system uses OKLCH color space for better perceptual uniformity
-        and consistency.
+        My design system uses OKLCH color space for better perceptual uniformity and consistency.
       </p>
       {/* Background Colors */}
       <section className="mb-8">
@@ -429,8 +426,8 @@ const ColorSystem = () => (
       <section className="mb-8">
         <h2 className="text-2xl font-semibold">Semantic color</h2>
         <p className="mb-4">
-          Semantic colors communicate meaning, helping users quickly understand
-          status, warnings, errors, and success states in the UI.
+          Semantic colors communicate meaning, helping users quickly understand status, warnings, errors, and success
+          states in the UI.
         </p>
         <h3 className="text-lg my-4">Error / Red</h3>
         <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
@@ -579,14 +576,13 @@ const ColorSystem = () => (
 );
 
 const meta: Meta<typeof ColorSystem> = {
-  title: "Design System/Colors",
+  title: 'Design System/Colors',
   component: ColorSystem,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
     docs: {
       description: {
-        component:
-          "Complete color system using OKLCH color space for our design system.",
+        component: 'Complete color system using OKLCH color space for our design system.',
       },
     },
   },

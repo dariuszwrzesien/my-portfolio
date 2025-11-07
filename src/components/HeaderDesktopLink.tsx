@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router";
-import { cn } from "@libs/utils";
+import React from 'react';
+import { Link } from 'react-router';
+import { cn } from '@libs/utils';
 
 interface HeaderDesktopLinkProps {
   href: string;
@@ -9,20 +9,15 @@ interface HeaderDesktopLinkProps {
   isActive?: boolean;
 }
 
-const HeaderDesktopLink: React.FC<HeaderDesktopLinkProps> = ({
-  href,
-  name,
-  className,
-  isActive = false,
-}) => {
+const HeaderDesktopLink: React.FC<HeaderDesktopLinkProps> = ({ href, name, className, isActive = false }) => {
   return (
     <div className={className}>
       <Link
         to={href}
         className={cn(
-          "py-4 px-8 cursor-pointer transition-all duration-400 border-b-3 border-b-background hover:text-heading-foreground",
+          'py-4 px-8 cursor-pointer transition-all duration-400 border-b-3 border-b-background hover:text-heading-foreground',
           {
-            "border-b-primary-background text-heading-foreground": isActive,
+            'border-b-primary-background text-heading-foreground': isActive,
           }
         )}
       >

@@ -1,31 +1,30 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import ContactForm, { CONTACT_FORM_FIELDS } from "./ContactForm";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+import ContactForm from './ContactForm';
+import { CONTACT_FORM_FIELDS } from '../libs/types/ContactForm.types';
 
 const meta: Meta<typeof ContactForm> = {
-  title: "Components/ContactForm",
+  title: 'Components/ContactForm',
   component: ContactForm,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A comprehensive contact form component with validation, email integration, and error handling. Uses React Hook Form with Zod validation and EmailJS for sending emails.",
+          'A comprehensive contact form component with validation, email integration, and error handling. Uses React Hook Form with Zod validation and EmailJS for sending emails.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     onSuccess: {
-      description:
-        "Callback function triggered when form submission is successful",
+      description: 'Callback function triggered when form submission is successful',
     },
     onError: {
-      description: "Callback function triggered when form submission fails",
+      description: 'Callback function triggered when form submission fails',
     },
     onChange: {
-      description:
-        "Callback function triggered when any form field value changes",
+      description: 'Callback function triggered when any form field value changes',
     },
   },
   args: {
@@ -53,9 +52,7 @@ export const ValidationStates: Story = {
     (Story) => (
       <div className="max-w-md mx-auto space-y-8">
         <div>
-          <h3 className="text-lg font-semibold mb-4">
-            Try these validation scenarios:
-          </h3>
+          <h3 className="text-lg font-semibold mb-4">Try these validation scenarios:</h3>
           <ul className="text-sm space-y-1 mb-6">
             <li>• Leave name empty (min 2 characters required)</li>
             <li>• Enter invalid email format</li>
@@ -70,8 +67,7 @@ export const ValidationStates: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Includes instructions for testing various validation scenarios.",
+        story: 'Includes instructions for testing various validation scenarios.',
       },
     },
   },
@@ -81,9 +77,7 @@ export const AccessibilityFocus: Story = {
   decorators: [
     (Story) => (
       <div className="max-w-md mx-auto p-6 focus-within:ring-2 focus-within:ring-blue-500 rounded-lg">
-        <p className="text-sm text-gray-600 mb-4">
-          Tab through the form to test keyboard navigation and focus states.
-        </p>
+        <p className="text-sm text-gray-600 mb-4">Tab through the form to test keyboard navigation and focus states.</p>
         <Story />
       </div>
     ),
@@ -91,8 +85,7 @@ export const AccessibilityFocus: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Demonstrates keyboard navigation and focus states for accessibility testing.",
+        story: 'Demonstrates keyboard navigation and focus states for accessibility testing.',
       },
     },
   },

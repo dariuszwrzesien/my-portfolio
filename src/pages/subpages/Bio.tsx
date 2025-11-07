@@ -1,6 +1,6 @@
-import TextBlock from "../../components/TextBlock";
-import bio from "../../data/bio.html?raw";
-import { useScrollTo } from "../../hooks/use-scrollTo";
+import TextBlock from '../../components/TextBlock';
+import bio from '../../data/bio.html?raw';
+import { useScrollTo } from '../../hooks/use-scrollTo';
 
 const Bio = () => {
   const { ref } = useScrollTo();

@@ -1,28 +1,27 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import TextBlock from "./TextBlock";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import TextBlock from './TextBlock';
 
 const meta: Meta<typeof TextBlock> = {
-  title: "Components/TextBlock",
+  title: 'Components/TextBlock',
   component: TextBlock,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A text block component that displays multiline text with line numbers. Each line is numbered sequentially and supports HTML content through dangerouslySetInnerHTML.",
+          'A text block component that displays multiline text with line numbers. Each line is numbered sequentially and supports HTML content through dangerouslySetInnerHTML.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     text: {
-      description:
-        "The text content to display. Supports multiline strings separated by \\n and HTML content.",
-      control: "text",
+      description: 'The text content to display. Supports multiline strings separated by \\n and HTML content.',
+      control: 'text',
     },
     className: {
-      description: "Additional CSS classes to apply to the section element",
-      control: "text",
+      description: 'Additional CSS classes to apply to the section element',
+      control: 'text',
     },
   },
 };
@@ -37,8 +36,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Basic text block with simple multiline content and line numbers.",
+        story: 'Basic text block with simple multiline content and line numbers.',
       },
     },
   },
@@ -46,12 +44,12 @@ export const Default: Story = {
 
 export const SingleLine: Story = {
   args: {
-    text: "This is a single line of text.",
+    text: 'This is a single line of text.',
   },
   parameters: {
     docs: {
       description: {
-        story: "Text block with only one line of content.",
+        story: 'Text block with only one line of content.',
       },
     },
   },
@@ -59,12 +57,12 @@ export const SingleLine: Story = {
 
 export const EmptyText: Story = {
   args: {
-    text: "",
+    text: '',
   },
   parameters: {
     docs: {
       description: {
-        story: "Text block with empty text content.",
+        story: 'Text block with empty text content.',
       },
     },
   },
@@ -73,12 +71,12 @@ export const EmptyText: Story = {
 export const CodeLikeContent: Story = {
   args: {
     text: "const greeting = 'Hello, World!';\nconsole.log(greeting);\n\nfunction calculate(a, b) {\n  return a + b;\n}\n\nconst result = calculate(5, 3);",
-    className: "font-mono text-sm",
+    className: 'font-mono text-sm',
   },
   parameters: {
     docs: {
       description: {
-        story: "Text block displaying code-like content with monospace font.",
+        story: 'Text block displaying code-like content with monospace font.',
       },
     },
   },
@@ -91,8 +89,7 @@ export const HTMLContent: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Text block that demonstrates HTML content rendering with various tags.",
+        story: 'Text block that demonstrates HTML content rendering with various tags.',
       },
     },
   },
@@ -100,13 +97,12 @@ export const HTMLContent: Story = {
 
 export const LongContent: Story = {
   args: {
-    text: "Line 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nLine 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nLine 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco.\nLine 4: Duis aute irure dolor in reprehenderit in voluptate velit esse.\nLine 5: Excepteur sint occaecat cupidatat non proident, sunt in culpa.\nLine 6: Qui officia deserunt mollit anim id est laborum.\nLine 7: Sed ut perspiciatis unde omnis iste natus error sit voluptatem.\nLine 8: Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.\nLine 9: Quae ab illo inventore veritatis et quasi architecto beatae.\nLine 10: Vitae dicta sunt explicabo nemo enim ipsam voluptatem.",
+    text: 'Line 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nLine 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nLine 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco.\nLine 4: Duis aute irure dolor in reprehenderit in voluptate velit esse.\nLine 5: Excepteur sint occaecat cupidatat non proident, sunt in culpa.\nLine 6: Qui officia deserunt mollit anim id est laborum.\nLine 7: Sed ut perspiciatis unde omnis iste natus error sit voluptatem.\nLine 8: Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.\nLine 9: Quae ab illo inventore veritatis et quasi architecto beatae.\nLine 10: Vitae dicta sunt explicabo nemo enim ipsam voluptatem.',
   },
   parameters: {
     docs: {
       description: {
-        story:
-          "Text block with longer content to demonstrate line numbering with multiple lines.",
+        story: 'Text block with longer content to demonstrate line numbering with multiple lines.',
       },
     },
   },
@@ -114,10 +110,7 @@ export const LongContent: Story = {
 
 export const LargeLineNumbers: Story = {
   args: {
-    text: Array.from(
-      { length: 25 },
-      (_, i) => `Line ${i + 1}: This is content for line number ${i + 1}`
-    ).join("\n"),
+    text: Array.from({ length: 25 }, (_, i) => `Line ${i + 1}: This is content for line number ${i + 1}`).join('\n'),
   },
   decorators: [
     (Story) => (
@@ -129,8 +122,7 @@ export const LargeLineNumbers: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Text block with many lines to demonstrate line numbering with larger numbers. Scrollable container.",
+        story: 'Text block with many lines to demonstrate line numbering with larger numbers. Scrollable container.',
       },
     },
   },
@@ -138,13 +130,12 @@ export const LargeLineNumbers: Story = {
 
 export const SpecialCharacters: Story = {
   args: {
-    text: "Special characters test: !@#$%^&*()\nUnicode: 🚀 ⭐ 💻 🎨 🔥\nMath symbols: ∑ ∆ π ∞ ≈ ≠\nQuotes: \"double quotes\" and 'single quotes'\nHTML entities: &lt;tag&gt; &amp; &copy; &trade;",
+    text: 'Special characters test: !@#$%^&*()\nUnicode: 🚀 ⭐ 💻 🎨 🔥\nMath symbols: ∑ ∆ π ∞ ≈ ≠\nQuotes: "double quotes" and \'single quotes\'\nHTML entities: &lt;tag&gt; &amp; &copy; &trade;',
   },
   parameters: {
     docs: {
       description: {
-        story:
-          "Text block with various special characters, Unicode symbols, and HTML entities.",
+        story: 'Text block with various special characters, Unicode symbols, and HTML entities.',
       },
     },
   },

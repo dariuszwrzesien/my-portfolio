@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MemoryRouter } from "react-router";
-import HeaderDesktop from "./HeaderDesktop";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { MemoryRouter } from 'react-router';
+import HeaderDesktop from './HeaderDesktop';
 
 const meta: Meta<typeof HeaderDesktop> = {
-  title: "Components/HeaderDesktop",
+  title: 'Components/HeaderDesktop',
   component: HeaderDesktop,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 };
 
 export default meta;
@@ -17,7 +17,7 @@ type Story = StoryObj<Meta<typeof HeaderDesktop>>;
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={["/"]}>
+      <MemoryRouter initialEntries={['/']}>
         <Story />
       </MemoryRouter>
     ),
@@ -27,7 +27,7 @@ export const Default: Story = {
 export const AboutMePage: Story = {
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={["/about-me"]}>
+      <MemoryRouter initialEntries={['/about-me']}>
         <Story />
       </MemoryRouter>
     ),
@@ -37,7 +37,7 @@ export const AboutMePage: Story = {
 export const ProjectsPage: Story = {
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={["/projects"]}>
+      <MemoryRouter initialEntries={['/projects']}>
         <Story />
       </MemoryRouter>
     ),
@@ -47,7 +47,7 @@ export const ProjectsPage: Story = {
 export const ContactPage: Story = {
   decorators: [
     (Story) => (
-      <MemoryRouter initialEntries={["/contact"]}>
+      <MemoryRouter initialEntries={['/contact']}>
         <Story />
       </MemoryRouter>
     ),

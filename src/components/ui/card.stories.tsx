@@ -1,37 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-  CardAction,
-} from "./card";
-import {
-  RiHeartLine,
-  RiShareLine,
-  RiBookmarkLine,
-  RiMoreLine,
-} from "@remixicon/react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, CardAction } from './card';
+import { RiHeartLine, RiShareLine, RiBookmarkLine, RiMoreLine } from '@remixicon/react';
 
 const meta: Meta<typeof Card> = {
-  title: "Components/UI/Card",
+  title: 'Components/UI/Card',
   component: Card,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A flexible card component with header, content, footer, and action sections. Built with composition pattern for maximum flexibility.",
+          'A flexible card component with header, content, footer, and action sections. Built with composition pattern for maximum flexibility.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     className: {
-      description: "Additional CSS classes to apply to the card",
-      control: "text",
+      description: 'Additional CSS classes to apply to the card',
+      control: 'text',
     },
   },
 };
@@ -44,22 +31,17 @@ export const Default: Story = {
     <Card className="w-96">
       <CardHeader>
         <CardTitle>Card Title</CardTitle>
-        <CardDescription>
-          This is a description of the card content.
-        </CardDescription>
+        <CardDescription>This is a description of the card content.</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>
-          This is the main content area of the card. You can put any content
-          here.
-        </p>
+        <p>This is the main content area of the card. You can put any content here.</p>
       </CardContent>
     </Card>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Basic card with title, description, and content.",
+        story: 'Basic card with title, description, and content.',
       },
     },
   },
@@ -70,9 +52,7 @@ export const WithAction: Story = {
     <Card className="w-96">
       <CardHeader>
         <CardTitle>Card with Action</CardTitle>
-        <CardDescription>
-          Card featuring an action button in the header.
-        </CardDescription>
+        <CardDescription>Card featuring an action button in the header.</CardDescription>
         <CardAction>
           <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
             <RiMoreLine className="w-5 h-5" />
@@ -80,17 +60,14 @@ export const WithAction: Story = {
         </CardAction>
       </CardHeader>
       <CardContent>
-        <p>
-          The action area is positioned in the top-right corner of the card
-          header.
-        </p>
+        <p>The action area is positioned in the top-right corner of the card header.</p>
       </CardContent>
     </Card>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Card with an action button positioned in the header area.",
+        story: 'Card with an action button positioned in the header area.',
       },
     },
   },
@@ -127,7 +104,7 @@ export const WithFooter: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Card with footer containing action buttons.",
+        story: 'Card with footer containing action buttons.',
       },
     },
   },
@@ -138,9 +115,7 @@ export const CompleteCard: Story = {
     <Card className="w-96">
       <CardHeader>
         <CardTitle>Complete Card Example</CardTitle>
-        <CardDescription>
-          A card with all possible sections included.
-        </CardDescription>
+        <CardDescription>A card with all possible sections included.</CardDescription>
         <CardAction>
           <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
             <RiMoreLine className="w-5 h-5" />
@@ -175,8 +150,7 @@ export const CompleteCard: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Complete card example with header, action, content, and footer sections.",
+        story: 'Complete card example with header, action, content, and footer sections.',
       },
     },
   },
@@ -190,28 +164,19 @@ export const ProjectCard: Story = {
         <CardDescription>React • TypeScript • Tailwind CSS</CardDescription>
         <CardAction>
           <div className="flex items-center gap-2">
-            <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
-              Active
-            </span>
+            <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
           </div>
         </CardAction>
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
           <p className="text-sm">
-            A modern portfolio website showcasing projects and skills with
-            interactive elements.
+            A modern portfolio website showcasing projects and skills with interactive elements.
           </p>
           <div className="flex flex-wrap gap-2">
-            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-              React
-            </span>
-            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-              TypeScript
-            </span>
-            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-              Tailwind
-            </span>
+            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">React</span>
+            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">TypeScript</span>
+            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Tailwind</span>
           </div>
         </div>
       </CardContent>
@@ -221,9 +186,7 @@ export const ProjectCard: Story = {
             <button className="text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               View Project
             </button>
-            <button className="text-sm text-gray-600 hover:text-gray-800 transition-colors">
-              GitHub
-            </button>
+            <button className="text-sm text-gray-600 hover:text-gray-800 transition-colors">GitHub</button>
           </div>
           <span className="text-xs text-gray-500">Updated 1 day ago</span>
         </div>
@@ -233,8 +196,7 @@ export const ProjectCard: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Project card example showing how to structure project information.",
+        story: 'Project card example showing how to structure project information.',
       },
     },
   },
@@ -246,9 +208,7 @@ export const ContentOnlyCard: Story = {
       <CardContent>
         <div className="text-center py-8">
           <h3 className="text-xl font-semibold mb-2">Simple Content Card</h3>
-          <p className="text-gray-600">
-            Sometimes you just need content without headers or footers.
-          </p>
+          <p className="text-gray-600">Sometimes you just need content without headers or footers.</p>
         </div>
       </CardContent>
     </Card>
@@ -256,7 +216,7 @@ export const ContentOnlyCard: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Minimal card with only content section.",
+        story: 'Minimal card with only content section.',
       },
     },
   },
@@ -272,10 +232,7 @@ export const MultipleCards: Story = {
             <CardDescription>Description for card number {i}</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>
-              Content for card {i}. Each card maintains consistent spacing and
-              layout.
-            </p>
+            <p>Content for card {i}. Each card maintains consistent spacing and layout.</p>
           </CardContent>
           <CardFooter>
             <button className="text-sm bg-gray-100 px-3 py-2 rounded hover:bg-gray-200 transition-colors">
@@ -289,7 +246,7 @@ export const MultipleCards: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Multiple cards in a responsive grid layout.",
+        story: 'Multiple cards in a responsive grid layout.',
       },
     },
   },

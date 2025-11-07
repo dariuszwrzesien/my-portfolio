@@ -1,34 +1,34 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Label } from "./label";
-import { Input } from "./input";
-import { Checkbox } from "./checkbox";
-import { RiAsterisk } from "@remixicon/react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Label } from './label';
+import { Input } from './input';
+import { Checkbox } from './checkbox';
+import { RiAsterisk } from '@remixicon/react';
 
 const meta: Meta<typeof Label> = {
-  title: "Components/UI/Label",
+  title: 'Components/UI/Label',
   component: Label,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     docs: {
       description: {
         component:
-          "A label component built with Radix UI primitives. Provides proper accessibility for form controls and supports custom styling.",
+          'A label component built with Radix UI primitives. Provides proper accessibility for form controls and supports custom styling.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     htmlFor: {
-      description: "The ID of the form control this label is associated with",
-      control: "text",
+      description: 'The ID of the form control this label is associated with',
+      control: 'text',
     },
     className: {
-      description: "Additional CSS classes",
-      control: "text",
+      description: 'Additional CSS classes',
+      control: 'text',
     },
     children: {
-      description: "Label content",
-      control: "text",
+      description: 'Label content',
+      control: 'text',
     },
   },
 };
@@ -38,12 +38,12 @@ type Story = StoryObj<Meta<typeof Label>>;
 
 export const Default: Story = {
   args: {
-    children: "Default Label",
+    children: 'Default Label',
   },
   parameters: {
     docs: {
       description: {
-        story: "Basic label component.",
+        story: 'Basic label component.',
       },
     },
   },
@@ -66,7 +66,7 @@ export const WithInput: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Label properly associated with an input field.",
+        story: 'Label properly associated with an input field.',
       },
     },
   },
@@ -89,7 +89,7 @@ export const WithCheckbox: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Label associated with a checkbox.",
+        story: 'Label associated with a checkbox.',
       },
     },
   },
@@ -115,7 +115,7 @@ export const Required: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Required field label with asterisk indicator.",
+        story: 'Required field label with asterisk indicator.',
       },
     },
   },
@@ -141,7 +141,7 @@ export const Optional: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Optional field label with indicator.",
+        story: 'Optional field label with indicator.',
       },
     },
   },
@@ -161,15 +161,13 @@ export const WithDescription: Story = {
         Password
       </Label>
       <Input id="password" type="password" placeholder="Enter password" />
-      <p className="text-xs text-gray-500">
-        Must be at least 8 characters with letters and numbers
-      </p>
+      <p className="text-xs text-gray-500">Must be at least 8 characters with letters and numbers</p>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Label with helper text description.",
+        story: 'Label with helper text description.',
       },
     },
   },
@@ -200,12 +198,7 @@ export const FormExample: Story = {
           Email
           <RiAsterisk className="w-3 h-3 text-red-500 ml-1" />
         </Label>
-        <Input
-          id="contact-email"
-          type="email"
-          placeholder="your.email@example.com"
-          required
-        />
+        <Input id="contact-email" type="email" placeholder="your.email@example.com" required />
       </div>
 
       <div className="space-y-2">
@@ -231,7 +224,7 @@ export const FormExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Complete form example showing various label usages.",
+        story: 'Complete form example showing various label usages.',
       },
     },
   },
@@ -258,7 +251,7 @@ export const DisabledStates: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Labels with disabled form controls.",
+        story: 'Labels with disabled form controls.',
       },
     },
   },
@@ -292,19 +285,14 @@ export const InlineLabels: Story = {
         <Label htmlFor="inline3" className="w-24 text-right">
           Email:
         </Label>
-        <Input
-          id="inline3"
-          type="email"
-          placeholder="john@example.com"
-          className="flex-1"
-        />
+        <Input id="inline3" type="email" placeholder="john@example.com" className="flex-1" />
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Inline form layout with aligned labels.",
+        story: 'Inline form layout with aligned labels.',
       },
     },
   },
@@ -324,11 +312,7 @@ export const ValidationStates: Story = {
         <Label htmlFor="valid" className="text-green-700">
           Valid Field ✓
         </Label>
-        <Input
-          id="valid"
-          value="valid@example.com"
-          className="border-green-300 focus-visible:border-green-500"
-        />
+        <Input id="valid" value="valid@example.com" className="border-green-300 focus-visible:border-green-500" />
         <p className="text-xs text-green-600">Email format is correct</p>
       </div>
 
@@ -342,30 +326,22 @@ export const ValidationStates: Story = {
           className="border-red-300 focus-visible:border-red-500"
           aria-invalid
         />
-        <p className="text-xs text-red-600">
-          Please enter a valid email address
-        </p>
+        <p className="text-xs text-red-600">Please enter a valid email address</p>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="warning" className="text-yellow-700">
           Warning Field ⚠
         </Label>
-        <Input
-          id="warning"
-          value="test@temp-mail.com"
-          className="border-yellow-300 focus-visible:border-yellow-500"
-        />
-        <p className="text-xs text-yellow-600">
-          Temporary email addresses may not receive notifications
-        </p>
+        <Input id="warning" value="test@temp-mail.com" className="border-yellow-300 focus-visible:border-yellow-500" />
+        <p className="text-xs text-yellow-600">Temporary email addresses may not receive notifications</p>
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Labels styled for different validation states.",
+        story: 'Labels styled for different validation states.',
       },
     },
   },

@@ -1,6 +1,6 @@
-import React from "react";
-import { Button } from "./ui";
-import { RiErrorWarningLine } from "@remixicon/react";
+import React from 'react';
+import { Button } from './ui';
+import { RiErrorWarningLine } from '@remixicon/react';
 
 const ContactError = ({ onSendMessage }: { onSendMessage: () => void }) => (
   <div className="flex flex-col justify-center items-center gap-4">

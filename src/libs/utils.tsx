@@ -1,6 +1,6 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { ProjectCategory } from "./enums";
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+import { ProjectCategory } from './enums';
 import {
   RiAngularjsLine,
   RiCss3Line,
@@ -9,7 +9,7 @@ import {
   RiPhpFill,
   RiReactjsLine,
   RiVuejsLine,
-} from "@remixicon/react";
+} from '@remixicon/react';
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));

@@ -1,40 +1,40 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import { Checkbox } from "./checkbox";
-import { useState } from "react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
+import { Checkbox } from './checkbox';
+import { useState } from 'react';
 
 const meta: Meta<typeof Checkbox> = {
-  title: "Components/UI/Checkbox",
+  title: 'Components/UI/Checkbox',
   component: Checkbox,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     docs: {
       description: {
         component:
-          "A checkbox component built with Radix UI primitives. Supports controlled and uncontrolled modes with proper accessibility features.",
+          'A checkbox component built with Radix UI primitives. Supports controlled and uncontrolled modes with proper accessibility features.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     checked: {
-      description: "The checked state of the checkbox",
-      control: "boolean",
+      description: 'The checked state of the checkbox',
+      control: 'boolean',
     },
     defaultChecked: {
-      description: "The default checked state (uncontrolled)",
-      control: "boolean",
+      description: 'The default checked state (uncontrolled)',
+      control: 'boolean',
     },
     disabled: {
-      description: "Whether the checkbox is disabled",
-      control: "boolean",
+      description: 'Whether the checkbox is disabled',
+      control: 'boolean',
     },
     onCheckedChange: {
-      description: "Callback when the checked state changes",
+      description: 'Callback when the checked state changes',
     },
     className: {
-      description: "Additional CSS classes",
-      control: "text",
+      description: 'Additional CSS classes',
+      control: 'text',
     },
   },
   args: {
@@ -50,7 +50,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Default unchecked checkbox.",
+        story: 'Default unchecked checkbox.',
       },
     },
   },
@@ -70,7 +70,7 @@ export const Checked: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Checkbox in checked state.",
+        story: 'Checkbox in checked state.',
       },
     },
   },
@@ -90,7 +90,7 @@ export const Disabled: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Disabled checkbox (unchecked).",
+        story: 'Disabled checkbox (unchecked).',
       },
     },
   },
@@ -111,7 +111,7 @@ export const DisabledChecked: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Disabled checkbox in checked state.",
+        story: 'Disabled checkbox in checked state.',
       },
     },
   },
@@ -139,8 +139,7 @@ export const WithLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Checkbox with an associated label. Clicking the label toggles the checkbox.",
+        story: 'Checkbox with an associated label. Clicking the label toggles the checkbox.',
       },
     },
   },
@@ -154,35 +153,25 @@ export const WithLabel: Story = {
 };
 
 export const Interactive: Story = {
-  render: () => {
+  render: function InteractiveCheckbox() {
     const [checked, setChecked] = useState(false);
 
     return (
       <div className="space-y-4">
         <div className="flex items-center space-x-2">
-          <Checkbox
-            id="interactive"
-            checked={checked}
-            onCheckedChange={(checked) => setChecked(!!checked)}
-          />
-          <label
-            htmlFor="interactive"
-            className="text-sm font-medium leading-none cursor-pointer"
-          >
+          <Checkbox id="interactive" checked={checked} onCheckedChange={(checked) => setChecked(!!checked)} />
+          <label htmlFor="interactive" className="text-sm font-medium leading-none cursor-pointer">
             Interactive checkbox
           </label>
         </div>
-        <p className="text-sm text-gray-600">
-          Status: {checked ? "Checked" : "Unchecked"}
-        </p>
+        <p className="text-sm text-gray-600">Status: {checked ? 'Checked' : 'Unchecked'}</p>
       </div>
     );
   },
   parameters: {
     docs: {
       description: {
-        story:
-          "Interactive checkbox with state display. Demonstrates controlled usage.",
+        story: 'Interactive checkbox with state display. Demonstrates controlled usage.',
       },
     },
   },
@@ -196,7 +185,7 @@ export const Interactive: Story = {
 };
 
 export const MultipleChoices: Story = {
-  render: () => {
+  render: function MultipleChoicesCheckbox() {
     const [selections, setSelections] = useState({
       react: false,
       vue: false,
@@ -204,36 +193,19 @@ export const MultipleChoices: Story = {
       svelte: false,
     });
 
-    const handleChange =
-      (key: keyof typeof selections) =>
-      (checked: boolean | "indeterminate") => {
-        setSelections((prev) => ({ ...prev, [key]: !!checked }));
-      };
+    const handleChange = (key: keyof typeof selections) => (checked: boolean | 'indeterminate') => {
+      setSelections((prev) => ({ ...prev, [key]: !!checked }));
+    };
 
     return (
       <div className="space-y-4">
-        <h3 className="text-sm font-semibold">
-          Select your favorite frameworks:
-        </h3>
+        <h3 className="text-sm font-semibold">Select your favorite frameworks:</h3>
         <div className="space-y-3">
           {Object.entries(selections).map(([key, value]) => (
             <div key={key} className="flex items-center space-x-2">
-              <Checkbox
-                id={key}
-                checked={value}
-                onCheckedChange={handleChange(key as keyof typeof selections)}
-              />
-              <label
-                htmlFor={key}
-                className="text-sm leading-none cursor-pointer capitalize"
-              >
-                {key === "react"
-                  ? "React"
-                  : key === "vue"
-                  ? "Vue.js"
-                  : key === "angular"
-                  ? "Angular"
-                  : "Svelte"}
+              <Checkbox id={key} checked={value} onCheckedChange={handleChange(key as keyof typeof selections)} />
+              <label htmlFor={key} className="text-sm leading-none cursor-pointer capitalize">
+                {key === 'react' ? 'React' : key === 'vue' ? 'Vue.js' : key === 'angular' ? 'Angular' : 'Svelte'}
               </label>
             </div>
           ))}
@@ -244,7 +216,7 @@ export const MultipleChoices: Story = {
             {Object.entries(selections)
               .filter(([, checked]) => checked)
               .map(([key]) => key)
-              .join(", ") || "None"}
+              .join(', ') || 'None'}
           </p>
         </div>
       </div>
@@ -253,7 +225,7 @@ export const MultipleChoices: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Multiple checkboxes for selecting multiple options.",
+        story: 'Multiple checkboxes for selecting multiple options.',
       },
     },
   },
@@ -267,7 +239,7 @@ export const MultipleChoices: Story = {
 };
 
 export const FormExample: Story = {
-  render: () => {
+  render: function FormExampleCheckbox() {
     const [formData, setFormData] = useState({
       newsletter: false,
       marketing: false,
@@ -282,20 +254,13 @@ export const FormExample: Story = {
             <Checkbox
               id="newsletter"
               checked={formData.newsletter}
-              onCheckedChange={(checked) =>
-                setFormData((prev) => ({ ...prev, newsletter: !!checked }))
-              }
+              onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, newsletter: !!checked }))}
             />
             <div className="grid gap-1.5 leading-none">
-              <label
-                htmlFor="newsletter"
-                className="text-sm font-medium cursor-pointer"
-              >
+              <label htmlFor="newsletter" className="text-sm font-medium cursor-pointer">
                 Newsletter
               </label>
-              <p className="text-xs text-gray-500">
-                Receive our weekly newsletter with the latest updates.
-              </p>
+              <p className="text-xs text-gray-500">Receive our weekly newsletter with the latest updates.</p>
             </div>
           </div>
 
@@ -303,20 +268,13 @@ export const FormExample: Story = {
             <Checkbox
               id="marketing"
               checked={formData.marketing}
-              onCheckedChange={(checked) =>
-                setFormData((prev) => ({ ...prev, marketing: !!checked }))
-              }
+              onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, marketing: !!checked }))}
             />
             <div className="grid gap-1.5 leading-none">
-              <label
-                htmlFor="marketing"
-                className="text-sm font-medium cursor-pointer"
-              >
+              <label htmlFor="marketing" className="text-sm font-medium cursor-pointer">
                 Marketing emails
               </label>
-              <p className="text-xs text-gray-500">
-                Receive emails about new products and features.
-              </p>
+              <p className="text-xs text-gray-500">Receive emails about new products and features.</p>
             </div>
           </div>
 
@@ -324,20 +282,13 @@ export const FormExample: Story = {
             <Checkbox
               id="updates"
               checked={formData.updates}
-              onCheckedChange={(checked) =>
-                setFormData((prev) => ({ ...prev, updates: !!checked }))
-              }
+              onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, updates: !!checked }))}
             />
             <div className="grid gap-1.5 leading-none">
-              <label
-                htmlFor="updates"
-                className="text-sm font-medium cursor-pointer"
-              >
+              <label htmlFor="updates" className="text-sm font-medium cursor-pointer">
                 Security updates
               </label>
-              <p className="text-xs text-gray-500">
-                Important security and account updates.
-              </p>
+              <p className="text-xs text-gray-500">Important security and account updates.</p>
             </div>
           </div>
         </div>
@@ -356,7 +307,7 @@ export const FormExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Real-world form example with checkboxes for email preferences.",
+        story: 'Real-world form example with checkboxes for email preferences.',
       },
     },
   },
@@ -372,23 +323,20 @@ export const FormExample: Story = {
 export const CustomStyling: Story = {
   args: {
     className:
-      "size-6 rounded-lg border-2 border-purple-300 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600",
+      'size-6 rounded-lg border-2 border-purple-300 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600',
   },
   decorators: [
     (Story) => (
       <div className="flex items-center space-x-2 p-5">
         <Story />
-        <label className="text-sm font-medium text-purple-700">
-          Custom styled checkbox
-        </label>
+        <label className="text-sm font-medium text-purple-700">Custom styled checkbox</label>
       </div>
     ),
   ],
   parameters: {
     docs: {
       description: {
-        story:
-          "Checkbox with custom styling including size, colors, and border radius.",
+        story: 'Checkbox with custom styling including size, colors, and border radius.',
       },
     },
   },
@@ -418,7 +366,7 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Different checkbox sizes using custom size classes.",
+        story: 'Different checkbox sizes using custom size classes.',
       },
     },
   },

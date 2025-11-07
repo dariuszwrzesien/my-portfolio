@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MemoryRouter } from "react-router";
-import HeaderDesktopLink from "./HeaderDesktopLink";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { MemoryRouter } from 'react-router';
+import HeaderDesktopLink from './HeaderDesktopLink';
 
 const meta: Meta<typeof HeaderDesktopLink> = {
-  title: "Components/HeaderDesktopLink",
+  title: 'Components/HeaderDesktopLink',
   component: HeaderDesktopLink,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
     docs: {
       description: {
         component:
-          "A navigation link component for the desktop header. Features hover effects, active state styling with bottom border, and smooth transitions.",
+          'A navigation link component for the desktop header. Features hover effects, active state styling with bottom border, and smooth transitions.',
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     href: {
-      description: "The URL path for the link",
-      control: "text",
+      description: 'The URL path for the link',
+      control: 'text',
     },
     name: {
-      description: "The display text for the link",
-      control: "text",
+      description: 'The display text for the link',
+      control: 'text',
     },
     className: {
-      description: "Additional CSS classes to apply to the wrapper div",
-      control: "text",
+      description: 'Additional CSS classes to apply to the wrapper div',
+      control: 'text',
     },
     isActive: {
-      description: "Whether the link is in an active state",
-      control: "boolean",
+      description: 'Whether the link is in an active state',
+      control: 'boolean',
     },
   },
 };
@@ -40,8 +40,8 @@ type Story = StoryObj<Meta<typeof HeaderDesktopLink>>;
 
 export const Default: Story = {
   args: {
-    href: "/",
-    name: "_hello",
+    href: '/',
+    name: '_hello',
     isActive: false,
   },
   decorators: [
@@ -57,8 +57,8 @@ export const Default: Story = {
 
 export const Active: Story = {
   args: {
-    href: "/",
-    name: "_hello",
+    href: '/',
+    name: '_hello',
     isActive: true,
   },
   decorators: [
@@ -73,8 +73,7 @@ export const Active: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows the link in an active state with highlighted text and bottom border.",
+        story: 'Shows the link in an active state with highlighted text and bottom border.',
       },
     },
   },
@@ -82,8 +81,8 @@ export const Active: Story = {
 
 export const AboutMe: Story = {
   args: {
-    href: "/about-me",
-    name: "_about-me",
+    href: '/about-me',
+    name: '_about-me',
     isActive: false,
   },
   decorators: [
@@ -98,7 +97,7 @@ export const AboutMe: Story = {
   parameters: {
     docs: {
       description: {
-        story: "About me navigation link example.",
+        story: 'About me navigation link example.',
       },
     },
   },
@@ -106,8 +105,8 @@ export const AboutMe: Story = {
 
 export const AboutMeActive: Story = {
   args: {
-    href: "/about-me",
-    name: "_about-me",
+    href: '/about-me',
+    name: '_about-me',
     isActive: true,
   },
   decorators: [
@@ -122,7 +121,7 @@ export const AboutMeActive: Story = {
   parameters: {
     docs: {
       description: {
-        story: "About me link in active state.",
+        story: 'About me link in active state.',
       },
     },
   },
@@ -130,8 +129,8 @@ export const AboutMeActive: Story = {
 
 export const LongLinkName: Story = {
   args: {
-    href: "/very-long-section",
-    name: "_very-long-section-name",
+    href: '/very-long-section',
+    name: '_very-long-section-name',
     isActive: false,
   },
   decorators: [
@@ -146,7 +145,7 @@ export const LongLinkName: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Tests how the component handles longer link names.",
+        story: 'Tests how the component handles longer link names.',
       },
     },
   },
@@ -154,7 +153,7 @@ export const LongLinkName: Story = {
 
 export const NavigationBar: Story = {
   render: () => (
-    <MemoryRouter initialEntries={["/about-me"]}>
+    <MemoryRouter initialEntries={['/about-me']}>
       <nav className="flex border border-stroke p-6">
         <HeaderDesktopLink href="/" name="_hello" isActive={false} />
         <HeaderDesktopLink href="/about-me" name="_about-me" isActive={true} />
@@ -166,8 +165,7 @@ export const NavigationBar: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Shows multiple links together as they would appear in a navigation bar.",
+        story: 'Shows multiple links together as they would appear in a navigation bar.',
       },
     },
   },
@@ -175,17 +173,15 @@ export const NavigationBar: Story = {
 
 export const HoverStates: Story = {
   args: {
-    href: "/hover-test",
-    name: "_hover-me",
+    href: '/hover-test',
+    name: '_hover-me',
     isActive: false,
   },
   decorators: [
     (Story) => (
       <MemoryRouter>
         <div className="border border-stroke p-4">
-          <p className="text-sm text-gray-600 mb-4">
-            Hover over the link to see the transition effects.
-          </p>
+          <p className="text-sm text-gray-600 mb-4">Hover over the link to see the transition effects.</p>
           <Story />
         </div>
       </MemoryRouter>
@@ -194,7 +190,7 @@ export const HoverStates: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Demonstrates the hover effects and transitions of the link.",
+        story: 'Demonstrates the hover effects and transitions of the link.',
       },
     },
   },
