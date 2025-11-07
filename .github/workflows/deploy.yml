@@ -75,7 +75,7 @@ jobs:
         env:
           NODE_ENV: production
           # Base url
-          VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
+          BASE_URL: ${{ secrets.BASE_URL }}
           # EmailJS configuration - required for contact form functionality
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
           VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}

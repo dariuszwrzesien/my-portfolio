@@ -8,7 +8,7 @@ import App from './App';
 // Initialize EmailJS with your public key from environment variables
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
-const basename = import.meta.env.VITE_BASE_URL || '';
+const basename = import.meta.env.BASE_URL;
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
