@@ -22,7 +22,11 @@ export function SettingsDropdown({ className }: SettingsDropdownProps) {
   const { background, setBackground } = useLayout();
 
   const handleStoryBook = () => {
-    window.open('https://dariuszwrzesien.github.io/my-portfolio-storybook/', '_blank');
+    if (import.meta.env.PROD) {
+      window.open('https://dariuszwrzesien.github.io/my-portfolio/storybook/', '_blank');
+    } else {
+      window.open('http://localhost:6006', '_blank');
+    }
   };
 
   const handlePageSource = () => {
