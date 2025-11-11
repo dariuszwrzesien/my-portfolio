@@ -11,7 +11,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build && node .storybook/fix-base-path.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
