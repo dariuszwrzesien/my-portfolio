@@ -1,6 +1,8 @@
-# My Portfolio
+# [My Portfolio](https://dariuszwrzesien.github.io/my-portfolio/)
 
 A modern, interactive personal portfolio website showcasing my projects, skills, and professional experience as a developer. Built with cutting-edge web technologies, the site features animated backgrounds, responsive design, and an integrated contact form.
+
+https://dariuszwrzesien.github.io/my-portfolio/
 
 ## ✨ Features
 
