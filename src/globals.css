@@ -298,20 +298,20 @@
   }
 
   h1 {
-    @apply text-heading-1;
+    @apply text-2xl md:text-4xl lg:text-heading-1;
   }
   h2 {
-    @apply text-heading-2;
+    @apply text-xl md:text-2xl lg:text-heading-2;
   }
   h3 {
-    @apply text-heading-3;
+    @apply text-lg md:text-xl lg:text-heading-3;
   }
   h4 {
-    @apply text-heading-4;
+    @apply text-base md:text-lg lg:text-heading-4;
   }
 
   p {
-    @apply text-body leading-relaxed;
+    @apply text-sm md:text-base leading-relaxed;
   }
 
   /* Links */
