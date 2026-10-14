@@ -5,10 +5,11 @@ import { getIcon } from '@libs/utils';
 
 interface ProjectsSidebarProps {
   categories: ProjectCategory[];
+  selected?: ProjectCategory[];
   onChange: (label: ProjectCategory) => void;
 }
 
-const ProjectsSidebar = ({ categories, onChange }: ProjectsSidebarProps) => {
+const ProjectsSidebar = ({ categories, selected, onChange }: ProjectsSidebarProps) => {
   return (
     <aside className="flex flex-col gap-4 custom-sidebar-width h-full border-r border-stroke bg-background/70">
       <div className="flex items-center p-2 border-b border-stroke text-slate-50">
@@ -17,7 +18,13 @@ const ProjectsSidebar = ({ categories, onChange }: ProjectsSidebarProps) => {
       </div>
       <ul className="flex flex-col gap-4 pl-7">
         {categories.map((category) => (
-          <ProjectsSidebarLink key={category} label={category} icon={getIcon(category)} onChange={onChange} />
+          <ProjectsSidebarLink
+            key={category}
+            label={category}
+            icon={getIcon(category)}
+            checked={selected?.includes(category)}
+            onChange={onChange}
+          />
         ))}
       </ul>
     </aside>

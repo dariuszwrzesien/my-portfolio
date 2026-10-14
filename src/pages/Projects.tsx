@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import ProjectsSidebar from '../components/ProjectsSidebar';
+import ProjectsMobileFilter from '../components/ProjectsMobileFilter';
+import { useIsMobile } from '../hooks/use-mobile';
+import { cn } from '@libs/utils';
 import { ProjectCategory } from '@libs/enums';
 import ProjectsCard from '../components/ProjectsCard';
 import { projects } from '../data/projects';
 
 const Projects = () => {
   const [filter, setFilter] = useState<ProjectCategory[]>([]);
+  const isMobile = useIsMobile();
 
   const categories: ProjectCategory[] = [
     ProjectCategory.HTML,
@@ -34,9 +38,22 @@ const Projects = () => {
   };
 
   return (
-    <div className="flex h-full z-1">
-      <ProjectsSidebar categories={categories} onChange={handleOnChange} />
-      <div className="flex flex-wrap gap-8 p-10 overflow-auto custom-scrollbar w-full">
+    <div className={cn('flex h-full z-1', { 'flex-col': isMobile })}>
+      {isMobile ? (
+        <ProjectsMobileFilter
+          categories={categories}
+          selected={filter}
+          onChange={handleOnChange}
+          onClear={() => setFilter([])}
+        />
+      ) : (
+        <ProjectsSidebar categories={categories} selected={filter} onChange={handleOnChange} />
+      )}
+      <div
+        className={cn('flex flex-wrap flex-1 min-h-0 gap-8 p-10 overflow-auto custom-scrollbar w-full', {
+          'justify-center p-4': isMobile,
+        })}
+      >
         {filteredProjects.map((project) => (
           <ProjectsCard
             key={project.title}
