@@ -47,7 +47,11 @@ const MobileExplorerBar = ({ title, summary, isOpen, onOpenChange, children, cla
         aria-controls={panelId}
         className="flex items-center w-full p-2 border-b border-stroke bg-background/70 text-slate-50 cursor-pointer transition-all duration-400 hover:bg-slate-800"
       >
-        {isOpen ? <RiArrowDropDownFill className="w-11 shrink-0" /> : <RiArrowDropRightFill className="w-11 shrink-0" />}
+        {isOpen ? (
+          <RiArrowDropDownFill className="w-11 shrink-0" />
+        ) : (
+          <RiArrowDropRightFill className="w-11 shrink-0" />
+        )}
         <span className="truncate text-left">{title}</span>
         {summary && <span className="flex items-center gap-1 ml-auto pl-2 pr-2">{summary}</span>}
       </button>
